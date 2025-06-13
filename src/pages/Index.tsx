@@ -137,8 +137,8 @@ const Index = () => {
             transition={{ duration: 1, delay: 0.6 }}
             className="relative max-w-5xl mx-auto"
           >
-            <div className="relative bg-slate-800 border border-slate-700 rounded-2xl p-1 shadow-2xl">
-              <div className="bg-slate-900 rounded-xl p-6">
+            <div className="relative bg-card-bg border border-card-border rounded-2xl p-1 shadow-2xl">
+              <div className="bg-darker-bg rounded-xl p-6">
                 {/* Mock Editor Header */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-3">
@@ -151,47 +151,47 @@ const Index = () => {
                       two-sum.py
                     </span>
                   </div>
-                  <div className="flex items-center space-x-2 text-light/40 text-sm">
+                  <div className="flex items-center space-x-2 text-text-muted text-sm">
                     <span>Python</span>
-                    <div className="w-2 h-2 bg-cyan rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
                   </div>
                 </div>
 
                 {/* Mock Code */}
                 <div className="font-mono text-sm space-y-2">
-                  <div className="text-purple-400">
-                    def <span className="text-highlight">twoSum</span>(
-                    <span className="text-cyan">nums</span>,{" "}
-                    <span className="text-cyan">target</span>):
+                  <div className="text-primary">
+                    def <span className="text-accent">twoSum</span>(
+                    <span className="text-secondary">nums</span>,{" "}
+                    <span className="text-secondary">target</span>):
                   </div>
-                  <div className="pl-4 text-light/80">
-                    <span className="text-cyan">hashmap</span> = {}
+                  <div className="pl-4 text-text-secondary">
+                    <span className="text-secondary">hashmap</span> = {}
                   </div>
-                  <div className="pl-4 text-purple-400">
-                    for <span className="text-cyan">i</span>,{" "}
-                    <span className="text-cyan">num</span> in{" "}
-                    <span className="text-highlight">enumerate</span>(
-                    <span className="text-cyan">nums</span>):
+                  <div className="pl-4 text-primary">
+                    for <span className="text-secondary">i</span>,{" "}
+                    <span className="text-secondary">num</span> in{" "}
+                    <span className="text-accent">enumerate</span>(
+                    <span className="text-secondary">nums</span>):
                   </div>
-                  <div className="pl-8 text-light/80">
-                    <span className="text-cyan">complement</span> ={" "}
-                    <span className="text-cyan">target</span> -{" "}
-                    <span className="text-cyan">num</span>
+                  <div className="pl-8 text-text-secondary">
+                    <span className="text-secondary">complement</span> ={" "}
+                    <span className="text-secondary">target</span> -{" "}
+                    <span className="text-secondary">num</span>
                   </div>
-                  <div className="pl-8 text-purple-400">
-                    if <span className="text-cyan">complement</span> in{" "}
-                    <span className="text-cyan">hashmap</span>:
+                  <div className="pl-8 text-primary">
+                    if <span className="text-secondary">complement</span> in{" "}
+                    <span className="text-secondary">hashmap</span>:
                   </div>
-                  <div className="pl-12 text-purple-400">
-                    return [<span className="text-cyan">hashmap</span>[
-                    <span className="text-cyan">complement</span>],{" "}
-                    <span className="text-cyan">i</span>]
+                  <div className="pl-12 text-primary">
+                    return [<span className="text-secondary">hashmap</span>[
+                    <span className="text-secondary">complement</span>],{" "}
+                    <span className="text-secondary">i</span>]
                   </div>
-                  <div className="pl-8 text-light/80">
-                    <span className="text-cyan">hashmap</span>[
-                    <span className="text-cyan">num</span>] ={" "}
-                    <span className="text-cyan">i</span>
-                    <span className="ml-2 bg-cyan text-midnight px-1 rounded text-xs animate-cursor-blink">
+                  <div className="pl-8 text-text-secondary">
+                    <span className="text-secondary">hashmap</span>[
+                    <span className="text-secondary">num</span>] ={" "}
+                    <span className="text-secondary">i</span>
+                    <span className="ml-2 bg-secondary text-white px-1 rounded text-xs animate-cursor-blink">
                       |
                     </span>
                   </div>
@@ -201,13 +201,13 @@ const Index = () => {
                 <div className="mt-6 pt-4 border-t border-slate/20">
                   <div className="flex items-center justify-between text-sm">
                     <div className="flex items-center space-x-4">
-                      <span className="text-green-400">✓ All tests passed</span>
-                      <span className="text-light/60">Runtime: 52ms</span>
-                      <span className="text-light/60">Memory: 15.2MB</span>
+                      <span className="text-success">✓ All tests passed</span>
+                      <span className="text-text-muted">Runtime: 52ms</span>
+                      <span className="text-text-muted">Memory: 15.2MB</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-highlight rounded-full"></div>
-                      <span className="text-highlight text-xs">Optimal</span>
+                      <div className="w-2 h-2 bg-accent rounded-full"></div>
+                      <span className="text-accent text-xs">Optimal</span>
                     </div>
                   </div>
                 </div>
@@ -215,9 +215,9 @@ const Index = () => {
             </div>
 
             {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-cyan/20 to-highlight/20 rounded-full blur-xl animate-float"></div>
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-float"></div>
             <div
-              className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-xl animate-float"
+              className="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary/10 rounded-full blur-xl animate-float"
               style={{ animationDelay: "1s" }}
             ></div>
           </motion.div>
@@ -234,13 +234,13 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-light mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6">
               Reimagining{" "}
-              <span className="bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-light to-secondary bg-clip-text text-transparent">
                 Code Practice
               </span>
             </h2>
-            <p className="text-xl text-light/70 max-w-3xl mx-auto">
+            <p className="text-xl text-text-secondary max-w-3xl mx-auto">
               Every feature designed with intention. Every interaction crafted
               for flow. This is coding practice, elevated.
             </p>
@@ -256,7 +256,7 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group relative bg-slate-800 border border-slate-700 rounded-2xl p-8 hover:border-cyan transition-all duration-300"
+                  className="group relative bg-card-bg border border-card-border rounded-2xl p-8 hover:border-primary transition-all duration-300"
                 >
                   <div
                     className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${feature.color} rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300`}
@@ -264,16 +264,16 @@ const Index = () => {
                     <Icon className="w-8 h-8 text-white" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-light mb-4 group-hover:text-cyan transition-colors">
+                  <h3 className="text-2xl font-bold text-text-primary mb-4 group-hover:text-primary-light transition-colors">
                     {feature.title}
                   </h3>
 
-                  <p className="text-light/70 text-lg leading-relaxed">
+                  <p className="text-text-secondary text-lg leading-relaxed">
                     {feature.description}
                   </p>
 
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ArrowRight className="w-5 h-5 text-cyan" />
+                    <ArrowRight className="w-5 h-5 text-primary-light" />
                   </div>
                 </motion.div>
               );
@@ -290,18 +290,18 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-slate-800 border border-slate-700 rounded-2xl p-12"
+            className="bg-card-bg border border-card-border rounded-2xl p-12"
           >
-            <h3 className="text-3xl md:text-4xl font-bold text-light mb-6">
+            <h3 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Ready to step into the Arena?
             </h3>
-            <p className="text-xl text-light/70 mb-8">
+            <p className="text-xl text-text-secondary mb-8">
               Join thousands of developers mastering algorithms through
               beautiful, intentional design.
             </p>
             <Link
               to="/problems"
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan to-highlight px-8 py-4 rounded-xl font-semibold text-midnight hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-cyan/25"
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary to-primary-light px-8 py-4 rounded-xl font-semibold text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-primary/25"
             >
               <Code className="w-5 h-5" />
               <span>Start Your Journey</span>
@@ -312,17 +312,17 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate/20 py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="border-t border-card-border py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-tr from-cyan to-highlight rounded-lg flex items-center justify-center">
-              <Code className="w-5 h-5 text-midnight" />
+            <div className="w-8 h-8 bg-gradient-to-tr from-primary to-secondary rounded-lg flex items-center justify-center">
+              <Code className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-primary-light to-secondary bg-clip-text text-transparent">
               AlgoArena
             </span>
           </div>
-          <p className="text-light/60">
+          <p className="text-text-muted">
             Frontend-first coding practice platform. Built with React, Tailwind
             CSS, and Monaco Editor.
           </p>
