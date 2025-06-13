@@ -73,7 +73,7 @@ const Debug = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-6"
+                  className="bg-slate-800 border border-slate-700 rounded-xl p-6"
                 >
                   <div
                     className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${feature.color} rounded-xl mb-4`}
@@ -94,13 +94,13 @@ const Debug = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-8"
+            className="bg-slate-800 border border-slate-700 rounded-xl p-8"
           >
             <h3 className="text-2xl font-bold text-light mb-6">
               Preview: Collaborative Interface
             </h3>
 
-            <div className="bg-midnight/50 rounded-xl p-6">
+            <div className="bg-slate-900 rounded-xl p-6">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-4">
                   <div className="flex items-center space-x-2">
@@ -133,7 +133,7 @@ const Debug = () => {
                 </div>
               </div>
 
-              <div className="border border-slate/30 rounded-lg p-4 bg-midnight/30">
+              <div className="border border-slate-700 rounded-lg p-4 bg-slate-800">
                 <div className="text-light/60 text-sm mb-2">two-sum.py</div>
                 <div className="font-mono text-sm space-y-1">
                   <div className="text-purple-400">
@@ -174,7 +174,7 @@ const Debug = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-16 text-center"
           >
-            <div className="bg-gradient-to-br from-slate/20 to-slate/5 backdrop-blur-xl border border-slate/20 rounded-2xl p-8">
+            <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-light mb-4">
                 Be the first to know
               </h3>
@@ -186,7 +186,7 @@ const Debug = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-midnight/50 border border-slate/30 rounded-xl text-light placeholder-light/40 focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
+                  className="flex-1 px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-light placeholder-light/60 focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
                 />
                 <button className="px-6 py-3 bg-gradient-to-r from-purple-400 to-pink-400 text-white font-semibold rounded-xl hover:scale-105 transition-all duration-200">
                   Notify Me

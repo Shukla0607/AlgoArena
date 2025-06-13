@@ -189,7 +189,7 @@ const ProblemSolver = () => {
                       {problem.examples.map((example, index) => (
                         <div
                           key={index}
-                          className="bg-slate/20 border border-slate/30 rounded-lg p-4"
+                          className="bg-slate-800 border border-slate-700 rounded-lg p-4"
                         >
                           <div className="font-semibold text-light mb-2">
                             Example {index + 1}:
@@ -367,14 +367,14 @@ const ProblemSolver = () => {
           {/* Right Panel - Code Editor */}
           <div className="w-1/2 flex flex-col">
             {/* Editor Header */}
-            <div className="p-4 border-b border-slate/20 bg-midnight/50">
+            <div className="p-4 border-b border-slate/20 bg-slate-800">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
                   {/* Language Selector */}
                   <select
                     value={language}
                     onChange={(e) => setLanguage(e.target.value as any)}
-                    className="bg-slate/20 border border-slate/30 rounded-lg px-3 py-2 text-light text-sm focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
+                    className="bg-slate-900 border border-slate-600 rounded-lg px-3 py-2 text-light text-sm focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
                   >
                     <option value="python">Python</option>
                     <option value="javascript">JavaScript</option>
@@ -402,7 +402,7 @@ const ProblemSolver = () => {
                   <button
                     onClick={runCode}
                     disabled={isRunning}
-                    className="flex items-center space-x-2 bg-slate/20 hover:bg-slate/30 border border-slate/30 hover:border-cyan/30 text-light px-6 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-cyan text-light px-6 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isRunning ? (
                       <>
@@ -463,7 +463,7 @@ const ProblemSolver = () => {
 
             {/* Test Results Panel */}
             {showTestOutput && (
-              <div className="h-64 border-t border-slate/20 bg-midnight/30">
+              <div className="h-64 border-t border-slate/20 bg-slate-800">
                 <div className="p-4 border-b border-slate/20">
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-semibold text-light">

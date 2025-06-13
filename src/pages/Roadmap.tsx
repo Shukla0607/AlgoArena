@@ -97,7 +97,7 @@ const Roadmap = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-6 mb-12"
+            className="bg-slate-800 border border-slate-700 rounded-xl p-6 mb-12"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
@@ -129,9 +129,9 @@ const Roadmap = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className={`relative bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-6 cursor-pointer transition-all duration-300 ${
+                className={`relative bg-slate-800 border border-slate-700 rounded-xl p-6 cursor-pointer transition-all duration-300 ${
                   path.unlocked
-                    ? "hover:border-cyan/30 hover:bg-slate/30"
+                    ? "hover:border-cyan hover:bg-slate-700"
                     : "opacity-60 cursor-not-allowed"
                 }`}
               >
@@ -198,7 +198,7 @@ const Roadmap = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-16 text-center"
           >
-            <div className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-8">
+            <div className="bg-slate-800 border border-slate-700 rounded-xl p-8">
               <h3 className="text-2xl font-bold text-light mb-4">
                 More Paths Coming Soon
               </h3>
