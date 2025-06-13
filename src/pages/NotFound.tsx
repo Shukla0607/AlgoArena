@@ -78,16 +78,14 @@ const NotFound = () => {
                   <div className="pl-4 mb-2">
                     <span className="text-purple-400">const</span>{" "}
                     <span className="text-cyan">routes</span> ={" "}
-                    <span className="text-green-400">
-                      getAllRoutes()
-                    </span>;
+                    <span className="text-green-400">getAllRoutes()</span>;
                   </div>
                   <div className="pl-4 mb-2">
                     <span className="text-purple-400">const</span>{" "}
                     <span className="text-cyan">match</span> ={" "}
                     <span className="text-cyan">routes</span>.
                     <span className="text-green-400">find</span>(
-                    <span className="text-cyan">route</span> =>{" "}
+                    <span className="text-cyan">route</span> =&gt;{" "}
                     <span className="text-cyan">route</span>.
                     <span className="text-highlight">path</span> ==={" "}
                     <span className="text-cyan">url</span>);
