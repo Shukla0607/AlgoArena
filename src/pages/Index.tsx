@@ -52,7 +52,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-midnight via-midnight to-slate-900">
+    <div className="min-h-screen bg-dark-bg">
       <Navigation />
 
       {/* Hero Section */}
@@ -65,21 +65,21 @@ const Index = () => {
               transition={{ duration: 0.8 }}
               className="mb-8"
             >
-              <div className="inline-flex items-center space-x-2 bg-cyan/10 border border-cyan/20 rounded-full px-6 py-2 mb-6">
-                <Sparkles className="w-4 h-4 text-cyan" />
-                <span className="text-cyan font-medium">
+              <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/30 rounded-full px-6 py-2 mb-6">
+                <Sparkles className="w-4 h-4 text-primary-light" />
+                <span className="text-primary-light font-medium">
                   Frontend-First Coding Platform
                 </span>
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-bold text-light mb-6">
+              <h1 className="text-5xl md:text-7xl font-bold text-text-primary mb-6">
                 Code in the{" "}
-                <span className="bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary-light to-secondary bg-clip-text text-transparent">
                   Arena
                 </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-light/70 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
                 Where LeetCode meets Figma. An immersive, design-led coding
                 experience that transforms how you learn algorithms and data
                 structures.
@@ -94,7 +94,7 @@ const Index = () => {
             >
               <Link
                 to="/problems"
-                className="group inline-flex items-center space-x-2 bg-gradient-to-r from-cyan to-highlight px-8 py-4 rounded-xl font-semibold text-midnight hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-cyan/25"
+                className="group inline-flex items-center space-x-2 bg-gradient-to-r from-primary to-primary-light px-8 py-4 rounded-xl font-semibold text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-primary/25"
               >
                 <Play className="w-5 h-5" />
                 <span>Start Coding</span>
@@ -103,7 +103,7 @@ const Index = () => {
 
               <Link
                 to="/roadmap"
-                className="inline-flex items-center space-x-2 bg-slate-800 border border-slate-700 px-8 py-4 rounded-xl font-semibold text-light hover:bg-slate-700 transition-all duration-200"
+                className="inline-flex items-center space-x-2 bg-card-bg border border-card-border px-8 py-4 rounded-xl font-semibold text-text-primary hover:bg-card-bg/80 transition-all duration-200"
               >
                 <GitBranch className="w-5 h-5" />
                 <span>Explore Roadmap</span>
@@ -119,10 +119,12 @@ const Index = () => {
             >
               {stats.map((stat, index) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent mb-2">
+                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary-light to-secondary bg-clip-text text-transparent mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-light/60 font-medium">{stat.label}</div>
+                  <div className="text-text-muted font-medium">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </motion.div>

@@ -26,18 +26,18 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-midnight border-b border-slate/30">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg/95 backdrop-blur-md border-b border-card-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-tr from-cyan to-highlight rounded-xl flex items-center justify-center">
-                <Code className="w-6 h-6 text-midnight" />
+              <div className="w-10 h-10 bg-gradient-to-tr from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg">
+                <Code className="w-6 h-6 text-white" />
               </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-highlight rounded-full animate-pulse"></div>
+              <div className="absolute -top-1 -right-1 w-4 h-4 bg-accent rounded-full animate-pulse shadow-sm"></div>
             </div>
-            <div className="text-xl font-bold bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent">
+            <div className="text-xl font-bold bg-gradient-to-r from-primary-light to-secondary bg-clip-text text-transparent">
               AlgoArena
             </div>
           </Link>
@@ -54,8 +54,8 @@ const Navigation = () => {
                   to={item.href}
                   className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-200 ${
                     isActive
-                      ? "bg-cyan/20 text-cyan"
-                      : "text-light/70 hover:text-cyan hover:bg-cyan/10"
+                      ? "bg-primary/20 text-primary-light border border-primary/30"
+                      : "text-text-secondary hover:text-text-primary hover:bg-card-bg/50"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -67,15 +67,15 @@ const Navigation = () => {
 
           {/* Theme Toggle & Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <button className="hidden md:flex items-center space-x-2 px-4 py-2 bg-slate/20 hover:bg-slate/30 rounded-xl transition-all duration-200 text-light/70 hover:text-cyan">
-              <div className="w-4 h-4 bg-gradient-to-r from-cyan to-highlight rounded-full"></div>
+            <button className="hidden md:flex items-center space-x-2 px-4 py-2 bg-card-bg hover:bg-card-bg/80 rounded-xl transition-all duration-200 text-text-secondary hover:text-text-primary border border-card-border">
+              <div className="w-4 h-4 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
               <span className="text-sm font-medium">Theme</span>
             </button>
 
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 text-light/70 hover:text-cyan"
+              className="md:hidden p-2 text-text-secondary hover:text-text-primary"
             >
               {isOpen ? (
                 <X className="w-6 h-6" />
@@ -105,8 +105,8 @@ const Navigation = () => {
                     onClick={() => setIsOpen(false)}
                     className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                       isActive
-                        ? "bg-cyan/20 text-cyan"
-                        : "text-light/70 hover:text-cyan hover:bg-cyan/10"
+                        ? "bg-primary/20 text-primary-light border border-primary/30"
+                        : "text-text-secondary hover:text-text-primary hover:bg-card-bg/50"
                     }`}
                   >
                     <Icon className="w-5 h-5" />

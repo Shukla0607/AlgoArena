@@ -23,12 +23,19 @@ export default {
         mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular"],
       },
       colors: {
-        // AlgoArena Design System
-        midnight: "#0f172a",
-        cyan: "#22d3ee",
-        light: "#f9fafb",
-        slate: "#334155",
-        highlight: "#facc15",
+        // AlgoArena New Design System
+        "dark-bg": "#0a0a0f",
+        "darker-bg": "#05050a",
+        "card-bg": "#1a1a2e",
+        "card-border": "#2d2d44",
+        primary: "#7c3aed",
+        "primary-light": "#8b5cf6",
+        secondary: "#06b6d4",
+        accent: "#f59e0b",
+        success: "#10b981",
+        "text-primary": "#ffffff",
+        "text-secondary": "#cbd5e1",
+        "text-muted": "#94a3b8",
 
         // Keep existing shadcn colors for compatibility
         border: "hsl(var(--border))",
