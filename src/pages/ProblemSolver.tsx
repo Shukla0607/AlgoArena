@@ -290,11 +290,75 @@ const ProblemSolver = () => {
               )}
 
               {activeTab === "submissions" && (
-                <div className="text-center py-8">
-                  <Terminal className="w-12 h-12 text-light/30 mx-auto mb-4" />
-                  <p className="text-light/60">
-                    No submissions yet. Run your code to see results!
-                  </p>
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-light mb-4">
+                    Recent Submissions
+                  </h3>
+
+                  {/* Mock submissions */}
+                  <div className="space-y-3">
+                    <div className="bg-green-400/10 border border-green-400/20 rounded-lg p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center space-x-2">
+                          <CheckCircle className="w-5 h-5 text-green-400" />
+                          <span className="text-green-400 font-medium">
+                            Accepted
+                          </span>
+                        </div>
+                        <span className="text-light/60 text-sm">
+                          2 hours ago
+                        </span>
+                      </div>
+                      <div className="text-sm text-light/80 space-y-1">
+                        <div>Runtime: 52ms (Beats 95.2%)</div>
+                        <div>Memory: 15.2MB (Beats 87.1%)</div>
+                        <div>Language: Python</div>
+                      </div>
+                    </div>
+
+                    <div className="bg-red-400/10 border border-red-400/20 rounded-lg p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center space-x-2">
+                          <XCircle className="w-5 h-5 text-red-400" />
+                          <span className="text-red-400 font-medium">
+                            Wrong Answer
+                          </span>
+                        </div>
+                        <span className="text-light/60 text-sm">
+                          3 hours ago
+                        </span>
+                      </div>
+                      <div className="text-sm text-light/80 space-y-1">
+                        <div>Test case 3/15 failed</div>
+                        <div>Input: [3,3], target = 6</div>
+                        <div>Expected: [0,1], Got: [1,0]</div>
+                      </div>
+                    </div>
+
+                    <div className="bg-yellow-400/10 border border-yellow-400/20 rounded-lg p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center space-x-2">
+                          <Clock className="w-5 h-5 text-yellow-400" />
+                          <span className="text-yellow-400 font-medium">
+                            Time Limit Exceeded
+                          </span>
+                        </div>
+                        <span className="text-light/60 text-sm">1 day ago</span>
+                      </div>
+                      <div className="text-sm text-light/80 space-y-1">
+                        <div>Test case 10/15 failed</div>
+                        <div>Time limit: 2000ms</div>
+                        <div>Language: JavaScript</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-center mt-8">
+                    <p className="text-light/60 text-sm">
+                      Submit your solution to see detailed results and
+                      performance metrics
+                    </p>
+                  </div>
                 </div>
               )}
             </div>
@@ -333,24 +397,43 @@ const ProblemSolver = () => {
                   </button>
                 </div>
 
-                {/* Run Button */}
-                <button
-                  onClick={runCode}
-                  disabled={isRunning}
-                  className="flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isRunning ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      <span>Running...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Play className="w-4 h-4" />
-                      <span>Run</span>
-                    </>
-                  )}
-                </button>
+                {/* Action Buttons */}
+                <div className="flex items-center space-x-3">
+                  <button
+                    onClick={runCode}
+                    disabled={isRunning}
+                    className="flex items-center space-x-2 bg-slate/20 hover:bg-slate/30 border border-slate/30 hover:border-cyan/30 text-light px-6 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isRunning ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-light/30 border-t-light rounded-full animate-spin" />
+                        <span>Running...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Play className="w-4 h-4" />
+                        <span>Run</span>
+                      </>
+                    )}
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      // Simulate submission
+                      runCode();
+                      setTimeout(() => {
+                        alert(
+                          "Solution submitted successfully! Check the submissions tab for results.",
+                        );
+                      }, 2500);
+                    }}
+                    disabled={isRunning}
+                    className="flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <CheckCircle className="w-4 h-4" />
+                    <span>Submit</span>
+                  </button>
+                </div>
               </div>
             </div>
 

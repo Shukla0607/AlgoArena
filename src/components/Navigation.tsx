@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X, Code, Map, Users, User, Trophy } from "lucide-react";
+import {
+  Menu,
+  X,
+  Code,
+  Map,
+  Users,
+  User,
+  Trophy,
+  Terminal,
+} from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +18,7 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Problems", href: "/problems", icon: Code },
+    { name: "Practice", href: "/practice", icon: Terminal },
     { name: "Roadmap", href: "/roadmap", icon: Map },
     { name: "Debug Together", href: "/debug", icon: Users },
     { name: "Profile", href: "/profile", icon: User },
