@@ -103,7 +103,7 @@ const Index = () => {
 
               <Link
                 to="/roadmap"
-                className="inline-flex items-center space-x-2 bg-slate/20 backdrop-blur-sm border border-slate/30 px-8 py-4 rounded-xl font-semibold text-light hover:bg-slate/30 transition-all duration-200"
+                className="inline-flex items-center space-x-2 bg-slate-800 border border-slate-700 px-8 py-4 rounded-xl font-semibold text-light hover:bg-slate-700 transition-all duration-200"
               >
                 <GitBranch className="w-5 h-5" />
                 <span>Explore Roadmap</span>
@@ -135,8 +135,8 @@ const Index = () => {
             transition={{ duration: 1, delay: 0.6 }}
             className="relative max-w-5xl mx-auto"
           >
-            <div className="relative bg-gradient-to-br from-slate/20 to-slate/5 backdrop-blur-xl border border-slate/20 rounded-2xl p-1 shadow-2xl">
-              <div className="bg-midnight/50 rounded-xl p-6">
+            <div className="relative bg-slate-800 border border-slate-700 rounded-2xl p-1 shadow-2xl">
+              <div className="bg-slate-900 rounded-xl p-6">
                 {/* Mock Editor Header */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-3">
@@ -254,7 +254,7 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group relative bg-gradient-to-br from-slate/10 to-slate/5 backdrop-blur-xl border border-slate/20 rounded-2xl p-8 hover:border-cyan/30 transition-all duration-300"
+                  className="group relative bg-slate-800 border border-slate-700 rounded-2xl p-8 hover:border-cyan transition-all duration-300"
                 >
                   <div
                     className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${feature.color} rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300`}
@@ -288,7 +288,7 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-slate/20 to-slate/5 backdrop-blur-xl border border-slate/20 rounded-2xl p-12"
+            className="bg-slate-800 border border-slate-700 rounded-2xl p-12"
           >
             <h3 className="text-3xl md:text-4xl font-bold text-light mb-6">
               Ready to step into the Arena?

@@ -114,7 +114,7 @@ const Problems = () => {
             ].map((stat, index) => (
               <div
                 key={stat.label}
-                className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-4"
+                className="bg-slate-800 border border-slate-700 rounded-xl p-4"
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-light/70 text-sm font-medium">
@@ -143,7 +143,7 @@ const Problems = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-6 mb-8"
+            className="bg-slate-800 border border-slate-700 rounded-xl p-6 mb-8"
           >
             <div className="flex flex-col md:flex-row gap-4">
               {/* Search */}
@@ -154,7 +154,7 @@ const Problems = () => {
                   placeholder="Search problems..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 bg-midnight/50 border border-slate/30 rounded-xl text-light placeholder-light/40 focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
+                  className="w-full pl-10 pr-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-light placeholder-light/60 focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
                 />
               </div>
 
@@ -164,7 +164,7 @@ const Problems = () => {
                 <select
                   value={selectedDifficulty}
                   onChange={(e) => setSelectedDifficulty(e.target.value)}
-                  className="bg-midnight/50 border border-slate/30 rounded-xl px-4 py-3 text-light focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
+                  className="bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-light focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
                 >
                   {difficulties.map((difficulty) => (
                     <option key={difficulty} value={difficulty}>
@@ -179,7 +179,7 @@ const Problems = () => {
                 <select
                   value={selectedTopic}
                   onChange={(e) => setSelectedTopic(e.target.value)}
-                  className="bg-midnight/50 border border-slate/30 rounded-xl px-4 py-3 text-light focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
+                  className="bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-light focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
                 >
                   {topics.map((topic) => (
                     <option key={topic} value={topic}>
@@ -207,7 +207,7 @@ const Problems = () => {
                 onClick={() =>
                   (window.location.href = `/problems/${problem.id}`)
                 }
-                className="group bg-slate/20 backdrop-blur-sm border border-slate/30 hover:border-cyan/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:bg-slate/30"
+                className="group bg-slate-800 border border-slate-700 hover:border-cyan rounded-xl p-6 cursor-pointer transition-all duration-300 hover:bg-slate-700"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-start space-x-4 flex-1">
@@ -265,7 +265,7 @@ const Problems = () => {
           {/* Empty State */}
           {filteredProblems.length === 0 && (
             <div className="text-center py-16">
-              <div className="w-16 h-16 bg-slate/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Search className="w-8 h-8 text-light/40" />
               </div>
               <h3 className="text-xl font-semibold text-light mb-2">
