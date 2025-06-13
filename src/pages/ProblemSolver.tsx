@@ -17,36 +17,7 @@ import {
   Code,
 } from "lucide-react";
 import Navigation from "../components/Navigation";
-
-interface TestCase {
-  id: number;
-  input: string;
-  expectedOutput: string;
-  actualOutput?: string;
-  passed?: boolean;
-  hidden?: boolean;
-}
-
-interface Problem {
-  id: number;
-  title: string;
-  difficulty: "Easy" | "Medium" | "Hard";
-  description: string;
-  examples: Array<{
-    input: string;
-    output: string;
-    explanation?: string;
-  }>;
-  constraints: string[];
-  testCases: TestCase[];
-  starterCode: {
-    python: string;
-    javascript: string;
-    cpp: string;
-    java: string;
-  };
-  hints: string[];
-}
+import { getProblemById, type Problem, type TestCase } from "../data/problems";
 
 const ProblemSolver = () => {
   const { id } = useParams<{ id: string }>();
@@ -61,90 +32,27 @@ const ProblemSolver = () => {
   const [testResults, setTestResults] = useState<TestCase[]>([]);
   const [showTestOutput, setShowTestOutput] = useState(false);
 
-  // Mock problem data
-  const problem: Problem = {
-    id: parseInt(id || "1"),
-    title: "Two Sum",
-    difficulty: "Easy",
-    description: `Given an array of integers \`nums\` and an integer \`target\`, return *indices* of the two numbers such that they add up to \`target\`.
+  // Get problem data
+  const problem = getProblemById(parseInt(id || "1"));
 
-You may assume that each input would have **exactly one solution**, and you may not use the *same* element twice.
-
-You can return the answer in any order.`,
-    examples: [
-      {
-        input: "nums = [2,7,11,15], target = 9",
-        output: "[0,1]",
-        explanation: "Because nums[0] + nums[1] == 9, we return [0, 1].",
-      },
-      {
-        input: "nums = [3,2,4], target = 6",
-        output: "[1,2]",
-      },
-      {
-        input: "nums = [3,3], target = 6",
-        output: "[0,1]",
-      },
-    ],
-    constraints: [
-      "2 <= nums.length <= 10⁴",
-      "-10⁹ <= nums[i] <= 10⁹",
-      "-10⁹ <= target <= 10⁹",
-      "Only one valid answer exists.",
-    ],
-    testCases: [
-      { id: 1, input: "[2,7,11,15], 9", expectedOutput: "[0,1]" },
-      { id: 2, input: "[3,2,4], 6", expectedOutput: "[1,2]" },
-      { id: 3, input: "[3,3], 6", expectedOutput: "[0,1]" },
-      { id: 4, input: "[1,2,3,4,5], 9", expectedOutput: "[3,4]", hidden: true },
-      {
-        id: 5,
-        input: "[-1,-2,-3,-4,-5], -8",
-        expectedOutput: "[2,4]",
-        hidden: true,
-      },
-    ],
-    starterCode: {
-      python: `def twoSum(nums, target):
-    """
-    :type nums: List[int]
-    :type target: int
-    :rtype: List[int]
-    """
-    # Your code here
-    pass`,
-      javascript: `/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-var twoSum = function(nums, target) {
-    // Your code here
-};`,
-      cpp: `#include <vector>
-#include <unordered_map>
-using namespace std;
-
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        // Your code here
-    }
-};`,
-      java: `import java.util.*;
-
-class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        // Your code here
-    }
-}`,
-    },
-    hints: [
-      "Try using a hash map to store the numbers you've seen so far.",
-      "For each number, check if its complement (target - current number) exists in the hash map.",
-      "Don't forget to store the index along with the number in your hash map.",
-    ],
-  };
+  if (!problem) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-midnight via-midnight to-slate-900 flex items-center justify-center">
+        <Navigation />
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-light mb-4">
+            Problem Not Found
+          </h1>
+          <Link
+            to="/problems"
+            className="text-cyan hover:text-cyan/80 transition-colors"
+          >
+            ← Back to Problems
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   useEffect(() => {
     setCode(problem.starterCode[language]);

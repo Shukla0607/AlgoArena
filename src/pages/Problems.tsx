@@ -11,6 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Navigation from "../components/Navigation";
+import { problems } from "../data/problems";
 
 const Problems = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -27,75 +28,6 @@ const Problems = () => {
     "Tree",
     "Graph",
     "Sorting",
-  ];
-
-  const problems = [
-    {
-      id: 1,
-      title: "Two Sum",
-      difficulty: "Easy",
-      topic: "Array",
-      solved: true,
-      likes: 1234,
-      time: "15 min",
-      description:
-        "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
-    },
-    {
-      id: 2,
-      title: "Add Two Numbers",
-      difficulty: "Medium",
-      topic: "Linked List",
-      solved: false,
-      likes: 987,
-      time: "25 min",
-      description:
-        "You are given two non-empty linked lists representing two non-negative integers.",
-    },
-    {
-      id: 3,
-      title: "Longest Substring Without Repeating Characters",
-      difficulty: "Medium",
-      topic: "String",
-      solved: true,
-      likes: 2156,
-      time: "20 min",
-      description:
-        "Given a string s, find the length of the longest substring without repeating characters.",
-    },
-    {
-      id: 4,
-      title: "Median of Two Sorted Arrays",
-      difficulty: "Hard",
-      topic: "Array",
-      solved: false,
-      likes: 543,
-      time: "45 min",
-      description:
-        "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.",
-    },
-    {
-      id: 5,
-      title: "Longest Palindromic Substring",
-      difficulty: "Medium",
-      topic: "String",
-      solved: false,
-      likes: 1876,
-      time: "30 min",
-      description:
-        "Given a string s, return the longest palindromic substring in s.",
-    },
-    {
-      id: 6,
-      title: "Container With Most Water",
-      difficulty: "Medium",
-      topic: "Array",
-      solved: true,
-      likes: 1345,
-      time: "20 min",
-      description:
-        "You are given an integer array height of length n. There are n vertical lines drawn.",
-    },
   ];
 
   const getDifficultyColor = (difficulty: string) => {
