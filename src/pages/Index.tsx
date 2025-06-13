@@ -1,41 +1,331 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Code,
+  Users,
+  Trophy,
+  Sparkles,
+  Play,
+  GitBranch,
+} from "lucide-react";
+import Navigation from "../components/Navigation";
+
 const Index = () => {
+  const features = [
+    {
+      icon: Code,
+      title: "Zen Coding Interface",
+      description:
+        "Monaco-powered IDE with glassmorphism design, syntax highlighting, and focus mode.",
+      color: "from-cyan to-blue-400",
+    },
+    {
+      icon: GitBranch,
+      title: "Visual Learning Paths",
+      description:
+        "Interactive roadmaps that guide you through arrays, trees, graphs, and dynamic programming.",
+      color: "from-highlight to-orange-400",
+    },
+    {
+      icon: Users,
+      title: "Debug Together",
+      description:
+        "Simulated multiplayer debugging with real-time collaboration features.",
+      color: "from-purple-400 to-pink-400",
+    },
+    {
+      icon: Trophy,
+      title: "Progress Tracking",
+      description:
+        "Visual progress rings, streaks, and achievements stored locally.",
+      color: "from-green-400 to-emerald-400",
+    },
+  ];
+
+  const stats = [
+    { number: "500+", label: "Coding Problems" },
+    { number: "50+", label: "Learning Paths" },
+    { number: "10k+", label: "Simulated Users" },
+    { number: "95%", label: "Visual Experience" },
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
+    <div className="min-h-screen bg-gradient-to-br from-midnight via-midnight to-slate-900">
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="mb-8"
+            >
+              <div className="inline-flex items-center space-x-2 bg-cyan/10 border border-cyan/20 rounded-full px-6 py-2 mb-6">
+                <Sparkles className="w-4 h-4 text-cyan" />
+                <span className="text-cyan font-medium">
+                  Frontend-First Coding Platform
+                </span>
+              </div>
+
+              <h1 className="text-5xl md:text-7xl font-bold text-light mb-6">
+                Code in the{" "}
+                <span className="bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent">
+                  Arena
+                </span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-light/70 max-w-3xl mx-auto leading-relaxed">
+                Where LeetCode meets Figma. An immersive, design-led coding
+                experience that transforms how you learn algorithms and data
+                structures.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            >
+              <Link
+                to="/problems"
+                className="group inline-flex items-center space-x-2 bg-gradient-to-r from-cyan to-highlight px-8 py-4 rounded-xl font-semibold text-midnight hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-cyan/25"
+              >
+                <Play className="w-5 h-5" />
+                <span>Start Coding</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link
+                to="/roadmap"
+                className="inline-flex items-center space-x-2 bg-slate/20 backdrop-blur-sm border border-slate/30 px-8 py-4 rounded-xl font-semibold text-light hover:bg-slate/30 transition-all duration-200"
+              >
+                <GitBranch className="w-5 h-5" />
+                <span>Explore Roadmap</span>
+              </Link>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
+            >
+              {stats.map((stat, index) => (
+                <div key={stat.label} className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-light/60 font-medium">{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Hero Visual */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="relative max-w-5xl mx-auto"
           >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-      </div>
+            <div className="relative bg-gradient-to-br from-slate/20 to-slate/5 backdrop-blur-xl border border-slate/20 rounded-2xl p-1 shadow-2xl">
+              <div className="bg-midnight/50 rounded-xl p-6">
+                {/* Mock Editor Header */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="flex space-x-2">
+                      <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                      <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                      <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                    </div>
+                    <span className="text-light/60 text-sm font-mono">
+                      two-sum.py
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-light/40 text-sm">
+                    <span>Python</span>
+                    <div className="w-2 h-2 bg-cyan rounded-full animate-pulse"></div>
+                  </div>
+                </div>
+
+                {/* Mock Code */}
+                <div className="font-mono text-sm space-y-2">
+                  <div className="text-purple-400">
+                    def <span className="text-highlight">twoSum</span>(
+                    <span className="text-cyan">nums</span>,{" "}
+                    <span className="text-cyan">target</span>):
+                  </div>
+                  <div className="pl-4 text-light/80">
+                    <span className="text-cyan">hashmap</span> = {}
+                  </div>
+                  <div className="pl-4 text-purple-400">
+                    for <span className="text-cyan">i</span>,{" "}
+                    <span className="text-cyan">num</span> in{" "}
+                    <span className="text-highlight">enumerate</span>(
+                    <span className="text-cyan">nums</span>):
+                  </div>
+                  <div className="pl-8 text-light/80">
+                    <span className="text-cyan">complement</span> ={" "}
+                    <span className="text-cyan">target</span> -{" "}
+                    <span className="text-cyan">num</span>
+                  </div>
+                  <div className="pl-8 text-purple-400">
+                    if <span className="text-cyan">complement</span> in{" "}
+                    <span className="text-cyan">hashmap</span>:
+                  </div>
+                  <div className="pl-12 text-purple-400">
+                    return [<span className="text-cyan">hashmap</span>[
+                    <span className="text-cyan">complement</span>],{" "}
+                    <span className="text-cyan">i</span>]
+                  </div>
+                  <div className="pl-8 text-light/80">
+                    <span className="text-cyan">hashmap</span>[
+                    <span className="text-cyan">num</span>] ={" "}
+                    <span className="text-cyan">i</span>
+                    <span className="ml-2 bg-cyan text-midnight px-1 rounded text-xs animate-cursor-blink">
+                      |
+                    </span>
+                  </div>
+                </div>
+
+                {/* Mock Test Results */}
+                <div className="mt-6 pt-4 border-t border-slate/20">
+                  <div className="flex items-center justify-between text-sm">
+                    <div className="flex items-center space-x-4">
+                      <span className="text-green-400">✓ All tests passed</span>
+                      <span className="text-light/60">Runtime: 52ms</span>
+                      <span className="text-light/60">Memory: 15.2MB</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-highlight rounded-full"></div>
+                      <span className="text-highlight text-xs">Optimal</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Elements */}
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-cyan/20 to-highlight/20 rounded-full blur-xl animate-float"></div>
+            <div
+              className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-xl animate-float"
+              style={{ animationDelay: "1s" }}
+            ></div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-light mb-6">
+              Reimagining{" "}
+              <span className="bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent">
+                Code Practice
+              </span>
+            </h2>
+            <p className="text-xl text-light/70 max-w-3xl mx-auto">
+              Every feature designed with intention. Every interaction crafted
+              for flow. This is coding practice, elevated.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group relative bg-gradient-to-br from-slate/10 to-slate/5 backdrop-blur-xl border border-slate/20 rounded-2xl p-8 hover:border-cyan/30 transition-all duration-300"
+                >
+                  <div
+                    className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${feature.color} rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-light mb-4 group-hover:text-cyan transition-colors">
+                    {feature.title}
+                  </h3>
+
+                  <p className="text-light/70 text-lg leading-relaxed">
+                    {feature.description}
+                  </p>
+
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ArrowRight className="w-5 h-5 text-cyan" />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-slate/20 to-slate/5 backdrop-blur-xl border border-slate/20 rounded-2xl p-12"
+          >
+            <h3 className="text-3xl md:text-4xl font-bold text-light mb-6">
+              Ready to step into the Arena?
+            </h3>
+            <p className="text-xl text-light/70 mb-8">
+              Join thousands of developers mastering algorithms through
+              beautiful, intentional design.
+            </p>
+            <Link
+              to="/problems"
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan to-highlight px-8 py-4 rounded-xl font-semibold text-midnight hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-cyan/25"
+            >
+              <Code className="w-5 h-5" />
+              <span>Start Your Journey</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-slate/20 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <div className="w-8 h-8 bg-gradient-to-tr from-cyan to-highlight rounded-lg flex items-center justify-center">
+              <Code className="w-5 h-5 text-midnight" />
+            </div>
+            <span className="text-xl font-bold bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent">
+              AlgoArena
+            </span>
+          </div>
+          <p className="text-light/60">
+            Frontend-first coding practice platform. Built with React, Tailwind
+            CSS, and Monaco Editor.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
