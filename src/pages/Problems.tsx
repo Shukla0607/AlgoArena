@@ -272,6 +272,9 @@ const Problems = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
+                onClick={() =>
+                  (window.location.href = `/problems/${problem.id}`)
+                }
                 className="group bg-slate/20 backdrop-blur-sm border border-slate/30 hover:border-cyan/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:bg-slate/30"
               >
                 <div className="flex items-start justify-between">
