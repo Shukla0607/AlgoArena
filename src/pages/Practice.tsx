@@ -68,7 +68,7 @@ public class Solution {
         // Your code here
         return "Hello, AlgoArena!";
     }
-    
+
     public static void main(String[] args) {
         System.out.println(solution());
     }
@@ -145,14 +145,14 @@ public class Solution {
             {/* Code Editor */}
             <div className="w-2/3 flex flex-col">
               {/* Editor Header */}
-              <div className="p-4 border-b border-slate/20 border-r border-slate/20 bg-midnight/50">
+              <div className="p-4 border-b border-slate/20 border-r border-slate/20 bg-slate-800">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     {/* Language Selector */}
                     <select
                       value={language}
                       onChange={(e) => setLanguage(e.target.value)}
-                      className="bg-slate/20 border border-slate/30 rounded-lg px-3 py-2 text-light text-sm focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
+                      className="bg-slate-900 border border-slate-600 rounded-lg px-3 py-2 text-light text-sm focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
                     >
                       <option value="python">Python</option>
                       <option value="javascript">JavaScript</option>
@@ -222,7 +222,7 @@ public class Solution {
             </div>
 
             {/* Output Panel */}
-            <div className="w-1/3 flex flex-col bg-midnight/30">
+            <div className="w-1/3 flex flex-col bg-slate-800">
               {/* Output Header */}
               <div className="p-4 border-b border-slate/20">
                 <div className="flex items-center space-x-2">
@@ -242,7 +242,7 @@ public class Solution {
                   </div>
                 ) : showOutput ? (
                   <div className="space-y-4">
-                    <div className="bg-slate/20 border border-slate/30 rounded-lg p-4">
+                    <div className="bg-slate-900 border border-slate-700 rounded-lg p-4">
                       <div className="flex items-center space-x-2 mb-2">
                         <CheckCircle className="w-4 h-4 text-green-400" />
                         <span className="text-green-400 text-sm font-medium">
@@ -280,14 +280,14 @@ public class Solution {
                     Quick Actions
                   </h4>
                   <div className="space-y-2">
-                    <button className="w-full text-left p-2 text-sm text-light/70 hover:text-cyan hover:bg-slate/20 rounded-lg transition-all duration-200">
+                    <button className="w-full text-left p-2 text-sm text-light/70 hover:text-cyan hover:bg-slate-700 rounded-lg transition-all duration-200">
                       📚 Algorithm Templates
                     </button>
-                    <button className="w-full text-left p-2 text-sm text-light/70 hover:text-cyan hover:bg-slate/20 rounded-lg transition-all duration-200">
+                    <button className="w-full text-left p-2 text-sm text-light/70 hover:text-cyan hover:bg-slate-700 rounded-lg transition-all duration-200">
                       🔧 Code Snippets
                     </button>
-                    <button className="w-full text-left p-2 text-sm text-light/70 hover:text-cyan hover:bg-slate/20 rounded-lg transition-all duration-200">
-                      📝 Save to Drafts
+                    <button className="w-full text-left p-2 text-sm text-light/70 hover:text-cyan hover:bg-slate-700 rounded-lg transition-all duration-200">
+                      ��� Save to Drafts
                     </button>
                   </div>
                 </div>

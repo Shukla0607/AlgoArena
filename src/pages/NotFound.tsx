@@ -54,7 +54,7 @@ const NotFound = () => {
 
               <button
                 onClick={() => window.history.back()}
-                className="inline-flex items-center space-x-2 bg-slate/20 backdrop-blur-sm border border-slate/30 px-8 py-4 rounded-xl font-semibold text-light hover:bg-slate/30 transition-all duration-200"
+                className="inline-flex items-center space-x-2 bg-slate-800 border border-slate-700 px-8 py-4 rounded-xl font-semibold text-light hover:bg-slate-700 transition-all duration-200"
               >
                 <ArrowLeft className="w-5 h-5" />
                 <span>Go Back</span>
@@ -68,7 +68,7 @@ const NotFound = () => {
               transition={{ duration: 1, delay: 0.5 }}
               className="relative"
             >
-              <div className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-8 max-w-2xl mx-auto">
+              <div className="bg-slate-800 border border-slate-700 rounded-xl p-8 max-w-2xl mx-auto">
                 <div className="text-left font-mono text-sm text-light/70">
                   <div className="text-purple-400 mb-2">
                     <span className="text-cyan">function</span>{" "}
@@ -129,7 +129,7 @@ const NotFound = () => {
                     <Link
                       key={link.name}
                       to={link.href}
-                      className="flex items-center space-x-2 bg-slate/20 backdrop-blur-sm border border-slate/30 hover:border-cyan/30 px-4 py-3 rounded-xl text-light hover:text-cyan transition-all duration-200"
+                      className="flex items-center space-x-2 bg-slate-800 border border-slate-700 hover:border-cyan px-4 py-3 rounded-xl text-light hover:text-cyan transition-all duration-200"
                     >
                       <Icon className="w-4 h-4" />
                       <span>{link.name}</span>

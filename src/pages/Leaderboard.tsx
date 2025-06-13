@@ -213,7 +213,7 @@ const Leaderboard = () => {
               return (
                 <div
                   key={stat.label}
-                  className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-4 text-center"
+                  className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center"
                 >
                   <div
                     className={`inline-flex items-center justify-center w-10 h-10 bg-gradient-to-r ${stat.color} rounded-lg mb-2`}
@@ -234,7 +234,7 @@ const Leaderboard = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl overflow-hidden"
+            className="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden"
           >
             <div className="p-6 border-b border-slate/30">
               <h3 className="text-xl font-bold text-light">Top Performers</h3>
@@ -244,7 +244,7 @@ const Leaderboard = () => {
               {topUsers.map((user, index) => (
                 <div
                   key={user.rank}
-                  className="p-6 hover:bg-slate/10 transition-all duration-200"
+                  className="p-6 hover:bg-slate-700 transition-all duration-200"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4">

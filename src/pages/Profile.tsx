@@ -24,7 +24,7 @@ const Profile = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-8 mb-8"
+            className="bg-slate-800 border border-slate-700 rounded-xl p-8 mb-8"
           >
             <div className="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8">
               {/* Avatar */}
@@ -70,10 +70,10 @@ const Profile = () => {
                 </button>
 
                 <div className="flex space-x-2">
-                  <button className="p-3 bg-slate/30 hover:bg-slate/40 text-light rounded-xl transition-all duration-200">
+                  <button className="p-3 bg-slate-700 hover:bg-slate-600 text-light rounded-xl transition-all duration-200">
                     <Github className="w-5 h-5" />
                   </button>
-                  <button className="p-3 bg-slate/30 hover:bg-slate/40 text-light rounded-xl transition-all duration-200">
+                  <button className="p-3 bg-slate-700 hover:bg-slate-600 text-light rounded-xl transition-all duration-200">
                     <Linkedin className="w-5 h-5" />
                   </button>
                 </div>
@@ -90,7 +90,7 @@ const Profile = () => {
               className="lg:col-span-2 space-y-6"
             >
               {/* Progress Overview */}
-              <div className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-6">
+              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
                 <h3 className="text-xl font-bold text-light mb-6">
                   Progress Overview
                 </h3>
@@ -146,7 +146,7 @@ const Profile = () => {
               </div>
 
               {/* Recent Activity */}
-              <div className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-6">
+              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
                 <h3 className="text-xl font-bold text-light mb-6">
                   Recent Activity
                 </h3>
@@ -225,7 +225,7 @@ const Profile = () => {
               className="space-y-6"
             >
               {/* Achievements */}
-              <div className="bg-slate/20 backdrop-blur-sm border border-slate/30 rounded-xl p-6">
+              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
                 <h3 className="text-xl font-bold text-light mb-6">
                   Achievements
                 </h3>
