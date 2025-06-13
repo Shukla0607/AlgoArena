@@ -115,7 +115,7 @@ public class Solution {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-midnight via-midnight to-slate-900">
+    <div className="min-h-screen bg-dark-bg">
       <Navigation />
 
       <div className="pt-20">
@@ -127,13 +127,13 @@ public class Solution {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-3xl font-bold text-light mb-2">
+              <h1 className="text-3xl font-bold text-text-primary mb-2">
                 Practice{" "}
-                <span className="bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary-light to-secondary bg-clip-text text-transparent">
                   Playground
                 </span>
               </h1>
-              <p className="text-light/70">
+              <p className="text-text-secondary">
                 Free-form coding environment. Test algorithms, experiment with
                 code, or just practice your skills.
               </p>
@@ -145,14 +145,14 @@ public class Solution {
             {/* Code Editor */}
             <div className="w-2/3 flex flex-col">
               {/* Editor Header */}
-              <div className="p-4 border-b border-slate/20 border-r border-slate/20 bg-slate-800">
+              <div className="p-4 border-b border-card-border border-r border-card-border bg-card-bg">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     {/* Language Selector */}
                     <select
                       value={language}
                       onChange={(e) => setLanguage(e.target.value)}
-                      className="bg-slate-900 border border-slate-600 rounded-lg px-3 py-2 text-light text-sm focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
+                      className="bg-darker-bg border border-card-border rounded-lg px-3 py-2 text-text-primary text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                     >
                       <option value="python">Python</option>
                       <option value="javascript">JavaScript</option>
@@ -161,14 +161,14 @@ public class Solution {
                     </select>
 
                     {/* Settings */}
-                    <button className="p-2 text-light/60 hover:text-cyan transition-colors">
+                    <button className="p-2 text-text-muted hover:text-primary-light transition-colors">
                       <Settings className="w-4 h-4" />
                     </button>
 
                     {/* Reset */}
                     <button
                       onClick={resetCode}
-                      className="p-2 text-light/60 hover:text-cyan transition-colors"
+                      className="p-2 text-text-muted hover:text-primary-light transition-colors"
                       title="Reset to starter code"
                     >
                       <RotateCcw className="w-4 h-4" />
@@ -179,7 +179,7 @@ public class Solution {
                   <button
                     onClick={runCode}
                     disabled={isRunning}
-                    className="flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center space-x-2 bg-gradient-to-r from-success to-emerald-500 hover:from-emerald-600 hover:to-emerald-600 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isRunning ? (
                       <>
@@ -222,12 +222,14 @@ public class Solution {
             </div>
 
             {/* Output Panel */}
-            <div className="w-1/3 flex flex-col bg-slate-800">
+            <div className="w-1/3 flex flex-col bg-card-bg">
               {/* Output Header */}
-              <div className="p-4 border-b border-slate/20">
+              <div className="p-4 border-b border-card-border">
                 <div className="flex items-center space-x-2">
-                  <Terminal className="w-5 h-5 text-light/80" />
-                  <h3 className="text-lg font-semibold text-light">Output</h3>
+                  <Terminal className="w-5 h-5 text-text-secondary" />
+                  <h3 className="text-lg font-semibold text-text-primary">
+                    Output
+                  </h3>
                 </div>
               </div>
 
@@ -236,25 +238,25 @@ public class Solution {
                 {isRunning ? (
                   <div className="flex items-center justify-center py-8">
                     <div className="text-center">
-                      <div className="w-8 h-8 border-2 border-cyan/30 border-t-cyan rounded-full animate-spin mx-auto mb-2" />
-                      <p className="text-light/60">Executing code...</p>
+                      <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-2" />
+                      <p className="text-text-muted">Executing code...</p>
                     </div>
                   </div>
                 ) : showOutput ? (
                   <div className="space-y-4">
-                    <div className="bg-slate-900 border border-slate-700 rounded-lg p-4">
+                    <div className="bg-darker-bg border border-card-border rounded-lg p-4">
                       <div className="flex items-center space-x-2 mb-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-green-400 text-sm font-medium">
+                        <CheckCircle className="w-4 h-4 text-success" />
+                        <span className="text-success text-sm font-medium">
                           Execution Successful
                         </span>
                       </div>
-                      <div className="font-mono text-sm text-light/80 whitespace-pre-wrap">
+                      <div className="font-mono text-sm text-text-secondary whitespace-pre-wrap">
                         {output}
                       </div>
                     </div>
 
-                    <div className="text-xs text-light/50 space-y-1">
+                    <div className="text-xs text-text-muted space-y-1">
                       <div>Runtime: ~0.1s</div>
                       <div>Memory: ~5.2MB</div>
                       <div>
@@ -265,8 +267,8 @@ public class Solution {
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <Terminal className="w-12 h-12 text-light/30 mx-auto mb-4" />
-                    <p className="text-light/60">
+                    <Terminal className="w-12 h-12 text-text-muted mx-auto mb-4" />
+                    <p className="text-text-muted">
                       Run your code to see the output here
                     </p>
                   </div>
@@ -274,20 +276,20 @@ public class Solution {
               </div>
 
               {/* Quick Actions */}
-              <div className="p-4 border-t border-slate/20">
+              <div className="p-4 border-t border-card-border">
                 <div className="space-y-3">
-                  <h4 className="text-sm font-medium text-light/80">
+                  <h4 className="text-sm font-medium text-text-secondary">
                     Quick Actions
                   </h4>
                   <div className="space-y-2">
-                    <button className="w-full text-left p-2 text-sm text-light/70 hover:text-cyan hover:bg-slate-700 rounded-lg transition-all duration-200">
+                    <button className="w-full text-left p-2 text-sm text-text-muted hover:text-primary-light hover:bg-darker-bg rounded-lg transition-all duration-200">
                       📚 Algorithm Templates
                     </button>
-                    <button className="w-full text-left p-2 text-sm text-light/70 hover:text-cyan hover:bg-slate-700 rounded-lg transition-all duration-200">
+                    <button className="w-full text-left p-2 text-sm text-text-muted hover:text-primary-light hover:bg-darker-bg rounded-lg transition-all duration-200">
                       🔧 Code Snippets
                     </button>
-                    <button className="w-full text-left p-2 text-sm text-light/70 hover:text-cyan hover:bg-slate-700 rounded-lg transition-all duration-200">
-                      ��� Save to Drafts
+                    <button className="w-full text-left p-2 text-sm text-text-muted hover:text-primary-light hover:bg-darker-bg rounded-lg transition-all duration-200">
+                      📝 Save to Drafts
                     </button>
                   </div>
                 </div>
