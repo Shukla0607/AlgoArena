@@ -29,10 +29,10 @@ const Navigation = () => {
   const navItems = [
     { name: "Problems", href: "/problems", icon: Code },
     { name: "Practice", href: "/practice", icon: Terminal },
-    { name: "Roadmap", href: "/roadmap", icon: Map },
     // Protected items - only show when authenticated
     ...(isAuthenticated
       ? [
+          { name: "Roadmap", href: "/roadmap", icon: Map },
           { name: "Debug Together", href: "/debug", icon: Users },
           { name: "Profile", href: "/profile", icon: User },
           { name: "Leaderboard", href: "/leaderboard", icon: Trophy },
@@ -40,7 +40,6 @@ const Navigation = () => {
       : []),
     ...(isAdmin ? [{ name: "Admin", href: "/admin", icon: Shield }] : []),
   ];
-
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg/95 backdrop-blur-md border-b border-card-border h-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
