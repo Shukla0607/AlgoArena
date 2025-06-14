@@ -11,9 +11,23 @@ import {
   Trophy,
   Terminal,
 } from "lucide-react";
+import LoginModal from "./LoginModal";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  Menu,
+  X,
+  Code,
+  Map,
+  Users,
+  User,
+  Trophy,
+  Terminal,
+} from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
@@ -32,18 +46,18 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-tr from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 bg-gradient-to-tr from-violet-600 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
                 <Code className="w-6 h-6 text-white" />
               </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-accent rounded-full animate-pulse shadow-sm"></div>
+              <div className="absolute -top-1 -right-1 w-4 h-4 bg-orange-400 rounded-full animate-pulse shadow-sm"></div>
             </div>
-            <div className="text-xl font-bold bg-gradient-to-r from-primary-light to-secondary bg-clip-text text-transparent">
+            <div className="text-xl font-bold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
               AlgoArena
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = location.pathname === item.href;
@@ -54,8 +68,8 @@ const Navigation = () => {
                   to={item.href}
                   className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-200 ${
                     isActive
-                      ? "bg-primary/20 text-primary-light border border-primary/30"
-                      : "text-text-secondary hover:text-text-primary hover:bg-card-bg/50"
+                      ? "bg-violet-500/20 text-violet-300 border border-violet-500/40"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800/60"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -67,10 +81,19 @@ const Navigation = () => {
 
           {/* Theme Toggle & Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <button className="hidden md:flex items-center space-x-2 px-4 py-2 bg-card-bg hover:bg-card-bg/80 rounded-xl transition-all duration-200 text-text-secondary hover:text-text-primary border border-card-border">
-              <div className="w-4 h-4 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
-              <span className="text-sm font-medium">Theme</span>
-            </button>
+            <div className="flex items-center space-x-4">
+              <button className="hidden md:flex items-center space-x-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 text-slate-300 hover:text-white border border-slate-600">
+                <div className="w-4 h-4 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full"></div>
+                <span className="text-sm font-medium">Theme</span>
+              </button>
+
+              <button
+                onClick={() => setIsLoginOpen(true)}
+                className="hidden md:flex items-center space-x-2 px-4 py-2 bg-violet-600 hover:bg-violet-700 rounded-xl transition-all duration-200 text-white border border-violet-500"
+              >
+                <span className="text-sm font-medium">Login</span>
+              </button>
+            </div>
 
             {/* Mobile menu button */}
             <button
@@ -105,8 +128,8 @@ const Navigation = () => {
                     onClick={() => setIsOpen(false)}
                     className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                       isActive
-                        ? "bg-primary/20 text-primary-light border border-primary/30"
-                        : "text-text-secondary hover:text-text-primary hover:bg-card-bg/50"
+                        ? "bg-violet-500/20 text-violet-300 border border-violet-500/40"
+                        : "text-slate-300 hover:text-white hover:bg-slate-800/60"
                     }`}
                   >
                     <Icon className="w-5 h-5" />
@@ -118,6 +141,8 @@ const Navigation = () => {
           </motion.div>
         )}
       </div>
+
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </nav>
   );
 };

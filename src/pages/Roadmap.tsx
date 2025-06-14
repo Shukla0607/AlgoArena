@@ -68,7 +68,7 @@ const Roadmap = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-midnight via-midnight to-slate-900">
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
 
       <div className="pt-24 px-4 sm:px-6 lg:px-8">
@@ -80,13 +80,13 @@ const Roadmap = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Learning{" "}
-              <span className="bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
                 Roadmap
               </span>
             </h1>
-            <p className="text-xl text-light/70 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
               Follow our curated learning paths to master algorithms and data
               structures step by step
             </p>
@@ -97,14 +97,14 @@ const Roadmap = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="bg-slate-800 border border-slate-700 rounded-xl p-6 mb-12"
+            className="bg-slate-800 border border-slate-600 rounded-xl p-6 mb-12"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent mb-2">
+                <div className="text-3xl font-bold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent mb-2">
                   3/6
                 </div>
-                <div className="text-light/70">Paths Unlocked</div>
+                <div className="text-slate-300">Paths Unlocked</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-2">
@@ -129,9 +129,9 @@ const Roadmap = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className={`relative bg-slate-800 border border-slate-700 rounded-xl p-6 cursor-pointer transition-all duration-300 ${
+                className={`relative bg-slate-800 border border-slate-600 rounded-xl p-6 cursor-pointer transition-all duration-300 ${
                   path.unlocked
-                    ? "hover:border-cyan hover:bg-slate-700"
+                    ? "hover:border-violet-500 hover:bg-slate-700"
                     : "opacity-60 cursor-not-allowed"
                 }`}
               >
@@ -150,20 +150,20 @@ const Roadmap = () => {
                 </div>
 
                 {/* Path Info */}
-                <h3 className="text-xl font-bold text-light mb-2">
+                <h3 className="text-xl font-bold text-white mb-2">
                   {path.title}
                 </h3>
-                <p className="text-light/70 mb-4">{path.description}</p>
+                <p className="text-slate-300 mb-4">{path.description}</p>
 
                 {/* Progress */}
                 <div className="mb-4">
-                  <div className="flex items-center justify-between text-sm text-light/60 mb-2">
+                  <div className="flex items-center justify-between text-sm text-slate-400 mb-2">
                     <span>Progress</span>
-                    <span>
+                    <span className="text-white">
                       {path.completed}/{path.problems}
                     </span>
                   </div>
-                  <div className="w-full bg-slate/30 rounded-full h-2">
+                  <div className="w-full bg-slate-700 rounded-full h-2">
                     <div
                       className={`h-2 bg-gradient-to-r ${path.color} rounded-full transition-all duration-300`}
                       style={{
@@ -175,14 +175,14 @@ const Roadmap = () => {
 
                 {/* Difficulty Badge */}
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 bg-slate/30 text-light/70 text-xs font-medium rounded-full">
+                  <span className="px-3 py-1 bg-slate-700 text-slate-300 text-xs font-medium rounded-full">
                     {path.difficulty}
                   </span>
 
                   {path.unlocked ? (
-                    <ArrowRight className="w-5 h-5 text-cyan" />
+                    <ArrowRight className="w-5 h-5 text-violet-400" />
                   ) : (
-                    <div className="text-light/40 text-sm">
+                    <div className="text-slate-500 text-sm">
                       Complete previous paths
                     </div>
                   )}
