@@ -10,6 +10,71 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Default theme (dark) */
+  --theme-bg: rgb(15, 23, 42);
+  --theme-card-bg: rgb(30, 41, 59);
+  --theme-card-border: rgb(71, 85, 105);
+  --theme-text-primary: rgb(255, 255, 255);
+  --theme-text-secondary: rgb(226, 232, 240);
+  --theme-text-muted: rgb(203, 213, 225);
+  --theme-primary: rgb(139, 92, 246);
+  --theme-secondary: rgb(6, 182, 212);
+  --theme-accent: rgb(245, 158, 11);
+  --theme-success: rgb(16, 185, 129);
+}
+
+/* Theme utility classes */
+.theme-bg {
+  background-color: var(--theme-bg);
+}
+.theme-card-bg {
+  background-color: var(--theme-card-bg);
+}
+.theme-text-primary {
+  color: var(--theme-text-primary);
+}
+.theme-text-secondary {
+  color: var(--theme-text-secondary);
+}
+.theme-text-muted {
+  color: var(--theme-text-muted);
+}
+.theme-primary {
+  color: var(--theme-primary);
+}
+.theme-secondary {
+  color: var(--theme-secondary);
+}
+.theme-accent {
+  color: var(--theme-accent);
+}
+.theme-border {
+  border-color: var(--theme-card-border);
+}
+
+/* Background utilities */
+.bg-theme-primary {
+  background-color: var(--theme-primary);
+}
+.bg-theme-secondary {
+  background-color: var(--theme-secondary);
+}
+.bg-theme-accent {
+  background-color: var(--theme-accent);
+}
+.bg-theme-card {
+  background-color: var(--theme-card-bg);
+}
+
+/* Border utilities */
+.border-theme {
+  border-color: var(--theme-card-border);
+}
+.border-theme-primary {
+  border-color: var(--theme-primary);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

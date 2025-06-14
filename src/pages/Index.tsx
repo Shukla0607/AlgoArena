@@ -52,7 +52,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen theme-bg">
       <Navigation />
 
       {/* Hero Section */}
@@ -251,30 +251,30 @@ const Index = () => {
               const Icon = feature.icon;
               return (
                 <motion.div
-                  key={feature.title}
                   initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group relative bg-card-bg border border-card-border rounded-2xl p-8 hover:border-primary transition-all duration-300"
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
                 >
-                  <div
-                    className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${feature.color} rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-text-primary mb-4 group-hover:text-primary-light transition-colors">
-                    {feature.title}
-                  </h3>
-
-                  <p className="text-text-secondary text-lg leading-relaxed">
-                    {feature.description}
-                  </p>
-
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ArrowRight className="w-5 h-5 text-primary-light" />
-                  </div>
+                  {stats.map((stat, index) => (
+                    <motion.div
+                      key={stat.label}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
+                      className="theme-card-bg border theme-border rounded-2xl p-8 hover:scale-105 transition-all duration-300 hover:shadow-2xl"
+                      style={{
+                        boxShadow: "0 25px 50px -12px var(--theme-primary)20",
+                      }}
+                    >
+                      <div className="text-3xl md:text-4xl font-bold theme-primary mb-2 group-hover:scale-110 transition-transform">
+                        {stat.number}
+                      </div>
+                      <div className="theme-text-secondary font-medium">
+                        {stat.label}
+                      </div>
+                    </motion.div>
+                  ))}
                 </motion.div>
               );
             })}

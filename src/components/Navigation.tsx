@@ -39,7 +39,10 @@ const Navigation = () => {
     ...(isAdmin ? [{ name: "Admin", href: "/admin", icon: Shield }] : []),
   ];
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg/95 backdrop-blur-md border-b border-card-border h-20">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b theme-border h-20"
+      style={{ backgroundColor: "var(--theme-bg)E6" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex justify-between items-center h-full">
           {/* Logo */}
@@ -84,7 +87,7 @@ const Navigation = () => {
               <div className="relative">
                 <button
                   onClick={() => setThemeOpen(!themeOpen)}
-                  className="hidden md:flex items-center space-x-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 text-white hover:text-violet-300 border border-slate-600 shadow-md"
+                  className="hidden md:flex items-center space-x-2 px-5 py-2.5 theme-card-bg hover:opacity-80 rounded-xl transition-all duration-200 theme-text-primary border theme-border shadow-md"
                 >
                   <div className="w-4 h-4 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full"></div>
                   <span className="text-sm font-medium">Theme</span>
@@ -121,7 +124,7 @@ const Navigation = () => {
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="absolute right-0 top-full mt-2 w-48 bg-slate-800 border border-slate-600 rounded-xl shadow-xl overflow-hidden z-50"
+                      className="absolute right-0 top-full mt-2 w-48 theme-card-bg border theme-border rounded-xl shadow-xl overflow-hidden z-50"
                     >
                       <div className="p-3 border-b border-slate-600">
                         <div className="text-sm font-medium text-white">
@@ -183,7 +186,8 @@ const Navigation = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden absolute top-20 left-0 right-0 bg-dark-bg/95 backdrop-blur-md border-b border-card-border"
+            className="md:hidden absolute top-20 left-0 right-0 backdrop-blur-md border-b theme-border"
+            style={{ backgroundColor: "var(--theme-bg)E6" }}
           >
             {/* Mobile User Info */}
             {isAuthenticated && (
