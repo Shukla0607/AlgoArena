@@ -93,11 +93,11 @@ const Login = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900 flex">
+    <div className="h-screen bg-slate-900 flex overflow-hidden">
       {/* Left Side - Branding */}
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-violet-600 via-violet-700 to-purple-800 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
-        <div className="relative z-10 flex flex-col justify-center px-12 xl:px-16">
+        <div className="relative z-10 flex flex-col justify-center px-8 xl:px-12">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -110,19 +110,19 @@ const Login = () => {
               <div className="text-2xl font-bold text-white">AlgoArena</div>
             </Link>
 
-            <h1 className="text-4xl xl:text-5xl font-bold text-white mb-6">
+            <h1 className="text-3xl xl:text-4xl font-bold text-white mb-4">
               Master Algorithms in the{" "}
               <span className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">
                 Arena
               </span>
             </h1>
 
-            <p className="text-xl text-white/80 mb-8 max-w-md">
+            <p className="text-lg text-white/80 mb-6 max-w-md">
               Where LeetCode's rigor meets Figma's elegance. Join thousands of
               developers mastering algorithms through visual learning.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex items-center space-x-3 text-white/90">
                 <div className="w-2 h-2 bg-cyan-400 rounded-full" />
                 <span>500+ Curated Problems</span>
@@ -150,8 +150,8 @@ const Login = () => {
       </div>
 
       {/* Right Side - Login Form */}
-      <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div className="w-full max-w-md mx-auto">
+      <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-8 xl:px-12 py-8 overflow-y-auto">
+        <div className="w-full max-w-md mx-auto my-auto">
           {/* Mobile Logo */}
           <div className="lg:hidden text-center mb-8">
             <Link to="/" className="inline-flex items-center space-x-3">
@@ -179,11 +179,11 @@ const Login = () => {
             </Link>
 
             {/* Header */}
-            <div className="mb-8">
-              <h2 className="text-3xl font-bold text-white mb-2">
+            <div className="mb-6">
+              <h2 className="text-2xl font-bold text-white mb-2">
                 {isSignUp ? "Create Account" : "Welcome Back"}
               </h2>
-              <p className="text-slate-400">
+              <p className="text-slate-400 text-sm">
                 {isSignUp
                   ? "Join the community and start your coding journey"
                   : "Sign in to continue your algorithm mastery"}
@@ -191,11 +191,11 @@ const Login = () => {
             </div>
 
             {/* Role Selection */}
-            <div className="mb-6">
-              <label className="block text-sm font-medium text-slate-300 mb-3">
+            <div className="mb-5">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 {isSignUp ? "Account Type" : "Login As"}
               </label>
-              <div className="grid grid-cols-1 gap-3">
+              <div className="grid grid-cols-1 gap-2">
                 {roleOptions.map((role) => {
                   const Icon = role.icon;
                   return (
@@ -203,7 +203,7 @@ const Login = () => {
                       key={role.value}
                       type="button"
                       onClick={() => setSelectedRole(role.value)}
-                      className={`w-full p-4 rounded-xl border-2 transition-all duration-200 text-left ${
+                      className={`w-full p-3 rounded-xl border-2 transition-all duration-200 text-left ${
                         selectedRole === role.value
                           ? "border-violet-500 bg-violet-500/10"
                           : "border-slate-600 bg-slate-800 hover:border-slate-500"
@@ -232,7 +232,7 @@ const Login = () => {
 
             {/* Demo Credentials Info */}
             {!isSignUp && (
-              <div className="mb-6 p-4 bg-slate-800 rounded-xl border border-slate-600">
+              <div className="mb-4 p-3 bg-slate-800 rounded-xl border border-slate-600">
                 <div className="flex items-start space-x-3">
                   <AlertCircle className="w-5 h-5 text-cyan-400 mt-0.5" />
                   <div>
@@ -263,7 +263,7 @@ const Login = () => {
             )}
 
             {/* Social Login */}
-            <div className="space-y-3 mb-6">
+            <div className="space-y-2 mb-4">
               <button
                 type="button"
                 className="w-full flex items-center justify-center space-x-3 px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl transition-all duration-200 text-white"
@@ -281,7 +281,7 @@ const Login = () => {
             </div>
 
             {/* Divider */}
-            <div className="relative mb-6">
+            <div className="relative mb-4">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-slate-600"></div>
               </div>
@@ -293,7 +293,7 @@ const Login = () => {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4">
               {isSignUp && (
                 <div>
                   <label
@@ -373,7 +373,7 @@ const Login = () => {
             </form>
 
             {/* Toggle */}
-            <div className="mt-8 text-center">
+            <div className="mt-6 text-center">
               <button
                 type="button"
                 onClick={() => setIsSignUp(!isSignUp)}
