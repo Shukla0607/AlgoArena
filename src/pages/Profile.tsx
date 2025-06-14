@@ -68,12 +68,12 @@ const Profile = () => {
                     </div>
                   )}
                 </div>
-                <p className="text-slate-300 mb-2">{user?.email}</p>
-                <p className="text-slate-400 mb-4">
+                <p className="text-white mb-2">{user?.email}</p>
+                <p className="text-slate-300 mb-4">
                   Algorithm Enthusiast • Problem Solver
                 </p>
 
-                <div className="flex flex-wrap items-center gap-4 text-sm text-light/60">
+                <div className="flex flex-wrap items-center gap-4 text-sm text-slate-300">
                   <div className="flex items-center space-x-1">
                     <Calendar className="w-4 h-4" />
                     <span>Joined March 2024</span>
@@ -96,7 +96,7 @@ const Profile = () => {
                   <span>Export Resume</span>
                 </button>
 
-                <button className="flex items-center space-x-2 bg-slate-700 hover:bg-slate-600 text-slate-200 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
+                <button className="flex items-center space-x-2 bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                   <Settings className="w-4 h-4" />
                   <span>Account Settings</span>
                 </button>
@@ -131,7 +131,7 @@ const Profile = () => {
             >
               {/* Progress Overview */}
               <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-light mb-6">
+                <h3 className="text-xl font-bold text-white mb-6">
                   Progress Overview
                 </h3>
 
@@ -187,7 +187,7 @@ const Profile = () => {
 
               {/* Recent Activity */}
               <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-light mb-6">
+                <h3 className="text-xl font-bold text-white mb-6">
                   Recent Activity
                 </h3>
 
@@ -227,10 +227,10 @@ const Profile = () => {
                           className={`w-3 h-3 rounded-full ${activity.status === "Solved" ? "bg-green-400" : "bg-yellow-400"}`}
                         ></div>
                         <div>
-                          <div className="text-light font-medium">
+                          <div className="text-white font-medium">
                             {activity.problem}
                           </div>
-                          <div className="text-light/60 text-sm">
+                          <div className="text-slate-400 text-sm">
                             {activity.time}
                           </div>
                         </div>
@@ -247,7 +247,7 @@ const Profile = () => {
                         >
                           {activity.difficulty}
                         </span>
-                        <span className="text-light/60 text-sm">
+                        <span className="text-slate-300 text-sm">
                           {activity.status}
                         </span>
                       </div>
@@ -266,7 +266,7 @@ const Profile = () => {
             >
               {/* Achievements */}
               <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-light mb-6">
+                <h3 className="text-xl font-bold text-white mb-6">
                   Achievements
                 </h3>
 
