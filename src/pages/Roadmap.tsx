@@ -175,7 +175,7 @@ const Roadmap = () => {
 
                 {/* Difficulty Badge */}
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 bg-slate-700 text-slate-300 text-xs font-medium rounded-full">
+                  <span className="px-3 py-1 bg-slate-700 text-white text-xs font-medium rounded-full border border-slate-600">
                     {path.difficulty}
                   </span>
 

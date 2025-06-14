@@ -253,7 +253,7 @@ public class Solution {
                       </div>
                     </div>
 
-                    <div className="text-xs text-text-muted space-y-1">
+                    <div className="text-xs text-slate-400 space-y-1">
                       <div>Runtime: ~0.1s</div>
                       <div>Memory: ~5.2MB</div>
                       <div>
@@ -264,8 +264,8 @@ public class Solution {
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <Terminal className="w-12 h-12 text-text-muted mx-auto mb-4" />
-                    <p className="text-text-muted">
+                    <Terminal className="w-12 h-12 text-slate-400 mx-auto mb-4" />
+                    <p className="text-slate-400">
                       Run your code to see the output here
                     </p>
                   </div>
@@ -275,17 +275,17 @@ public class Solution {
               {/* Quick Actions */}
               <div className="p-4 border-t border-card-border">
                 <div className="space-y-3">
-                  <h4 className="text-sm font-medium text-text-secondary">
+                  <h4 className="text-sm font-medium text-white">
                     Quick Actions
                   </h4>
                   <div className="space-y-2">
-                    <button className="w-full text-left p-2 text-sm text-text-muted hover:text-primary-light hover:bg-darker-bg rounded-lg transition-all duration-200">
+                    <button className="w-full text-left p-2 text-sm text-slate-300 hover:text-violet-400 hover:bg-slate-700 rounded-lg transition-all duration-200">
                       📚 Algorithm Templates
                     </button>
-                    <button className="w-full text-left p-2 text-sm text-text-muted hover:text-primary-light hover:bg-darker-bg rounded-lg transition-all duration-200">
+                    <button className="w-full text-left p-2 text-sm text-slate-300 hover:text-violet-400 hover:bg-slate-700 rounded-lg transition-all duration-200">
                       🔧 Code Snippets
                     </button>
-                    <button className="w-full text-left p-2 text-sm text-text-muted hover:text-primary-light hover:bg-darker-bg rounded-lg transition-all duration-200">
+                    <button className="w-full text-left p-2 text-sm text-slate-300 hover:text-violet-400 hover:bg-slate-700 rounded-lg transition-all duration-200">
                       📝 Save to Drafts
                     </button>
                   </div>

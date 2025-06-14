@@ -97,8 +97,8 @@
   }
 
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    background-color: var(--theme-bg, hsl(var(--background)));
+    color: var(--theme-text-primary, hsl(var(--foreground)));
     font-family:
       "Inter",
       ui-sans-serif,
@@ -111,6 +111,31 @@
       Arial,
       "Noto Sans",
       sans-serif;
+  }
+
+  /* Theme-aware styles */
+  .theme-bg {
+    background-color: var(--theme-bg);
+  }
+
+  .theme-card-bg {
+    background-color: var(--theme-card-bg);
+  }
+
+  .theme-card-border {
+    border-color: var(--theme-card-border);
+  }
+
+  .theme-text-primary {
+    color: var(--theme-text-primary);
+  }
+
+  .theme-text-secondary {
+    color: var(--theme-text-secondary);
+  }
+
+  .theme-text-muted {
+    color: var(--theme-text-muted);
   }
 
   /* Solid background utilities for better readability */
