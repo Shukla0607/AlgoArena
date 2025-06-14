@@ -231,7 +231,7 @@ const Problems = () => {
                         >
                           {problem.difficulty}
                         </span>
-                        <span className="px-3 py-1 bg-slate/30 text-light/70 text-xs font-medium rounded-full">
+                        <span className="px-3 py-1 bg-slate-700 text-slate-200 text-xs font-medium rounded-full border border-slate-600">
                           {problem.topic}
                         </span>
                       </div>
@@ -240,7 +240,7 @@ const Problems = () => {
                         {problem.description}
                       </p>
 
-                      <div className="flex items-center space-x-6 text-sm text-light/50">
+                      <div className="flex items-center space-x-6 text-sm text-slate-400">
                         <div className="flex items-center space-x-1">
                           <Star className="w-4 h-4" />
                           <span>{problem.likes}</span>

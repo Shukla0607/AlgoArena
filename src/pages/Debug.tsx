@@ -43,15 +43,15 @@ def twoSum(nums, target):
     Find two numbers that add up to target
     """
     hashmap = {}
-    
+
     for i, num in enumerate(nums):
         complement = target - num
-        
+
         if complement in hashmap:
             return [hashmap[complement], i]
-        
+
         hashmap[num] = i
-    
+
     return []
 
 # Test the function
@@ -255,30 +255,32 @@ print(f"Result: {result}")
               </div>
 
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-3">
-                {chatMessages.map((message) => (
-                  <div key={message.id}>
-                    {message.type === "system" ? (
-                      <div className="text-center text-xs text-slate-400 py-1">
-                        {message.message}
-                      </div>
-                    ) : (
-                      <div className="space-y-1">
-                        <div className="flex items-center space-x-2">
-                          <span className="text-xs font-medium text-slate-300">
-                            {message.user}
-                          </span>
-                          <span className="text-xs text-slate-500">
-                            {message.timestamp}
-                          </span>
-                        </div>
-                        <div className="text-sm text-slate-200 bg-slate-700 rounded-lg px-3 py-2">
+              <div className="flex-1 overflow-y-auto p-4 space-y-3 max-h-96">
+                <div className="space-y-3">
+                  {chatMessages.map((message) => (
+                    <div key={message.id} className="flex-shrink-0">
+                      {message.type === "system" ? (
+                        <div className="text-center text-xs text-slate-400 py-2 bg-slate-800/50 rounded-lg">
                           {message.message}
                         </div>
-                      </div>
-                    )}
-                  </div>
-                ))}
+                      ) : (
+                        <div className="space-y-1">
+                          <div className="flex items-center space-x-2">
+                            <span className="text-xs font-medium text-white">
+                              {message.user}
+                            </span>
+                            <span className="text-xs text-slate-400">
+                              {message.timestamp}
+                            </span>
+                          </div>
+                          <div className="text-sm text-white bg-slate-700 rounded-lg px-3 py-2 border border-slate-600">
+                            {message.message}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Message Input */}

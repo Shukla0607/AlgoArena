@@ -12,10 +12,13 @@ import {
   Terminal,
 } from "lucide-react";
 import LoginModal from "./LoginModal";
+import ThemeSelector from "./ThemeSelector";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [themeOpen, setThemeOpen] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState("dark");
   const location = useLocation();
 
   const navItems = [
@@ -45,7 +48,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = location.pathname === item.href;
@@ -54,10 +57,10 @@ const Navigation = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-200 ${
+                  className={`flex items-center space-x-2 px-5 py-2.5 rounded-xl transition-all duration-200 ${
                     isActive
-                      ? "bg-violet-500/20 text-violet-300 border border-violet-500/40"
-                      : "text-slate-300 hover:text-white hover:bg-slate-800/60"
+                      ? "bg-violet-500/20 text-violet-200 border border-violet-500/50 shadow-lg"
+                      : "text-slate-200 hover:text-white hover:bg-slate-700/80 hover:shadow-md"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -69,15 +72,25 @@ const Navigation = () => {
 
           {/* Theme Toggle & Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-4">
-              <button className="hidden md:flex items-center space-x-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 text-slate-300 hover:text-white border border-slate-600">
-                <div className="w-4 h-4 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full"></div>
-                <span className="text-sm font-medium">Theme</span>
-              </button>
+            <div className="flex items-center space-x-6">
+              <div className="relative">
+                <button
+                  onClick={() => setThemeOpen(!themeOpen)}
+                  className="hidden md:flex items-center space-x-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 text-slate-200 hover:text-white border border-slate-600 shadow-md"
+                >
+                  <div className="w-4 h-4 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full"></div>
+                  <span className="text-sm font-medium">Theme</span>
+                </button>
+
+                <ThemeSelector
+                  isOpen={themeOpen}
+                  onClose={() => setThemeOpen(false)}
+                />
+              </div>
 
               <button
                 onClick={() => setIsLoginOpen(true)}
-                className="hidden md:flex items-center space-x-2 px-4 py-2 bg-violet-600 hover:bg-violet-700 rounded-xl transition-all duration-200 text-white border border-violet-500"
+                className="hidden md:flex items-center space-x-2 px-5 py-2.5 bg-violet-600 hover:bg-violet-700 rounded-xl transition-all duration-200 text-white border border-violet-500 shadow-lg"
               >
                 <span className="text-sm font-medium">Login</span>
               </button>
@@ -86,7 +99,7 @@ const Navigation = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 text-text-secondary hover:text-text-primary"
+              className="md:hidden p-2 text-slate-200 hover:text-white"
             >
               {isOpen ? (
                 <X className="w-6 h-6" />
@@ -116,8 +129,8 @@ const Navigation = () => {
                     onClick={() => setIsOpen(false)}
                     className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                       isActive
-                        ? "bg-violet-500/20 text-violet-300 border border-violet-500/40"
-                        : "text-slate-300 hover:text-white hover:bg-slate-800/60"
+                        ? "bg-violet-500/20 text-violet-200 border border-violet-500/50"
+                        : "text-slate-200 hover:text-white hover:bg-slate-700/80"
                     }`}
                   >
                     <Icon className="w-5 h-5" />
