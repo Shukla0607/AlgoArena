@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 import LoginModal from "./LoginModal";
 import ThemeSelector from "./ThemeSelector";
-import LogoutConfirmation from "./LogoutConfirmation";
 import { useAuth } from "../contexts/AuthContext";
 
 const Navigation = () => {
@@ -24,15 +23,8 @@ const Navigation = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [themeOpen, setThemeOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const [logoutConfirmOpen, setLogoutConfirmOpen] = useState(false);
   const location = useLocation();
-  const { user, isAuthenticated, logout, isAdmin } = useAuth();
-
-  const handleLogout = () => {
-    logout();
-    setLogoutConfirmOpen(false);
-    setUserMenuOpen(false);
-  };
+  const { user, isAuthenticated, isAdmin } = useAuth();
 
   const navItems = [
     { name: "Problems", href: "/problems", icon: Code },
@@ -161,16 +153,6 @@ const Navigation = () => {
                             <span>Admin Dashboard</span>
                           </Link>
                         )}
-                        <button
-                          onClick={() => {
-                            setLogoutConfirmOpen(true);
-                            setUserMenuOpen(false);
-                          }}
-                          className="w-full flex items-center space-x-3 px-4 py-2 text-red-400 hover:text-red-300 hover:bg-red-400/10 transition-colors"
-                        >
-                          <LogOut className="w-4 h-4" />
-                          <span>Logout</span>
-                        </button>
                       </div>
                     </motion.div>
                   )}
@@ -248,19 +230,8 @@ const Navigation = () => {
                 );
               })}
 
-              {/* Mobile Login/Logout */}
-              {isAuthenticated ? (
-                <button
-                  onClick={() => {
-                    setLogoutConfirmOpen(true);
-                    setIsOpen(false);
-                  }}
-                  className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 text-red-400 hover:text-red-300 hover:bg-red-400/10 border border-red-400/20"
-                >
-                  <LogOut className="w-5 h-5" />
-                  <span className="font-medium">Logout</span>
-                </button>
-              ) : (
+              {/* Mobile Login */}
+              {!isAuthenticated && (
                 <button
                   onClick={() => {
                     setIsLoginOpen(true);
@@ -278,12 +249,6 @@ const Navigation = () => {
       </div>
 
       <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
-      <LogoutConfirmation
-        isOpen={logoutConfirmOpen}
-        onClose={() => setLogoutConfirmOpen(false)}
-        onConfirm={handleLogout}
-        userName={user?.name}
-      />
     </nav>
   );
 };
