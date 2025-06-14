@@ -12,13 +12,6 @@ import {
   Terminal,
 } from "lucide-react";
 import LoginModal from "./LoginModal";
-  Code,
-  Map,
-  Users,
-  User,
-  Trophy,
-  Terminal,
-} from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
