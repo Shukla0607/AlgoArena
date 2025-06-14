@@ -12,11 +12,6 @@ import {
   Terminal,
 } from "lucide-react";
 import LoginModal from "./LoginModal";
-import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
-import {
-  Menu,
-  X,
   Code,
   Map,
   Users,
