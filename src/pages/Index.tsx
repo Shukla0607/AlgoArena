@@ -80,11 +80,9 @@ const Index = () => {
               </h1>
 
               <p className="text-xl text-white mb-8 max-w-2xl">
-                Where LeetCode's rigor meets Figma's elegance. Master
-                algorithms through visual learning paths, collaborative
-                debugging, and zen-focused practice sessions.
-              </p>
-                structures.
+                Where LeetCode's rigor meets Figma's elegance. Master algorithms
+                through visual learning paths, collaborative debugging, and
+                zen-focused practice sessions.
               </p>
             </motion.div>
 
