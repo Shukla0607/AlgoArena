@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   User,
@@ -9,10 +9,24 @@ import {
   Linkedin,
   Target,
   Flame,
+  LogOut,
+  Settings,
+  Shield,
 } from "lucide-react";
 import Navigation from "../components/Navigation";
+import LogoutConfirmation from "../components/LogoutConfirmation";
+import { useAuth } from "../contexts/AuthContext";
 
 const Profile = () => {
+  const { user, logout, isAdmin } = useAuth();
+  const [logoutConfirmOpen, setLogoutConfirmOpen] = useState(false);
+
+  const handleLogout = () => {
+    logout();
+    setLogoutConfirmOpen(false);
+    window.location.href = "/"; // Redirect to homepage after logout
+  };
+
   return (
     <div className="min-h-screen bg-slate-900">
       <Navigation />
@@ -29,21 +43,34 @@ const Profile = () => {
             <div className="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8">
               {/* Avatar */}
               <div className="relative">
-                <div className="w-24 h-24 bg-gradient-to-tr from-cyan to-highlight rounded-2xl flex items-center justify-center">
-                  <User className="w-12 h-12 text-midnight" />
+                <div className="w-24 h-24 bg-gradient-to-tr from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">
+                    {user?.avatar || user?.name?.charAt(0) || "U"}
+                  </span>
                 </div>
-                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center border-4 border-midnight">
-                  <span className="text-midnight text-xs font-bold">12</span>
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center border-4 border-slate-900">
+                  <span className="text-slate-900 text-xs font-bold">12</span>
                 </div>
               </div>
 
               {/* User Info */}
               <div className="flex-1">
-                <h1 className="text-3xl font-bold text-white mb-2">
-                  Alex Johnson
-                </h1>
-                <p className="text-slate-300 mb-4">
-                  Full Stack Developer • Algorithm Enthusiast
+                <div className="flex items-center space-x-3 mb-2">
+                  <h1 className="text-3xl font-bold text-white">
+                    {user?.name || "User"}
+                  </h1>
+                  {isAdmin && (
+                    <div className="flex items-center space-x-1 px-2 py-1 bg-violet-500/20 border border-violet-500/30 rounded-full">
+                      <Shield className="w-4 h-4 text-violet-400" />
+                      <span className="text-violet-400 text-sm font-medium">
+                        Admin
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <p className="text-slate-300 mb-2">{user?.email}</p>
+                <p className="text-slate-400 mb-4">
+                  Algorithm Enthusiast • Problem Solver
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4 text-sm text-light/60">
@@ -64,16 +91,29 @@ const Profile = () => {
 
               {/* Actions */}
               <div className="flex flex-col space-y-3">
-                <button className="flex items-center space-x-2 bg-cyan hover:bg-cyan/90 text-midnight px-6 py-3 rounded-xl font-semibold transition-all duration-200">
+                <button className="flex items-center space-x-2 bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                   <Download className="w-4 h-4" />
                   <span>Export Resume</span>
                 </button>
 
-                <div className="flex space-x-2">
-                  <button className="p-3 bg-slate-700 hover:bg-slate-600 text-light rounded-xl transition-all duration-200">
+                <button className="flex items-center space-x-2 bg-slate-700 hover:bg-slate-600 text-slate-200 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
+                  <Settings className="w-4 h-4" />
+                  <span>Account Settings</span>
+                </button>
+
+                <button
+                  onClick={() => setLogoutConfirmOpen(true)}
+                  className="flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 border border-red-500"
+                >
+                  <LogOut className="w-4 h-4" />
+                  <span>Logout</span>
+                </button>
+
+                <div className="flex space-x-2 mt-4">
+                  <button className="p-3 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl transition-all duration-200">
                     <Github className="w-5 h-5" />
                   </button>
-                  <button className="p-3 bg-slate-700 hover:bg-slate-600 text-light rounded-xl transition-all duration-200">
+                  <button className="p-3 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl transition-all duration-200">
                     <Linkedin className="w-5 h-5" />
                   </button>
                 </div>
@@ -292,6 +332,13 @@ const Profile = () => {
           </div>
         </div>
       </div>
+
+      <LogoutConfirmation
+        isOpen={logoutConfirmOpen}
+        onClose={() => setLogoutConfirmOpen(false)}
+        onConfirm={handleLogout}
+        userName={user?.name}
+      />
     </div>
   );
 };
