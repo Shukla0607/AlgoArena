@@ -9,6 +9,7 @@ export interface TestCase {
 
 export interface Problem {
   id: number;
+  number: number;
   title: string;
   difficulty: "Easy" | "Medium" | "Hard";
   topic: string;
@@ -35,6 +36,7 @@ export interface Problem {
 export const problems: Problem[] = [
   {
     id: 1,
+    number: 1,
     title: "Two Sum",
     difficulty: "Easy",
     topic: "Array",
@@ -122,6 +124,7 @@ class Solution {
   },
   {
     id: 2,
+    number: 2,
     title: "Add Two Numbers",
     difficulty: "Medium",
     topic: "Linked List",
@@ -237,6 +240,7 @@ class Solution {
   },
   {
     id: 3,
+    number: 3,
     title: "Longest Substring Without Repeating Characters",
     difficulty: "Medium",
     topic: "String",
@@ -307,6 +311,7 @@ public:
   },
   {
     id: 4,
+    number: 4,
     title: "Median of Two Sorted Arrays",
     difficulty: "Hard",
     topic: "Binary Search",
@@ -380,6 +385,7 @@ public:
   },
   {
     id: 5,
+    number: 5,
     title: "Longest Palindromic Substring",
     difficulty: "Medium",
     topic: "String",
@@ -443,6 +449,7 @@ public:
   },
   {
     id: 6,
+    number: 11,
     title: "Container With Most Water",
     difficulty: "Medium",
     topic: "Two Pointers",
