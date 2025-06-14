@@ -196,9 +196,29 @@ const Navigation = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden absolute top-20 left-0 right-0 bg-dark-bg/95 backdrop-blur-md border-b border-card-border pb-4"
+            className="md:hidden absolute top-20 left-0 right-0 bg-dark-bg/95 backdrop-blur-md border-b border-card-border"
           >
-            <div className="space-y-2">
+            {/* Mobile User Info */}
+            {isAuthenticated && (
+              <div className="p-4 border-b border-slate-600 bg-slate-800/50">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex items-center justify-center">
+                    <span className="text-white font-semibold text-sm">
+                      {user?.avatar || user?.name?.charAt(0)}
+                    </span>
+                  </div>
+                  <div>
+                    <div className="text-white font-medium">{user?.name}</div>
+                    <div className="text-slate-400 text-sm capitalize">
+                      {user?.role}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Mobile Navigation Items */}
+            <div className="space-y-2 p-4">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = location.pathname === item.href;
@@ -219,6 +239,31 @@ const Navigation = () => {
                   </Link>
                 );
               })}
+
+              {/* Mobile Login/Logout */}
+              {isAuthenticated ? (
+                <button
+                  onClick={() => {
+                    logout();
+                    setIsOpen(false);
+                  }}
+                  className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 text-red-400 hover:text-red-300 hover:bg-red-400/10 border border-red-400/20"
+                >
+                  <LogOut className="w-5 h-5" />
+                  <span className="font-medium">Logout</span>
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setIsLoginOpen(true);
+                    setIsOpen(false);
+                  }}
+                  className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 text-white bg-violet-600 hover:bg-violet-700"
+                >
+                  <User className="w-5 h-5" />
+                  <span className="font-medium">Login</span>
+                </button>
+              )}
             </div>
           </motion.div>
         )}
