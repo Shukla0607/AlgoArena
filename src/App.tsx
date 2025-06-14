@@ -8,6 +8,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AIChatBot from "./components/AIChatBot";
 import Index from "./pages/Index";
+import Login from "./pages/Login";
 import Problems from "./pages/Problems";
 import ProblemSolver from "./pages/ProblemSolver";
 import Practice from "./pages/Practice";
@@ -30,6 +31,7 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/problems" element={<Problems />} />
               <Route path="/problems/:id" element={<ProblemSolver />} />
               <Route path="/practice" element={<Practice />} />

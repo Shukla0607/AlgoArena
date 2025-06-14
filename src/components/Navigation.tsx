@@ -14,13 +14,11 @@ import {
   LogOut,
   ChevronDown,
 } from "lucide-react";
-import LoginModal from "./LoginModal";
 import ThemeSelector from "./ThemeSelector";
 import { useAuth } from "../contexts/AuthContext";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [themeOpen, setThemeOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const location = useLocation();
@@ -157,12 +155,12 @@ const Navigation = () => {
                   )}
                 </div>
               ) : (
-                <button
-                  onClick={() => setIsLoginOpen(true)}
+                <Link
+                  to="/login"
                   className="hidden md:flex items-center space-x-2 px-5 py-2.5 bg-violet-600 hover:bg-violet-700 rounded-xl transition-all duration-200 text-white border border-violet-500 shadow-lg"
                 >
                   <span className="text-sm font-medium">Login</span>
-                </button>
+                </Link>
               )}
             </div>
 
@@ -231,23 +229,19 @@ const Navigation = () => {
 
               {/* Mobile Login */}
               {!isAuthenticated && (
-                <button
-                  onClick={() => {
-                    setIsLoginOpen(true);
-                    setIsOpen(false);
-                  }}
+                <Link
+                  to="/login"
+                  onClick={() => setIsOpen(false)}
                   className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 text-white bg-violet-600 hover:bg-violet-700"
                 >
                   <User className="w-5 h-5" />
                   <span className="font-medium">Login</span>
-                </button>
+                </Link>
               )}
             </div>
           </motion.div>
         )}
       </div>
-
-      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </nav>
   );
 };
