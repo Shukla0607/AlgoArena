@@ -125,8 +125,16 @@ print(f"Result: {result}")
         timestamp: "now",
         type: "message",
       };
-      setChatMessages([...chatMessages, message]);
+      setChatMessages((prev) => [...prev, message]);
       setNewMessage("");
+
+      // Scroll to bottom after message is added
+      setTimeout(() => {
+        const messagesContainer = document.querySelector(".messages-container");
+        if (messagesContainer) {
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+      }, 100);
     }
   };
 
@@ -148,12 +156,14 @@ print(f"Result: {result}")
           {/* Left Sidebar - Collaborators & Chat */}
           <div className="w-80 bg-slate-800 border-r border-slate-600 flex flex-col">
             {/* Session Header */}
-            <div className="p-4 border-b border-slate-600">
+            <div className="p-4 border-b border-slate-600 bg-slate-800/50">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-bold text-white">Debug Session</h2>
                 <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  <span className="text-green-400 text-sm">Connected</span>
+                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                  <span className="text-green-400 text-sm font-medium">
+                    Connected
+                  </span>
                 </div>
               </div>
 
@@ -201,7 +211,7 @@ print(f"Result: {result}")
 
             {/* Collaborators */}
             <div className="p-4 border-b border-slate-600">
-              <h3 className="text-sm font-semibold text-slate-300 mb-3">
+              <h3 className="text-sm font-semibold text-white mb-3">
                 Participants ({collaborators.filter((c) => c.isOnline).length})
               </h3>
               <div className="space-y-3">
@@ -250,17 +260,20 @@ print(f"Result: {result}")
 
             {/* Chat */}
             <div className="flex-1 flex flex-col">
-              <div className="p-4 border-b border-slate-600">
-                <h3 className="text-sm font-semibold text-slate-300">Chat</h3>
+              <div className="p-4 border-b border-slate-600 bg-slate-800/30">
+                <h3 className="text-sm font-semibold text-white">Chat</h3>
               </div>
 
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-3 max-h-96">
-                <div className="space-y-3">
+              <div
+                className="flex-1 overflow-y-auto p-4 messages-container"
+                style={{ height: "calc(100vh - 400px)" }}
+              >
+                <div className="space-y-3 pb-4">
                   {chatMessages.map((message) => (
                     <div key={message.id} className="flex-shrink-0">
                       {message.type === "system" ? (
-                        <div className="text-center text-xs text-slate-400 py-2 bg-slate-800/50 rounded-lg">
+                        <div className="text-center text-xs text-slate-400 py-2 bg-slate-800/50 rounded-lg border border-slate-700">
                           {message.message}
                         </div>
                       ) : (
@@ -273,7 +286,7 @@ print(f"Result: {result}")
                               {message.timestamp}
                             </span>
                           </div>
-                          <div className="text-sm text-white bg-slate-700 rounded-lg px-3 py-2 border border-slate-600">
+                          <div className="text-sm text-white bg-slate-700 rounded-lg px-3 py-2 border border-slate-600 shadow-sm">
                             {message.message}
                           </div>
                         </div>
