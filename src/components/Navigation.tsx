@@ -10,16 +10,21 @@ import {
   User,
   Trophy,
   Terminal,
+  Shield,
+  LogOut,
+  ChevronDown,
 } from "lucide-react";
 import LoginModal from "./LoginModal";
 import ThemeSelector from "./ThemeSelector";
+import { useAuth } from "../contexts/AuthContext";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [themeOpen, setThemeOpen] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState("dark");
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const location = useLocation();
+  const { user, isAuthenticated, logout, isAdmin } = useAuth();
 
   const navItems = [
     { name: "Problems", href: "/problems", icon: Code },
@@ -28,6 +33,7 @@ const Navigation = () => {
     { name: "Debug Together", href: "/debug", icon: Users },
     { name: "Profile", href: "/profile", icon: User },
     { name: "Leaderboard", href: "/leaderboard", icon: Trophy },
+    ...(isAdmin ? [{ name: "Admin", href: "/admin", icon: Shield }] : []),
   ];
 
   return (
@@ -88,12 +94,82 @@ const Navigation = () => {
                 />
               </div>
 
-              <button
-                onClick={() => setIsLoginOpen(true)}
-                className="hidden md:flex items-center space-x-2 px-5 py-2.5 bg-violet-600 hover:bg-violet-700 rounded-xl transition-all duration-200 text-white border border-violet-500 shadow-lg"
-              >
-                <span className="text-sm font-medium">Login</span>
-              </button>
+              {isAuthenticated ? (
+                <div className="relative">
+                  <button
+                    onClick={() => setUserMenuOpen(!userMenuOpen)}
+                    className="hidden md:flex items-center space-x-3 px-4 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 text-white border border-slate-600 shadow-lg"
+                  >
+                    <div className="w-8 h-8 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex items-center justify-center">
+                      <span className="text-white font-semibold text-sm">
+                        {user?.avatar || user?.name?.charAt(0)}
+                      </span>
+                    </div>
+                    <div className="text-left">
+                      <div className="text-sm font-medium">{user?.name}</div>
+                      <div className="text-xs text-slate-400 capitalize">
+                        {user?.role}
+                      </div>
+                    </div>
+                    <ChevronDown className="w-4 h-4 text-slate-400" />
+                  </button>
+
+                  {/* User Dropdown */}
+                  {userMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="absolute right-0 top-full mt-2 w-48 bg-slate-800 border border-slate-600 rounded-xl shadow-xl overflow-hidden z-50"
+                    >
+                      <div className="p-3 border-b border-slate-600">
+                        <div className="text-sm font-medium text-white">
+                          {user?.name}
+                        </div>
+                        <div className="text-xs text-slate-400">
+                          {user?.email}
+                        </div>
+                      </div>
+                      <div className="py-2">
+                        <Link
+                          to="/profile"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="flex items-center space-x-3 px-4 py-2 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                        >
+                          <User className="w-4 h-4" />
+                          <span>Profile</span>
+                        </Link>
+                        {isAdmin && (
+                          <Link
+                            to="/admin"
+                            onClick={() => setUserMenuOpen(false)}
+                            className="flex items-center space-x-3 px-4 py-2 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                          >
+                            <Shield className="w-4 h-4" />
+                            <span>Admin Dashboard</span>
+                          </Link>
+                        )}
+                        <button
+                          onClick={() => {
+                            logout();
+                            setUserMenuOpen(false);
+                          }}
+                          className="w-full flex items-center space-x-3 px-4 py-2 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                        >
+                          <LogOut className="w-4 h-4" />
+                          <span>Logout</span>
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </div>
+              ) : (
+                <button
+                  onClick={() => setIsLoginOpen(true)}
+                  className="hidden md:flex items-center space-x-2 px-5 py-2.5 bg-violet-600 hover:bg-violet-700 rounded-xl transition-all duration-200 text-white border border-violet-500 shadow-lg"
+                >
+                  <span className="text-sm font-medium">Login</span>
+                </button>
+              )}
             </div>
 
             {/* Mobile menu button */}
