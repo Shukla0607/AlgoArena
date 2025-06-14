@@ -57,7 +57,7 @@ const Problems = () => {
   });
 
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen theme-bg">
       <Navigation />
 
       <div className="pt-24 px-4 sm:px-6 lg:px-8">
@@ -115,7 +115,7 @@ const Problems = () => {
             ].map((stat, index) => (
               <div
                 key={stat.label}
-                className="bg-slate-800 border border-slate-600 rounded-xl p-4"
+              <div className="theme-card-bg border theme-border rounded-xl p-4">
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-slate-300 text-sm font-medium">

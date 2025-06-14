@@ -23,7 +23,7 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({ isOpen, onClose }) => {
             initial={{ opacity: 0, scale: 0.95, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -10 }}
-            className="absolute top-full right-0 mt-2 z-50 w-80 bg-slate-800 border border-slate-600 rounded-xl shadow-2xl p-4"
+            className="absolute top-full right-0 mt-2 z-50 w-80 theme-card-bg border theme-border rounded-xl shadow-2xl p-4"
           >
             <div className="flex items-center space-x-2 mb-4">
               <Palette className="w-5 h-5 text-violet-400" />

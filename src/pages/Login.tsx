@@ -93,7 +93,7 @@ const Login = () => {
   ];
 
   return (
-    <div className="h-screen bg-slate-900 flex overflow-hidden">
+    <div className="h-screen theme-bg flex overflow-hidden">
       {/* Left Side - Branding */}
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-violet-600 via-violet-700 to-purple-800 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
@@ -205,9 +205,19 @@ const Login = () => {
                       onClick={() => setSelectedRole(role.value)}
                       className={`w-full p-3 rounded-xl border-2 transition-all duration-200 text-left ${
                         selectedRole === role.value
-                          ? "border-violet-500 bg-violet-500/10"
-                          : "border-slate-600 bg-slate-800 hover:border-slate-500"
+                          ? "border-theme-primary bg-theme-primary/10"
+                          : "theme-border theme-card-bg hover:opacity-80"
                       }`}
+                      style={{
+                        borderColor:
+                          selectedRole === role.value
+                            ? "var(--theme-primary)"
+                            : "var(--theme-card-border)",
+                        backgroundColor:
+                          selectedRole === role.value
+                            ? "var(--theme-primary)1A"
+                            : "var(--theme-card-bg)",
+                      }}
                     >
                       <div className="flex items-start space-x-3">
                         <div
