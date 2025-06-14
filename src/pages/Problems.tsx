@@ -46,7 +46,8 @@ const Problems = () => {
   const filteredProblems = problems.filter((problem) => {
     const matchesSearch =
       problem.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      problem.description.toLowerCase().includes(searchTerm.toLowerCase());
+      problem.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      problem.number.toString().includes(searchTerm.trim());
     const matchesDifficulty =
       selectedDifficulty === "All" || problem.difficulty === selectedDifficulty;
     const matchesTopic =
@@ -151,7 +152,7 @@ const Problems = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-light/40" />
                 <input
                   type="text"
-                  placeholder="Search problems..."
+                  placeholder="Search problems by title, number, or description..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 bg-slate-700 border border-slate-500 rounded-xl text-white placeholder-slate-400 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20"
@@ -223,6 +224,9 @@ const Problems = () => {
                     {/* Problem Info */}
                     <div className="flex-1">
                       <div className="flex items-center space-x-3 mb-2">
+                        <span className="text-sm font-mono text-slate-400 bg-slate-700 px-2 py-1 rounded">
+                          #{problem.number}
+                        </span>
                         <h3 className="text-xl font-semibold text-white group-hover:text-violet-400 transition-colors">
                           {problem.title}
                         </h3>
