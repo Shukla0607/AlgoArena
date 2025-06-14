@@ -93,11 +93,12 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-family:
       "Inter",
       ui-sans-serif,
@@ -161,15 +162,16 @@
 
   /* Selection styles */
   ::selection {
-    @apply bg-cyan/30 text-white;
+    background-color: rgba(6, 182, 212, 0.3);
+    color: white;
   }
 
   /* Monaco Editor overrides */
   .monaco-editor {
-    @apply rounded-lg;
+    border-radius: 0.5rem;
   }
 
   .monaco-editor .margin {
-    @apply bg-transparent;
+    background-color: transparent;
   }
 }
