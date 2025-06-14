@@ -136,7 +136,7 @@ const ProblemSolver = () => {
               </div>
 
               <h1 className="text-2xl font-bold text-light mb-2">
-                {problem.id}. {problem.title}
+                {problem.number}. {problem.title}
               </h1>
 
               {/* Tabs */}
