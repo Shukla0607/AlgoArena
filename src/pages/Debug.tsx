@@ -1,199 +1,444 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Users, Play, MessageCircle, Code, Sparkles } from "lucide-react";
+import Editor from "@monaco-editor/react";
+import {
+  Users,
+  Play,
+  MessageCircle,
+  Code,
+  Sparkles,
+  UserPlus,
+  Share,
+  Video,
+  Mic,
+  MicOff,
+  VideoOff,
+  Send,
+  Settings,
+  Crown,
+} from "lucide-react";
 import Navigation from "../components/Navigation";
 
+interface Collaborator {
+  id: string;
+  name: string;
+  avatar: string;
+  color: string;
+  isOnline: boolean;
+  cursor?: { line: number; column: number };
+}
+
+interface ChatMessage {
+  id: string;
+  user: string;
+  message: string;
+  timestamp: string;
+  type: "message" | "system";
+}
+
 const Debug = () => {
+  const [code, setCode] = useState(`# Collaborative Two Sum Solution
+def twoSum(nums, target):
+    """
+    Find two numbers that add up to target
+    """
+    hashmap = {}
+    
+    for i, num in enumerate(nums):
+        complement = target - num
+        
+        if complement in hashmap:
+            return [hashmap[complement], i]
+        
+        hashmap[num] = i
+    
+    return []
+
+# Test the function
+nums = [2, 7, 11, 15]
+target = 9
+result = twoSum(nums, target)
+print(f"Result: {result}")
+`);
+
+  const [isConnected, setIsConnected] = useState(true);
+  const [collaborators] = useState<Collaborator[]>([
+    {
+      id: "1",
+      name: "Alex (You)",
+      avatar: "A",
+      color: "violet",
+      isOnline: true,
+      cursor: { line: 8, column: 15 },
+    },
+    {
+      id: "2",
+      name: "Sarah",
+      avatar: "S",
+      color: "cyan",
+      isOnline: true,
+      cursor: { line: 12, column: 30 },
+    },
+    {
+      id: "3",
+      name: "Mike",
+      avatar: "M",
+      color: "orange",
+      isOnline: false,
+    },
+  ]);
+
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
+    {
+      id: "1",
+      user: "System",
+      message: "Sarah joined the session",
+      timestamp: "2 min ago",
+      type: "system",
+    },
+    {
+      id: "2",
+      user: "Sarah",
+      message: "Hey! I think we can optimize this solution",
+      timestamp: "1 min ago",
+      type: "message",
+    },
+    {
+      id: "3",
+      user: "Alex",
+      message: "Sure! What do you have in mind?",
+      timestamp: "30s ago",
+      type: "message",
+    },
+  ]);
+
+  const [newMessage, setNewMessage] = useState("");
+  const [isMicOn, setIsMicOn] = useState(false);
+  const [isVideoOn, setIsVideoOn] = useState(false);
+
+  const sendMessage = () => {
+    if (newMessage.trim()) {
+      const message: ChatMessage = {
+        id: Date.now().toString(),
+        user: "Alex",
+        message: newMessage,
+        timestamp: "now",
+        type: "message",
+      };
+      setChatMessages([...chatMessages, message]);
+      setNewMessage("");
+    }
+  };
+
+  const getCursorColor = (color: string) => {
+    const colors = {
+      violet: "bg-violet-500",
+      cyan: "bg-cyan-500",
+      orange: "bg-orange-500",
+    };
+    return colors[color as keyof typeof colors] || "bg-violet-500";
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-midnight via-midnight to-slate-900">
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
 
-      <div className="pt-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center space-x-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-6 py-2 mb-6">
-              <Sparkles className="w-4 h-4 text-purple-400" />
-              <span className="text-purple-400 font-medium">Coming Soon</span>
-            </div>
-
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
-              Debug{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Together
-              </span>
-            </h1>
-            <p className="text-xl text-light/70 max-w-3xl mx-auto">
-              Experience the future of collaborative coding. Real-time pair
-              programming with visual feedback and shared problem-solving.
-            </p>
-          </motion.div>
-
-          {/* Features Preview */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {[
-              {
-                icon: Users,
-                title: "Real-time Collaboration",
-                description:
-                  "See your partner's cursor, selections, and changes in real-time as you code together.",
-                color: "from-purple-400 to-pink-400",
-              },
-              {
-                icon: MessageCircle,
-                title: "Integrated Chat",
-                description:
-                  "Discuss approaches, share insights, and brainstorm solutions without leaving the editor.",
-                color: "from-cyan to-blue-400",
-              },
-              {
-                icon: Code,
-                title: "Shared Code Execution",
-                description:
-                  "Run tests together and see results simultaneously. Perfect for debugging and optimization.",
-                color: "from-highlight to-orange-400",
-              },
-              {
-                icon: Play,
-                title: "Session Recording",
-                description:
-                  "Record your collaboration sessions to review problem-solving approaches later.",
-                color: "from-green-400 to-emerald-400",
-              },
-            ].map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className="bg-slate-800 border border-slate-700 rounded-xl p-6"
-                >
-                  <div
-                    className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${feature.color} rounded-xl mb-4`}
-                  >
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-light mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-light/70">{feature.description}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Mock Interface Preview */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-slate-800 border border-slate-700 rounded-xl p-8"
-          >
-            <h3 className="text-2xl font-bold text-light mb-6">
-              Preview: Collaborative Interface
-            </h3>
-
-            <div className="bg-slate-900 rounded-xl p-6">
+      <div className="pt-20">
+        <div className="h-screen flex">
+          {/* Left Sidebar - Collaborators & Chat */}
+          <div className="w-80 bg-slate-800 border-r border-slate-600 flex flex-col">
+            {/* Session Header */}
+            <div className="p-4 border-b border-slate-600">
               <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                      A
-                    </div>
-                    <span className="text-light/80 text-sm">Alex (You)</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gradient-to-r from-cyan to-blue-400 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                      S
-                    </div>
-                    <span className="text-light/80 text-sm">Sarah</span>
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-cyan rounded-full animate-pulse"></div>
-                      <div
-                        className="w-2 h-2 bg-cyan rounded-full animate-pulse"
-                        style={{ animationDelay: "0.2s" }}
-                      ></div>
-                      <div
-                        className="w-2 h-2 bg-cyan rounded-full animate-pulse"
-                        style={{ animationDelay: "0.4s" }}
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-2 text-green-400 text-sm">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                  <span>Connected</span>
+                <h2 className="text-xl font-bold text-white">Debug Session</h2>
+                <div className="flex items-center space-x-2">
+                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                  <span className="text-green-400 text-sm">Connected</span>
                 </div>
               </div>
 
-              <div className="border border-slate-700 rounded-lg p-4 bg-slate-800">
-                <div className="text-light/60 text-sm mb-2">two-sum.py</div>
-                <div className="font-mono text-sm space-y-1">
-                  <div className="text-purple-400">
-                    def <span className="text-highlight">twoSum</span>(
-                    <span className="text-cyan">nums</span>,{" "}
-                    <span className="text-cyan">target</span>):
-                  </div>
-                  <div className="pl-4 text-light/80 relative">
-                    <span className="text-cyan">hashmap</span> = {}
-                    <div className="absolute -left-2 top-0 w-1 h-5 bg-purple-400 rounded animate-pulse"></div>
-                  </div>
-                  <div className="pl-4 text-purple-400 relative">
-                    for <span className="text-cyan">i</span>,{" "}
-                    <span className="text-cyan">num</span> in{" "}
-                    <span className="text-highlight">enumerate</span>(
-                    <span className="text-cyan">nums</span>):
-                    <div className="absolute -left-2 top-0 w-1 h-5 bg-cyan rounded animate-pulse"></div>
-                  </div>
-                  <div className="pl-8 text-light/80">
-                    <span className="text-cyan">complement</span> ={" "}
-                    <span className="text-cyan">target</span> -{" "}
-                    <span className="text-cyan">num</span>
-                  </div>
-                </div>
-              </div>
+              {/* Session Controls */}
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => setIsMicOn(!isMicOn)}
+                  className={`p-2 rounded-lg transition-colors ${
+                    isMicOn
+                      ? "bg-green-600 hover:bg-green-700 text-white"
+                      : "bg-slate-700 hover:bg-slate-600 text-slate-300"
+                  }`}
+                >
+                  {isMicOn ? (
+                    <Mic className="w-4 h-4" />
+                  ) : (
+                    <MicOff className="w-4 h-4" />
+                  )}
+                </button>
 
-              <div className="mt-4 text-center text-light/50 text-sm">
-                This is a simulation of the collaborative interface that will be
-                available soon
-              </div>
-            </div>
-          </motion.div>
+                <button
+                  onClick={() => setIsVideoOn(!isVideoOn)}
+                  className={`p-2 rounded-lg transition-colors ${
+                    isVideoOn
+                      ? "bg-green-600 hover:bg-green-700 text-white"
+                      : "bg-slate-700 hover:bg-slate-600 text-slate-300"
+                  }`}
+                >
+                  {isVideoOn ? (
+                    <Video className="w-4 h-4" />
+                  ) : (
+                    <VideoOff className="w-4 h-4" />
+                  )}
+                </button>
 
-          {/* Newsletter Signup */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-16 text-center"
-          >
-            <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-light mb-4">
-                Be the first to know
-              </h3>
-              <p className="text-light/70 mb-6">
-                Get notified when Debug Together launches with exclusive early
-                access
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-light placeholder-light/60 focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
-                />
-                <button className="px-6 py-3 bg-gradient-to-r from-purple-400 to-pink-400 text-white font-semibold rounded-xl hover:scale-105 transition-all duration-200">
-                  Notify Me
+                <button className="p-2 bg-violet-600 hover:bg-violet-700 rounded-lg transition-colors text-white">
+                  <UserPlus className="w-4 h-4" />
+                </button>
+
+                <button className="p-2 bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors text-slate-300">
+                  <Share className="w-4 h-4" />
                 </button>
               </div>
             </div>
-          </motion.div>
+
+            {/* Collaborators */}
+            <div className="p-4 border-b border-slate-600">
+              <h3 className="text-sm font-semibold text-slate-300 mb-3">
+                Participants ({collaborators.filter((c) => c.isOnline).length})
+              </h3>
+              <div className="space-y-3">
+                {collaborators.map((collaborator) => (
+                  <div
+                    key={collaborator.id}
+                    className="flex items-center space-x-3"
+                  >
+                    <div className="relative">
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold bg-gradient-to-r ${
+                          collaborator.color === "violet"
+                            ? "from-violet-500 to-violet-600"
+                            : collaborator.color === "cyan"
+                              ? "from-cyan-500 to-cyan-600"
+                              : "from-orange-500 to-orange-600"
+                        }`}
+                      >
+                        {collaborator.avatar}
+                      </div>
+                      <div
+                        className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-slate-800 ${
+                          collaborator.isOnline
+                            ? "bg-green-400"
+                            : "bg-slate-500"
+                        }`}
+                      ></div>
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center space-x-2">
+                        <span className="text-white text-sm font-medium">
+                          {collaborator.name}
+                        </span>
+                        {collaborator.id === "1" && (
+                          <Crown className="w-3 h-3 text-yellow-400" />
+                        )}
+                      </div>
+                      <div className="text-xs text-slate-400">
+                        {collaborator.isOnline ? "Online" : "Offline"}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Chat */}
+            <div className="flex-1 flex flex-col">
+              <div className="p-4 border-b border-slate-600">
+                <h3 className="text-sm font-semibold text-slate-300">Chat</h3>
+              </div>
+
+              {/* Messages */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-3">
+                {chatMessages.map((message) => (
+                  <div key={message.id}>
+                    {message.type === "system" ? (
+                      <div className="text-center text-xs text-slate-400 py-1">
+                        {message.message}
+                      </div>
+                    ) : (
+                      <div className="space-y-1">
+                        <div className="flex items-center space-x-2">
+                          <span className="text-xs font-medium text-slate-300">
+                            {message.user}
+                          </span>
+                          <span className="text-xs text-slate-500">
+                            {message.timestamp}
+                          </span>
+                        </div>
+                        <div className="text-sm text-slate-200 bg-slate-700 rounded-lg px-3 py-2">
+                          {message.message}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {/* Message Input */}
+              <div className="p-4 border-t border-slate-600">
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="text"
+                    value={newMessage}
+                    onChange={(e) => setNewMessage(e.target.value)}
+                    onKeyPress={(e) => e.key === "Enter" && sendMessage()}
+                    placeholder="Type a message..."
+                    className="flex-1 bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white placeholder-slate-400 text-sm focus:border-violet-500 focus:outline-none"
+                  />
+                  <button
+                    onClick={sendMessage}
+                    className="p-2 bg-violet-600 hover:bg-violet-700 rounded-lg transition-colors text-white"
+                  >
+                    <Send className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - Code Editor */}
+          <div className="flex-1 flex flex-col">
+            {/* Editor Header */}
+            <div className="p-4 border-b border-slate-600 bg-slate-800">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-2">
+                    <Code className="w-5 h-5 text-violet-400" />
+                    <span className="text-white font-medium">two-sum.py</span>
+                  </div>
+
+                  {/* Live Cursors Indicator */}
+                  <div className="flex items-center space-x-2">
+                    <div className="flex -space-x-2">
+                      {collaborators
+                        .filter((c) => c.isOnline && c.cursor)
+                        .map((collaborator) => (
+                          <div
+                            key={collaborator.id}
+                            className={`w-6 h-6 rounded-full border-2 border-slate-800 flex items-center justify-center text-white text-xs font-bold ${getCursorColor(
+                              collaborator.color,
+                            )}`}
+                          >
+                            {collaborator.avatar}
+                          </div>
+                        ))}
+                    </div>
+                    <span className="text-slate-400 text-sm">
+                      {
+                        collaborators.filter((c) => c.isOnline && c.cursor)
+                          .length
+                      }{" "}
+                      editing
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-2">
+                  <select className="bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white text-sm focus:border-violet-500 focus:outline-none">
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="cpp">C++</option>
+                    <option value="java">Java</option>
+                  </select>
+
+                  <button className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg transition-colors text-white text-sm font-medium">
+                    <div className="flex items-center space-x-2">
+                      <Play className="w-4 h-4" />
+                      <span>Run</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Code Editor */}
+            <div className="flex-1 relative">
+              <Editor
+                height="100%"
+                language="python"
+                theme="vs-dark"
+                value={code}
+                onChange={(value) => setCode(value || "")}
+                options={{
+                  minimap: { enabled: false },
+                  scrollBeyondLastLine: false,
+                  fontSize: 14,
+                  lineNumbers: "on",
+                  renderLineHighlight: "line",
+                  selectOnLineNumbers: true,
+                  automaticLayout: true,
+                  tabSize: 4,
+                  insertSpaces: true,
+                  wordWrap: "on",
+                  cursorBlinking: "smooth",
+                  cursorSmoothCaretAnimation: "on",
+                }}
+              />
+
+              {/* Live Cursor Overlays */}
+              <div className="absolute inset-0 pointer-events-none">
+                {collaborators
+                  .filter((c) => c.isOnline && c.cursor && c.id !== "1")
+                  .map((collaborator) => (
+                    <div key={collaborator.id}>
+                      {/* Simulated cursor position */}
+                      <div
+                        className="absolute"
+                        style={{
+                          top: `${collaborator.cursor!.line * 1.4}em`,
+                          left: `${collaborator.cursor!.column * 0.6}em`,
+                        }}
+                      >
+                        <div
+                          className={`w-0.5 h-5 ${getCursorColor(
+                            collaborator.color,
+                          )}`}
+                        ></div>
+                        <div
+                          className={`absolute -top-6 left-0 px-2 py-1 rounded text-xs font-medium text-white whitespace-nowrap ${getCursorColor(
+                            collaborator.color,
+                          )}`}
+                        >
+                          {collaborator.name}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            {/* Output Panel */}
+            <div className="h-48 border-t border-slate-600 bg-slate-800">
+              <div className="p-4 border-b border-slate-600">
+                <h3 className="text-lg font-semibold text-white">
+                  Collaborative Output
+                </h3>
+              </div>
+              <div className="p-4">
+                <div className="bg-slate-700 border border-slate-600 rounded-lg p-4">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-4 h-4 bg-green-400 rounded-full"></div>
+                    <span className="text-green-400 text-sm font-medium">
+                      Execution Successful
+                    </span>
+                  </div>
+                  <div className="font-mono text-sm text-slate-200">
+                    Result: [0, 1]
+                  </div>
+                  <div className="text-xs text-slate-400 mt-2">
+                    Runtime: 52ms • Memory: 15.2MB • Run by Sarah
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

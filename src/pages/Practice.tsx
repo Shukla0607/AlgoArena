@@ -115,7 +115,7 @@ public class Solution {
   };
 
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
 
       <div className="pt-20">
@@ -127,13 +127,13 @@ public class Solution {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-3xl font-bold text-text-primary mb-2">
+              <h1 className="text-3xl font-bold text-white mb-2">
                 Practice{" "}
-                <span className="bg-gradient-to-r from-primary-light to-secondary bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
                   Playground
                 </span>
               </h1>
-              <p className="text-text-secondary">
+              <p className="text-slate-300">
                 Free-form coding environment. Test algorithms, experiment with
                 code, or just practice your skills.
               </p>
@@ -145,14 +145,14 @@ public class Solution {
             {/* Code Editor */}
             <div className="w-2/3 flex flex-col">
               {/* Editor Header */}
-              <div className="p-4 border-b border-card-border border-r border-card-border bg-card-bg">
+              <div className="p-4 border-b border-slate-600 border-r border-slate-600 bg-slate-800">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     {/* Language Selector */}
                     <select
                       value={language}
                       onChange={(e) => setLanguage(e.target.value)}
-                      className="bg-darker-bg border border-card-border rounded-lg px-3 py-2 text-text-primary text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      className="bg-slate-700 border border-slate-500 rounded-lg px-3 py-2 text-white text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20"
                     >
                       <option value="python">Python</option>
                       <option value="javascript">JavaScript</option>
@@ -161,7 +161,7 @@ public class Solution {
                     </select>
 
                     {/* Settings */}
-                    <button className="p-2 text-text-muted hover:text-primary-light transition-colors">
+                    <button className="p-2 text-slate-400 hover:text-violet-400 transition-colors">
                       <Settings className="w-4 h-4" />
                     </button>
 
@@ -222,36 +222,33 @@ public class Solution {
             </div>
 
             {/* Output Panel */}
-            <div className="w-1/3 flex flex-col bg-card-bg">
+            <div className="w-1/3 flex flex-col bg-slate-800">
               {/* Output Header */}
-              <div className="p-4 border-b border-card-border">
+              <div className="p-4 border-b border-slate-600">
                 <div className="flex items-center space-x-2">
-                  <Terminal className="w-5 h-5 text-text-secondary" />
-                  <h3 className="text-lg font-semibold text-text-primary">
-                    Output
-                  </h3>
+                  <Terminal className="w-5 h-5 text-slate-300" />
+                  <h3 className="text-lg font-semibold text-white">Output</h3>
                 </div>
               </div>
-
               {/* Output Content */}
               <div className="flex-1 p-4 overflow-y-auto">
                 {isRunning ? (
                   <div className="flex items-center justify-center py-8">
                     <div className="text-center">
-                      <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-2" />
-                      <p className="text-text-muted">Executing code...</p>
+                      <div className="w-8 h-8 border-2 border-violet-500/30 border-t-violet-500 rounded-full animate-spin mx-auto mb-2" />
+                      <p className="text-slate-400">Executing code...</p>
                     </div>
                   </div>
                 ) : showOutput ? (
                   <div className="space-y-4">
-                    <div className="bg-darker-bg border border-card-border rounded-lg p-4">
+                    <div className="bg-slate-700 border border-slate-600 rounded-lg p-4">
                       <div className="flex items-center space-x-2 mb-2">
-                        <CheckCircle className="w-4 h-4 text-success" />
-                        <span className="text-success text-sm font-medium">
+                        <CheckCircle className="w-4 h-4 text-emerald-400" />
+                        <span className="text-emerald-400 text-sm font-medium">
                           Execution Successful
                         </span>
                       </div>
-                      <div className="font-mono text-sm text-text-secondary whitespace-pre-wrap">
+                      <div className="font-mono text-sm text-slate-200 whitespace-pre-wrap">
                         {output}
                       </div>
                     </div>
