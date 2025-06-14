@@ -103,7 +103,7 @@ const Index = () => {
 
               <Link
                 to="/roadmap"
-                className="inline-flex items-center space-x-2 bg-card-bg border border-card-border px-8 py-4 rounded-xl font-semibold text-text-primary hover:bg-card-bg/80 transition-all duration-200"
+                className="inline-flex items-center space-x-2 bg-slate-800 border border-slate-600 px-8 py-4 rounded-xl font-semibold text-white hover:bg-slate-700 transition-all duration-200"
               >
                 <GitBranch className="w-5 h-5" />
                 <span>Explore Roadmap</span>
