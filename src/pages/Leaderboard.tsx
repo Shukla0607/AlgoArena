@@ -106,7 +106,7 @@ const Leaderboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-midnight via-midnight to-slate-900">
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
 
       <div className="pt-24 px-4 sm:px-6 lg:px-8">
@@ -118,13 +118,13 @@ const Leaderboard = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Global{" "}
-              <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
                 Leaderboard
               </span>
             </h1>
-            <p className="text-xl text-light/70">
+            <p className="text-xl text-slate-300">
               See how you rank against coding enthusiasts worldwide
             </p>
           </motion.div>

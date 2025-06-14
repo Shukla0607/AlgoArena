@@ -14,7 +14,7 @@ import Navigation from "../components/Navigation";
 
 const Profile = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-midnight via-midnight to-slate-900">
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
 
       <div className="pt-24 px-4 sm:px-6 lg:px-8">
@@ -39,10 +39,10 @@ const Profile = () => {
 
               {/* User Info */}
               <div className="flex-1">
-                <h1 className="text-3xl font-bold text-light mb-2">
+                <h1 className="text-3xl font-bold text-white mb-2">
                   Alex Johnson
                 </h1>
-                <p className="text-light/70 mb-4">
+                <p className="text-slate-300 mb-4">
                   Full Stack Developer • Algorithm Enthusiast
                 </p>
 

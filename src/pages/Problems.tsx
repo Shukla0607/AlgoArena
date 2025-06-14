@@ -56,7 +56,7 @@ const Problems = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-midnight via-midnight to-slate-900">
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
 
       <div className="pt-24 px-4 sm:px-6 lg:px-8">
@@ -68,13 +68,13 @@ const Problems = () => {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Problem{" "}
-              <span className="bg-gradient-to-r from-cyan to-highlight bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
                 Arena
               </span>
             </h1>
-            <p className="text-xl text-light/70">
+            <p className="text-xl text-slate-300">
               Master algorithms through carefully curated challenges
             </p>
           </motion.div>
@@ -114,7 +114,7 @@ const Problems = () => {
             ].map((stat, index) => (
               <div
                 key={stat.label}
-                className="bg-slate-800 border border-slate-700 rounded-xl p-4"
+                className="bg-slate-800 border border-slate-600 rounded-xl p-4"
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-light/70 text-sm font-medium">
@@ -154,7 +154,7 @@ const Problems = () => {
                   placeholder="Search problems..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-light placeholder-light/60 focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
+                  className="w-full pl-10 pr-4 py-3 bg-slate-700 border border-slate-500 rounded-xl text-white placeholder-slate-400 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20"
                 />
               </div>
 
@@ -207,7 +207,7 @@ const Problems = () => {
                 onClick={() =>
                   (window.location.href = `/problems/${problem.id}`)
                 }
-                className="group bg-slate-800 border border-slate-700 hover:border-cyan rounded-xl p-6 cursor-pointer transition-all duration-300 hover:bg-slate-700"
+                className="group bg-slate-800 border border-slate-600 hover:border-violet-500 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:bg-slate-700"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-start space-x-4 flex-1">
@@ -223,7 +223,7 @@ const Problems = () => {
                     {/* Problem Info */}
                     <div className="flex-1">
                       <div className="flex items-center space-x-3 mb-2">
-                        <h3 className="text-xl font-semibold text-light group-hover:text-cyan transition-colors">
+                        <h3 className="text-xl font-semibold text-white group-hover:text-violet-400 transition-colors">
                           {problem.title}
                         </h3>
                         <span
@@ -236,7 +236,7 @@ const Problems = () => {
                         </span>
                       </div>
 
-                      <p className="text-light/70 mb-3 max-w-2xl">
+                      <p className="text-slate-300 mb-3 max-w-2xl">
                         {problem.description}
                       </p>
 

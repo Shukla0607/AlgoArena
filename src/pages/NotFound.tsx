@@ -6,7 +6,7 @@ import Navigation from "../components/Navigation";
 
 const NotFound = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-midnight via-midnight to-slate-900">
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
 
       <div className="pt-24 px-4 sm:px-6 lg:px-8">
@@ -28,7 +28,7 @@ const NotFound = () => {
                 </div>
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-bold text-light mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Page Not Found
               </h1>
 

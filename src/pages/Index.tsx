@@ -52,7 +52,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
 
       {/* Hero Section */}
