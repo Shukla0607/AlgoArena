@@ -115,7 +115,7 @@ const Navigation = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden pb-4"
+            className="md:hidden absolute top-20 left-0 right-0 bg-dark-bg/95 backdrop-blur-md border-b border-card-border pb-4"
           >
             <div className="space-y-2">
               {navItems.map((item) => {
