@@ -180,10 +180,10 @@ const Login = () => {
 
             {/* Header */}
             <div className="mb-6">
-              <h2 className="text-2xl font-bold text-white mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 {isSignUp ? "Create Account" : "Welcome Back"}
               </h2>
-              <p className="text-slate-400 text-sm">
+              <p className="text-slate-300 text-base">
                 {isSignUp
                   ? "Join the community and start your coding journey"
                   : "Sign in to continue your algorithm mastery"}
@@ -263,20 +263,20 @@ const Login = () => {
             )}
 
             {/* Social Login */}
-            <div className="space-y-2 mb-4">
+            <div className="grid grid-cols-2 gap-3 mb-4">
               <button
                 type="button"
-                className="w-full flex items-center justify-center space-x-3 px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl transition-all duration-200 text-white"
+                className="flex items-center justify-center space-x-2 px-3 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl transition-all duration-200 text-white"
               >
                 <Github className="w-5 h-5" />
-                <span>Continue with GitHub</span>
+                <span className="text-sm">GitHub</span>
               </button>
               <button
                 type="button"
-                className="w-full flex items-center justify-center space-x-3 px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl transition-all duration-200 text-white"
+                className="flex items-center justify-center space-x-2 px-3 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl transition-all duration-200 text-white"
               >
                 <Chrome className="w-5 h-5" />
-                <span>Continue with Google</span>
+                <span className="text-sm">Google</span>
               </button>
             </div>
 
@@ -362,13 +362,15 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-violet-600 to-violet-700 hover:from-violet-700 hover:to-violet-800 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-violet-500/25"
+                className="w-full bg-gradient-to-r from-violet-600 to-violet-700 hover:from-violet-700 hover:to-violet-800 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-violet-500/25 border border-violet-500"
               >
-                {isLoading
-                  ? "Please wait..."
-                  : isSignUp
-                    ? "Create Account"
-                    : "Sign In"}
+                <span className="text-white font-bold text-base">
+                  {isLoading
+                    ? "Please wait..."
+                    : isSignUp
+                      ? "Create Account"
+                      : "Sign In"}
+                </span>
               </button>
             </form>
 
@@ -377,7 +379,7 @@ const Login = () => {
               <button
                 type="button"
                 onClick={() => setIsSignUp(!isSignUp)}
-                className="text-slate-400 hover:text-violet-400 transition-colors"
+                className="text-slate-300 hover:text-white transition-colors font-medium"
               >
                 {isSignUp
                   ? "Already have an account? Sign in"
