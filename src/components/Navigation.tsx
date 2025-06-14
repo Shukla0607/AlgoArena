@@ -70,8 +70,8 @@ const Navigation = () => {
                   to={item.href}
                   className={`flex items-center space-x-2 px-5 py-2.5 rounded-xl transition-all duration-200 ${
                     isActive
-                      ? "bg-violet-500/20 text-violet-200 border border-violet-500/50 shadow-lg"
-                      : "text-slate-200 hover:text-white hover:bg-slate-700/80 hover:shadow-md"
+                      ? "bg-violet-500/20 text-white border border-violet-500/50 shadow-lg"
+                      : "text-white hover:text-violet-300 hover:bg-slate-700/80 hover:shadow-md"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -87,7 +87,7 @@ const Navigation = () => {
               <div className="relative">
                 <button
                   onClick={() => setThemeOpen(!themeOpen)}
-                  className="hidden md:flex items-center space-x-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 text-slate-200 hover:text-white border border-slate-600 shadow-md"
+                  className="hidden md:flex items-center space-x-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 text-white hover:text-violet-300 border border-slate-600 shadow-md"
                 >
                   <div className="w-4 h-4 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full"></div>
                   <span className="text-sm font-medium">Theme</span>
@@ -138,7 +138,7 @@ const Navigation = () => {
                         <Link
                           to="/profile"
                           onClick={() => setUserMenuOpen(false)}
-                          className="flex items-center space-x-3 px-4 py-2 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                          className="flex items-center space-x-3 px-4 py-2 text-white hover:text-violet-300 hover:bg-slate-700 transition-colors"
                         >
                           <User className="w-4 h-4" />
                           <span>Profile</span>
@@ -147,7 +147,7 @@ const Navigation = () => {
                           <Link
                             to="/admin"
                             onClick={() => setUserMenuOpen(false)}
-                            className="flex items-center space-x-3 px-4 py-2 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                            className="flex items-center space-x-3 px-4 py-2 text-white hover:text-violet-300 hover:bg-slate-700 transition-colors"
                           >
                             <Shield className="w-4 h-4" />
                             <span>Admin Dashboard</span>
@@ -170,7 +170,7 @@ const Navigation = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 text-slate-200 hover:text-white"
+              className="md:hidden p-2 text-white hover:text-violet-300"
             >
               {isOpen ? (
                 <X className="w-6 h-6" />
@@ -220,8 +220,8 @@ const Navigation = () => {
                     onClick={() => setIsOpen(false)}
                     className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                       isActive
-                        ? "bg-violet-500/20 text-violet-200 border border-violet-500/50"
-                        : "text-slate-200 hover:text-white hover:bg-slate-700/80"
+                        ? "bg-violet-500/20 text-white border border-violet-500/50"
+                        : "text-white hover:text-violet-300 hover:bg-slate-700/80"
                     }`}
                   >
                     <Icon className="w-5 h-5" />
