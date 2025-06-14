@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import AIChatBot from "./components/AIChatBot";
 import Index from "./pages/Index";
 import Problems from "./pages/Problems";
 import ProblemSolver from "./pages/ProblemSolver";
@@ -35,6 +36,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <AIChatBot />
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>

@@ -18,6 +18,7 @@ import {
   Crown,
 } from "lucide-react";
 import Navigation from "../components/Navigation";
+import ChatInterface from "../components/ChatInterface";
 
 interface Collaborator {
   id: string;
@@ -33,7 +34,8 @@ interface ChatMessage {
   user: string;
   message: string;
   timestamp: string;
-  type: "message" | "system";
+  type: "message" | "system" | "ai";
+  isCurrentUser?: boolean;
 }
 
 const Debug = () => {
@@ -102,6 +104,7 @@ print(f"Result: {result}")
       message: "Hey! I think we can optimize this solution",
       timestamp: "1 min ago",
       type: "message",
+      isCurrentUser: false,
     },
     {
       id: "3",
@@ -109,32 +112,60 @@ print(f"Result: {result}")
       message: "Sure! What do you have in mind?",
       timestamp: "30s ago",
       type: "message",
+      isCurrentUser: true,
+    },
+    {
+      id: "4",
+      user: "AI Assistant",
+      message:
+        "I can help analyze the algorithm complexity. Would you like me to review your current approach?",
+      timestamp: "10s ago",
+      type: "ai",
     },
   ]);
 
-  const [newMessage, setNewMessage] = useState("");
   const [isMicOn, setIsMicOn] = useState(false);
   const [isVideoOn, setIsVideoOn] = useState(false);
 
-  const sendMessage = () => {
-    if (newMessage.trim()) {
+  const sendMessage = (messageText: string) => {
+    if (messageText.trim()) {
+      // Handle AI responses
+      if (messageText.startsWith("AI_RESPONSE: ")) {
+        const aiMessage: ChatMessage = {
+          id: Date.now().toString(),
+          user: "AI Assistant",
+          message: messageText.replace("AI_RESPONSE: ", ""),
+          timestamp: "now",
+          type: "ai",
+        };
+        setChatMessages((prev) => [...prev, aiMessage]);
+        return;
+      }
+
+      // Handle AI requests
+      if (messageText.startsWith("@AI ")) {
+        const userMessage: ChatMessage = {
+          id: Date.now().toString(),
+          user: "Alex",
+          message: messageText,
+          timestamp: "now",
+          type: "message",
+          isCurrentUser: true,
+        };
+        setChatMessages((prev) => [...prev, userMessage]);
+        return;
+      }
+
+      // Regular user message
       const message: ChatMessage = {
         id: Date.now().toString(),
         user: "Alex",
-        message: newMessage,
+        message: messageText,
         timestamp: "now",
         type: "message",
+        isCurrentUser: true,
       };
       setChatMessages((prev) => [...prev, message]);
-      setNewMessage("");
-
-      // Scroll to bottom after message is added
-      setTimeout(() => {
-        const messagesContainer = document.querySelector(".messages-container");
-        if (messagesContainer) {
-          messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-      }, 100);
     }
   };
 
@@ -260,61 +291,11 @@ print(f"Result: {result}")
 
             {/* Chat */}
             <div className="flex-1 flex flex-col">
-              <div className="p-4 border-b border-slate-600 bg-slate-800/30">
-                <h3 className="text-sm font-semibold text-white">Chat</h3>
-              </div>
-
-              {/* Messages */}
-              <div
-                className="flex-1 overflow-y-auto p-4 messages-container"
-                style={{ height: "calc(100vh - 400px)" }}
-              >
-                <div className="space-y-3 pb-4">
-                  {chatMessages.map((message) => (
-                    <div key={message.id} className="flex-shrink-0">
-                      {message.type === "system" ? (
-                        <div className="text-center text-xs text-slate-400 py-2 bg-slate-800/50 rounded-lg border border-slate-700">
-                          {message.message}
-                        </div>
-                      ) : (
-                        <div className="space-y-1">
-                          <div className="flex items-center space-x-2">
-                            <span className="text-xs font-medium text-white">
-                              {message.user}
-                            </span>
-                            <span className="text-xs text-slate-400">
-                              {message.timestamp}
-                            </span>
-                          </div>
-                          <div className="text-sm text-white bg-slate-700 rounded-lg px-3 py-2 border border-slate-600 shadow-sm">
-                            {message.message}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Message Input */}
-              <div className="p-4 border-t border-slate-600">
-                <div className="flex items-center space-x-2">
-                  <input
-                    type="text"
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                    onKeyPress={(e) => e.key === "Enter" && sendMessage()}
-                    placeholder="Type a message..."
-                    className="flex-1 bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white placeholder-slate-400 text-sm focus:border-violet-500 focus:outline-none"
-                  />
-                  <button
-                    onClick={sendMessage}
-                    className="p-2 bg-violet-600 hover:bg-violet-700 rounded-lg transition-colors text-white"
-                  >
-                    <Send className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
+              <ChatInterface
+                messages={chatMessages}
+                onSendMessage={sendMessage}
+                currentUser="Alex"
+              />
             </div>
           </div>
 
