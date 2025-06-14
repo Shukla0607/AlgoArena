@@ -92,14 +92,14 @@ print(f"Result: {result}")
 
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
-      id: "1",
+      id: "sys-1",
       user: "System",
       message: "Sarah joined the session",
       timestamp: "2 min ago",
       type: "system",
     },
     {
-      id: "2",
+      id: "msg-2",
       user: "Sarah",
       message: "Hey! I think we can optimize this solution",
       timestamp: "1 min ago",
@@ -107,7 +107,7 @@ print(f"Result: {result}")
       isCurrentUser: false,
     },
     {
-      id: "3",
+      id: "msg-3",
       user: "Alex",
       message: "Sure! What do you have in mind?",
       timestamp: "30s ago",
@@ -115,7 +115,7 @@ print(f"Result: {result}")
       isCurrentUser: true,
     },
     {
-      id: "4",
+      id: "ai-4",
       user: "AI Assistant",
       message:
         "I can help analyze the algorithm complexity. Would you like me to review your current approach?",
@@ -123,7 +123,6 @@ print(f"Result: {result}")
       type: "ai",
     },
   ]);
-
   const [isMicOn, setIsMicOn] = useState(false);
   const [isVideoOn, setIsVideoOn] = useState(false);
 
@@ -132,10 +131,13 @@ print(f"Result: {result}")
       // Handle AI responses
       if (messageText.startsWith("AI_RESPONSE: ")) {
         const aiMessage: ChatMessage = {
-          id: Date.now().toString(),
+          id: `ai-${Date.now()}`,
           user: "AI Assistant",
           message: messageText.replace("AI_RESPONSE: ", ""),
-          timestamp: "now",
+          timestamp: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
           type: "ai",
         };
         setChatMessages((prev) => [...prev, aiMessage]);
@@ -145,10 +147,13 @@ print(f"Result: {result}")
       // Handle AI requests
       if (messageText.startsWith("@AI ")) {
         const userMessage: ChatMessage = {
-          id: Date.now().toString(),
+          id: `user-${Date.now()}`,
           user: "Alex",
-          message: messageText,
-          timestamp: "now",
+          message: messageText.replace("@AI ", ""),
+          timestamp: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
           type: "message",
           isCurrentUser: true,
         };
@@ -158,10 +163,13 @@ print(f"Result: {result}")
 
       // Regular user message
       const message: ChatMessage = {
-        id: Date.now().toString(),
+        id: `msg-${Date.now()}`,
         user: "Alex",
         message: messageText,
-        timestamp: "now",
+        timestamp: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
         type: "message",
         isCurrentUser: true,
       };
@@ -185,7 +193,10 @@ print(f"Result: {result}")
       <div className="pt-20">
         <div className="h-screen flex">
           {/* Left Sidebar - Collaborators & Chat */}
-          <div className="w-80 bg-slate-800 border-r border-slate-600 flex flex-col">
+          <div
+            className="w-80 bg-slate-800 border-r border-slate-600 flex flex-col"
+            style={{ height: "calc(100vh - 80px)" }}
+          >
             {/* Session Header */}
             <div className="p-4 border-b border-slate-600 bg-slate-800/50">
               <div className="flex items-center justify-between mb-4">
@@ -290,7 +301,7 @@ print(f"Result: {result}")
             </div>
 
             {/* Chat */}
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col min-h-0">
               <ChatInterface
                 messages={chatMessages}
                 onSendMessage={sendMessage}
