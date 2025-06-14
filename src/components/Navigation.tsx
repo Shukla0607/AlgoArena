@@ -30,9 +30,14 @@ const Navigation = () => {
     { name: "Problems", href: "/problems", icon: Code },
     { name: "Practice", href: "/practice", icon: Terminal },
     { name: "Roadmap", href: "/roadmap", icon: Map },
-    { name: "Debug Together", href: "/debug", icon: Users },
-    { name: "Profile", href: "/profile", icon: User },
-    { name: "Leaderboard", href: "/leaderboard", icon: Trophy },
+    // Protected items - only show when authenticated
+    ...(isAuthenticated
+      ? [
+          { name: "Debug Together", href: "/debug", icon: Users },
+          { name: "Profile", href: "/profile", icon: User },
+          { name: "Leaderboard", href: "/leaderboard", icon: Trophy },
+        ]
+      : []),
     ...(isAdmin ? [{ name: "Admin", href: "/admin", icon: Shield }] : []),
   ];
 
