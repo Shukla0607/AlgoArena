@@ -75,7 +75,7 @@ const Problems = () => {
                 Arena
               </span>
             </h1>
-            <p className="text-xl text-slate-300">
+            <p className="text-xl text-white">
               Master algorithms through carefully curated challenges
             </p>
           </motion.div>
@@ -118,14 +118,14 @@ const Problems = () => {
                 className="bg-slate-800 border border-slate-600 rounded-xl p-4"
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-light/70 text-sm font-medium">
+                  <span className="text-slate-300 text-sm font-medium">
                     {stat.label}
                   </span>
                   <Trophy className="w-4 h-4 text-highlight" />
                 </div>
-                <div className="text-2xl font-bold text-light mb-1">
+                <div className="text-2xl font-bold text-white mb-1">
                   {stat.value}
-                  <span className="text-light/50 text-lg">/{stat.total}</span>
+                  <span className="text-slate-400 text-lg">/{stat.total}</span>
                 </div>
                 <div className="w-full bg-slate/30 rounded-full h-2">
                   <div
@@ -165,7 +165,7 @@ const Problems = () => {
                 <select
                   value={selectedDifficulty}
                   onChange={(e) => setSelectedDifficulty(e.target.value)}
-                  className="bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-light focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
+                  className="bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20"
                 >
                   {difficulties.map((difficulty) => (
                     <option key={difficulty} value={difficulty}>
@@ -180,7 +180,7 @@ const Problems = () => {
                 <select
                   value={selectedTopic}
                   onChange={(e) => setSelectedTopic(e.target.value)}
-                  className="bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-light focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/20"
+                  className="bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20"
                 >
                   {topics.map((topic) => (
                     <option key={topic} value={topic}>
@@ -272,10 +272,10 @@ const Problems = () => {
               <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Search className="w-8 h-8 text-light/40" />
               </div>
-              <h3 className="text-xl font-semibold text-light mb-2">
+              <h3 className="text-xl font-semibold text-white mb-2">
                 No problems found
               </h3>
-              <p className="text-light/60">
+              <p className="text-slate-400">
                 Try adjusting your search or filter criteria
               </p>
             </div>
