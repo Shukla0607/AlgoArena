@@ -115,7 +115,7 @@ const Problems = () => {
             ].map((stat, index) => (
               <div
                 key={stat.label}
-              <div className="theme-card-bg border theme-border rounded-xl p-4">
+                className="theme-card-bg border theme-border rounded-xl p-4"
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-slate-300 text-sm font-medium">
