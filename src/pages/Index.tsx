@@ -79,7 +79,7 @@ const Index = () => {
                 </span>
               </h1>
 
-              <p className="text-xl text-white mb-8 max-w-2xl">
+              <p className="text-xl text-white mb-8 max-w-2xl mx-auto text-center">
                 Where LeetCode's rigor meets Figma's elegance. Master algorithms
                 through visual learning paths, collaborative debugging, and
                 zen-focused practice sessions.
