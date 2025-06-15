@@ -14,6 +14,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { useAuth, UserRole } from "../contexts/AuthContext";
+import { googleAuth } from "../lib/googleAuth";
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -24,9 +25,33 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const { login, isAuthenticated } = useAuth();
+  const { login, loginWithGoogle, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const handleGoogleLogin = async () => {
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const googleUser = await googleAuth.signInWithPopup();
+      const success = await loginWithGoogle(googleUser, selectedRole);
+
+      if (success) {
+        const from = (location.state as any)?.from?.pathname || "/";
+        navigate(from, { replace: true });
+      } else {
+        setError("Failed to authenticate with Google. Please try again.");
+      }
+    } catch (error: any) {
+      console.error("Google login error:", error);
+      setError(
+        error.message || "Google authentication failed. Please try again.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   // Redirect if already authenticated
   useEffect(() => {
@@ -283,10 +308,12 @@ const Login = () => {
               </button>
               <button
                 type="button"
-                className="flex items-center justify-center space-x-2 px-3 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl transition-all duration-200 text-white"
+                onClick={handleGoogleLogin}
+                disabled={isLoading}
+                className="flex items-center justify-center space-x-2 px-3 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl transition-all duration-200 text-white disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Chrome className="w-5 h-5" />
-                <span className="text-sm">Google</span>
+                <span className="text-sm">{isLoading ? "..." : "Google"}</span>
               </button>
             </div>
 

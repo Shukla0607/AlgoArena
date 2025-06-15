@@ -105,11 +105,19 @@ const Navigation = () => {
                     onClick={() => setUserMenuOpen(!userMenuOpen)}
                     className="hidden md:flex items-center space-x-3 px-4 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 text-white border border-slate-600 shadow-lg"
                   >
-                    <div className="w-8 h-8 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex items-center justify-center">
-                      <span className="text-white font-semibold text-sm">
-                        {user?.avatar || user?.name?.charAt(0)}
-                      </span>
-                    </div>
+                    {user?.picture ? (
+                      <img
+                        src={user.picture}
+                        alt={user.name}
+                        className="w-8 h-8 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-8 h-8 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex items-center justify-center">
+                        <span className="text-white font-semibold text-sm">
+                          {user?.avatar || user?.name?.charAt(0)}
+                        </span>
+                      </div>
+                    )}
                     <div className="text-left">
                       <div className="text-sm font-medium">{user?.name}</div>
                       <div className="text-xs text-slate-400 capitalize">
@@ -193,11 +201,19 @@ const Navigation = () => {
             {isAuthenticated && (
               <div className="p-4 border-b border-slate-600 bg-slate-800/50">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm">
-                      {user?.avatar || user?.name?.charAt(0)}
-                    </span>
-                  </div>
+                  {user?.picture ? (
+                    <img
+                      src={user.picture}
+                      alt={user.name}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex items-center justify-center">
+                      <span className="text-white font-semibold text-sm">
+                        {user?.avatar || user?.name?.charAt(0)}
+                      </span>
+                    </div>
+                  )}
                   <div>
                     <div className="text-white font-medium">{user?.name}</div>
                     <div className="text-slate-400 text-sm capitalize">

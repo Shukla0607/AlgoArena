@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
+import { GoogleUser } from "../lib/googleAuth";
 
 export type UserRole = "admin" | "general" | null;
 
@@ -8,12 +9,15 @@ export interface User {
   email: string;
   role: UserRole;
   avatar?: string;
+  picture?: string;
+  provider?: "email" | "google" | "github";
 }
 
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
   login: (email: string, password: string, role: UserRole) => Promise<boolean>;
+  loginWithGoogle: (googleUser: GoogleUser, role: UserRole) => Promise<boolean>;
   logout: () => void;
   isAdmin: boolean;
   isGeneral: boolean;
@@ -91,6 +95,32 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     return false;
   };
 
+  const loginWithGoogle = async (
+    googleUser: GoogleUser,
+    role: UserRole,
+  ): Promise<boolean> => {
+    try {
+      // In a real application, you would send the Google user data to your backend
+      // to create or retrieve the user account
+
+      const user: User = {
+        id: googleUser.id,
+        name: googleUser.name,
+        email: googleUser.email,
+        role: role,
+        avatar: googleUser.given_name.charAt(0),
+        picture: googleUser.picture,
+        provider: "google",
+      };
+
+      setUser(user);
+      return true;
+    } catch (error) {
+      console.error("Google login error:", error);
+      return false;
+    }
+  };
+
   const logout = () => {
     setUser(null);
   };
@@ -99,6 +129,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     user,
     isAuthenticated: !!user,
     login,
+    loginWithGoogle,
     logout,
     isAdmin: user?.role === "admin",
     isGeneral: user?.role === "general",
