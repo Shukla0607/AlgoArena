@@ -9,6 +9,8 @@ import {
   Circle,
   Star,
   ArrowRight,
+  Target,
+  Flame,
 } from "lucide-react";
 import Navigation from "../components/Navigation";
 import { problems } from "../data/problems";
@@ -85,58 +87,226 @@ const Problems = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
           >
             {[
               {
-                label: "Solved",
+                label: "Total Solved",
                 value: "12",
                 total: "150",
                 color: "from-green-400 to-emerald-400",
+                description: "Overall progress",
+                icon: Trophy,
               },
               {
-                label: "Easy",
+                label: "Easy Problems",
                 value: "8",
                 total: "50",
                 color: "from-green-400 to-green-500",
+                description: "Beginner friendly",
+                icon: Circle,
               },
               {
-                label: "Medium",
+                label: "Medium Problems",
                 value: "3",
                 total: "75",
-                color: "from-highlight to-orange-400",
+                color: "from-yellow-400 to-orange-400",
+                description: "Intermediate challenges",
+                icon: Target,
               },
               {
-                label: "Hard",
+                label: "Hard Problems",
                 value: "1",
                 total: "25",
                 color: "from-red-400 to-pink-400",
+                description: "Expert level",
+                icon: Flame,
               },
-            ].map((stat, index) => (
-              <div
-                key={stat.label}
-                className="theme-card-bg border theme-border rounded-xl p-4"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-slate-300 text-sm font-medium">
-                    {stat.label}
-                  </span>
-                  <Trophy className="w-4 h-4 text-highlight" />
+            ].map((stat, index) => {
+              const Icon = stat.icon;
+              const percentage =
+                (parseInt(stat.value) / parseInt(stat.total)) * 100;
+
+              return (
+                <div
+                  key={stat.label}
+                  className="theme-card-bg border theme-border rounded-xl p-6 hover:scale-105 transition-all duration-300"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-2">
+                      <Icon className="w-5 h-5 text-white" />
+                      <span className="text-white font-semibold">
+                        {stat.label}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <div className="flex items-baseline space-x-2 mb-2">
+                      <span className="text-3xl font-bold text-white">
+                        {stat.value}
+                      </span>
+                      <span className="text-slate-400 text-lg">
+                        / {stat.total}
+                      </span>
+                      <span className="text-sm font-medium text-slate-300 ml-auto">
+                        {Math.round(percentage)}%
+                      </span>
+                    </div>
+                    <p className="text-sm text-slate-400 mb-3">
+                      {stat.description}
+                    </p>
+                  </div>
+
+                  {/* Enhanced Progress Bar */}
+                  <div className="space-y-2">
+                    <div className="w-full bg-slate-700 rounded-full h-3 overflow-hidden">
+                      <div
+                        className={`h-3 bg-gradient-to-r ${stat.color} rounded-full transition-all duration-500 relative`}
+                        style={{ width: `${percentage}%` }}
+                      >
+                        <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
+                      </div>
+                    </div>
+
+                    {/* Mini milestones */}
+                    <div className="flex justify-between text-xs text-slate-500">
+                      <span>0</span>
+                      <span>{Math.round(parseInt(stat.total) * 0.25)}</span>
+                      <span>{Math.round(parseInt(stat.total) * 0.5)}</span>
+                      <span>{Math.round(parseInt(stat.total) * 0.75)}</span>
+                      <span>{stat.total}</span>
+                    </div>
+                  </div>
+
+                  {/* Achievement Indicator */}
+                  {percentage >= 25 && (
+                    <div className="mt-3 flex items-center space-x-2 text-xs">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="text-green-400 font-medium">
+                        {percentage >= 75
+                          ? "Expert"
+                          : percentage >= 50
+                            ? "Intermediate"
+                            : "Progressing"}
+                      </span>
+                    </div>
+                  )}
                 </div>
-                <div className="text-2xl font-bold text-white mb-1">
-                  {stat.value}
-                  <span className="text-slate-400 text-lg">/{stat.total}</span>
+              );
+            })}
+          </motion.div>
+
+          {/* Detailed Medium Problems Progress Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="theme-card-bg border theme-border rounded-xl p-6 mb-8"
+          >
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-xl flex items-center justify-center">
+                  <Target className="w-6 h-6 text-white" />
                 </div>
-                <div className="w-full bg-slate/30 rounded-full h-2">
-                  <div
-                    className={`h-2 bg-gradient-to-r ${stat.color} rounded-full transition-all duration-300`}
-                    style={{
-                      width: `${(parseInt(stat.value) / parseInt(stat.total)) * 100}%`,
-                    }}
-                  ></div>
+                <div>
+                  <h3 className="text-xl font-bold text-white">
+                    Medium Problems Progress
+                  </h3>
+                  <p className="text-slate-400">
+                    Intermediate challenges to level up your skills
+                  </p>
                 </div>
               </div>
-            ))}
+              <div className="text-right">
+                <div className="text-2xl font-bold text-white">3/75</div>
+                <div className="text-sm text-slate-400">4% Complete</div>
+              </div>
+            </div>
+
+            {/* Category Breakdown */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              {[
+                {
+                  category: "Arrays & Strings",
+                  solved: 2,
+                  total: 25,
+                  color: "from-blue-400 to-blue-500",
+                },
+                {
+                  category: "Trees & Graphs",
+                  solved: 1,
+                  total: 30,
+                  color: "from-green-400 to-green-500",
+                },
+                {
+                  category: "Dynamic Programming",
+                  solved: 0,
+                  total: 20,
+                  color: "from-purple-400 to-purple-500",
+                },
+              ].map((cat, idx) => {
+                const catPercentage = (cat.solved / cat.total) * 100;
+                return (
+                  <div
+                    key={cat.category}
+                    className="bg-slate-800 rounded-lg p-4"
+                  >
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-white font-medium text-sm">
+                        {cat.category}
+                      </span>
+                      <span className="text-slate-400 text-xs">
+                        {cat.solved}/{cat.total}
+                      </span>
+                    </div>
+                    <div className="w-full bg-slate-700 rounded-full h-2">
+                      <div
+                        className={`h-2 bg-gradient-to-r ${cat.color} rounded-full transition-all duration-300`}
+                        style={{ width: `${catPercentage}%` }}
+                      ></div>
+                    </div>
+                    <div className="text-xs text-slate-400 mt-1">
+                      {Math.round(catPercentage)}% complete
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Weekly Progress */}
+            <div className="border-t border-slate-600 pt-4">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-white font-medium">
+                  This Week's Progress
+                </span>
+                <span className="text-green-400 text-sm font-medium">
+                  +2 solved
+                </span>
+              </div>
+              <div className="flex space-x-1">
+                {[true, true, false, false, false, false, false].map(
+                  (solved, day) => (
+                    <div
+                      key={day}
+                      className={`flex-1 h-2 rounded ${
+                        solved ? "bg-green-400" : "bg-slate-700"
+                      }`}
+                      title={`Day ${day + 1}`}
+                    />
+                  ),
+                )}
+              </div>
+              <div className="flex justify-between text-xs text-slate-400 mt-1">
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+                <span>Sun</span>
+              </div>
+            </div>
           </motion.div>
 
           {/* Filters */}
