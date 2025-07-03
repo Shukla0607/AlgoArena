@@ -19,6 +19,7 @@ const Problems = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDifficulty, setSelectedDifficulty] = useState("All");
   const [selectedTopic, setSelectedTopic] = useState("All");
+  const [activeProgressSection, setActiveProgressSection] = useState("Medium");
 
   const difficulties = ["All", "Easy", "Medium", "Hard"];
   const topics = [
