@@ -128,10 +128,20 @@ const Problems = () => {
               const percentage =
                 (parseInt(stat.value) / parseInt(stat.total)) * 100;
 
+              const isActive =
+                activeProgressSection === stat.label.split(" ")[0]; // Extract first word (Total, Easy, Medium, Hard)
+
               return (
                 <div
                   key={stat.label}
-                  className="theme-card-bg border theme-border rounded-xl p-6 hover:scale-105 transition-all duration-300"
+                  onClick={() =>
+                    setActiveProgressSection(stat.label.split(" ")[0])
+                  }
+                  className={`theme-card-bg border cursor-pointer rounded-xl p-6 hover:scale-105 transition-all duration-300 ${
+                    isActive
+                      ? "theme-border border-2 ring-2 ring-violet-500/50"
+                      : "theme-border"
+                  }`}
                 >
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-2">
