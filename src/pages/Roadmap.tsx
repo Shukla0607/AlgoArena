@@ -129,7 +129,7 @@ const Roadmap = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className={`relative bg-slate-800 border border-slate-600 rounded-xl p-6 cursor-pointer transition-all duration-300 ${
+                className={`relative bg-slate-800 border border-slate-600 rounded-xl p-6 cursor-pointer transition-all duration-300 flex flex-col h-full ${
                   path.unlocked
                     ? "hover:border-violet-500 hover:bg-slate-700"
                     : "opacity-60 cursor-not-allowed"
@@ -137,53 +137,69 @@ const Roadmap = () => {
               >
                 {/* Lock indicator for locked paths */}
                 {!path.unlocked && (
-                  <div className="absolute top-4 right-4">
-                    <Lock className="w-5 h-5 text-light/40" />
+                  <div className="absolute top-6 right-6">
+                    <Lock className="w-5 h-5 text-slate-400" />
                   </div>
                 )}
 
-                {/* Path Icon */}
-                <div
-                  className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${path.color} rounded-xl mb-4`}
-                >
-                  <Map className="w-8 h-8 text-white" />
+                {/* Header Section - Fixed height */}
+                <div className="mb-6">
+                  {/* Path Icon */}
+                  <div
+                    className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${path.color} rounded-xl mb-4`}
+                  >
+                    <Map className="w-8 h-8 text-white" />
+                  </div>
+
+                  {/* Path Info */}
+                  <h3 className="text-xl font-bold text-white mb-2 leading-tight">
+                    {path.title}
+                  </h3>
+                  <p className="text-slate-300 text-sm leading-relaxed min-h-[2.5rem]">
+                    {path.description}
+                  </p>
                 </div>
 
-                {/* Path Info */}
-                <h3 className="text-xl font-bold text-white mb-2">
-                  {path.title}
-                </h3>
-                <p className="text-slate-300 mb-4">{path.description}</p>
-
-                {/* Progress */}
-                <div className="mb-4">
-                  <div className="flex items-center justify-between text-sm text-slate-400 mb-2">
-                    <span>Progress</span>
-                    <span className="text-white">
+                {/* Progress Section - Consistent spacing */}
+                <div className="mb-6 flex-grow">
+                  <div className="flex items-center justify-between text-sm text-slate-400 mb-3">
+                    <span className="font-medium">Progress</span>
+                    <span className="text-white font-semibold">
                       {path.completed}/{path.problems}
                     </span>
                   </div>
-                  <div className="w-full bg-slate-700 rounded-full h-2">
+                  <div className="w-full bg-slate-700 rounded-full h-3 overflow-hidden">
                     <div
-                      className={`h-2 bg-gradient-to-r ${path.color} rounded-full transition-all duration-300`}
+                      className={`h-3 bg-gradient-to-r ${path.color} rounded-full transition-all duration-500 relative`}
                       style={{
                         width: `${(path.completed / path.problems) * 100}%`,
                       }}
-                    ></div>
+                    >
+                      <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
+                    </div>
+                  </div>
+                  <div className="text-xs text-slate-400 mt-2 text-center">
+                    {Math.round((path.completed / path.problems) * 100)}%
+                    Complete
                   </div>
                 </div>
 
-                {/* Difficulty Badge */}
-                <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 bg-slate-700 text-white text-xs font-medium rounded-full border border-slate-600">
+                {/* Footer Section - Aligned at bottom */}
+                <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-700">
+                  <span className="px-3 py-1.5 bg-slate-700 text-white text-xs font-medium rounded-full border border-slate-600">
                     {path.difficulty}
                   </span>
 
                   {path.unlocked ? (
-                    <ArrowRight className="w-5 h-5 text-violet-400" />
+                    <div className="flex items-center space-x-2 text-violet-400">
+                      <span className="text-xs font-medium">
+                        Start Learning
+                      </span>
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
                   ) : (
-                    <div className="text-slate-500 text-sm">
-                      Complete previous paths
+                    <div className="text-slate-500 text-xs text-right flex-1 ml-3">
+                      Complete previous paths to unlock
                     </div>
                   )}
                 </div>
