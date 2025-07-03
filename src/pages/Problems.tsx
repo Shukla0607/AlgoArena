@@ -208,105 +208,337 @@ const Problems = () => {
             })}
           </motion.div>
 
-          {/* Detailed Medium Problems Progress Section */}
+          {/* Dynamic Progress Section */}
           <motion.div
+            key={activeProgressSection}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
             className="theme-card-bg border theme-border rounded-xl p-6 mb-8"
           >
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-xl flex items-center justify-center">
-                  <Target className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">
-                    Medium Problems Progress
-                  </h3>
-                  <p className="text-slate-400">
-                    Intermediate challenges to level up your skills
-                  </p>
-                </div>
-              </div>
-              <div className="text-right">
-                <div className="text-2xl font-bold text-white">3/75</div>
-                <div className="text-sm text-slate-400">4% Complete</div>
-              </div>
-            </div>
-
-            {/* Category Breakdown */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              {[
-                {
-                  category: "Arrays & Strings",
-                  solved: 2,
-                  total: 25,
-                  color: "from-blue-400 to-blue-500",
-                },
-                {
-                  category: "Trees & Graphs",
-                  solved: 1,
-                  total: 30,
-                  color: "from-green-400 to-green-500",
-                },
-                {
-                  category: "Dynamic Programming",
-                  solved: 0,
-                  total: 20,
-                  color: "from-purple-400 to-purple-500",
-                },
-              ].map((cat, idx) => {
-                const catPercentage = (cat.solved / cat.total) * 100;
-                return (
-                  <div
-                    key={cat.category}
-                    className="bg-slate-800 rounded-lg p-4"
-                  >
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-white font-medium text-sm">
-                        {cat.category}
-                      </span>
-                      <span className="text-slate-400 text-xs">
-                        {cat.solved}/{cat.total}
-                      </span>
+            {activeProgressSection === "Total" && (
+              <>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-green-400 to-emerald-400 rounded-xl flex items-center justify-center">
+                      <Trophy className="w-6 h-6 text-white" />
                     </div>
-                    <div className="w-full bg-slate-700 rounded-full h-2">
-                      <div
-                        className={`h-2 bg-gradient-to-r ${cat.color} rounded-full transition-all duration-300`}
-                        style={{ width: `${catPercentage}%` }}
-                      ></div>
-                    </div>
-                    <div className="text-xs text-slate-400 mt-1">
-                      {Math.round(catPercentage)}% complete
+                    <div>
+                      <h3 className="text-xl font-bold text-white">
+                        Overall Progress
+                      </h3>
+                      <p className="text-slate-400">
+                        Your complete journey across all difficulties
+                      </p>
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-white">12/150</div>
+                    <div className="text-sm text-slate-400">8% Complete</div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                  {[
+                    {
+                      category: "Easy Progress",
+                      solved: 8,
+                      total: 50,
+                      color: "from-green-400 to-green-500",
+                    },
+                    {
+                      category: "Medium Progress",
+                      solved: 3,
+                      total: 75,
+                      color: "from-yellow-400 to-orange-400",
+                    },
+                    {
+                      category: "Hard Progress",
+                      solved: 1,
+                      total: 25,
+                      color: "from-red-400 to-pink-400",
+                    },
+                  ].map((cat, idx) => {
+                    const catPercentage = (cat.solved / cat.total) * 100;
+                    return (
+                      <div
+                        key={cat.category}
+                        className="bg-slate-800 rounded-lg p-4"
+                      >
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-white font-medium text-sm">
+                            {cat.category}
+                          </span>
+                          <span className="text-slate-400 text-xs">
+                            {cat.solved}/{cat.total}
+                          </span>
+                        </div>
+                        <div className="w-full bg-slate-700 rounded-full h-2">
+                          <div
+                            className={`h-2 bg-gradient-to-r ${cat.color} rounded-full transition-all duration-300`}
+                            style={{ width: `${catPercentage}%` }}
+                          ></div>
+                        </div>
+                        <div className="text-xs text-slate-400 mt-1">
+                          {Math.round(catPercentage)}% complete
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            )}
 
-            {/* Weekly Progress */}
+            {activeProgressSection === "Easy" && (
+              <>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-green-400 to-green-500 rounded-xl flex items-center justify-center">
+                      <Circle className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white">
+                        Easy Problems Progress
+                      </h3>
+                      <p className="text-slate-400">
+                        Perfect for building fundamentals and confidence
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-white">8/50</div>
+                    <div className="text-sm text-slate-400">16% Complete</div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                  {[
+                    {
+                      category: "Arrays & Hashing",
+                      solved: 5,
+                      total: 15,
+                      color: "from-green-400 to-green-500",
+                    },
+                    {
+                      category: "Two Pointers",
+                      solved: 2,
+                      total: 10,
+                      color: "from-emerald-400 to-emerald-500",
+                    },
+                    {
+                      category: "Sliding Window",
+                      solved: 1,
+                      total: 25,
+                      color: "from-teal-400 to-teal-500",
+                    },
+                  ].map((cat, idx) => {
+                    const catPercentage = (cat.solved / cat.total) * 100;
+                    return (
+                      <div
+                        key={cat.category}
+                        className="bg-slate-800 rounded-lg p-4"
+                      >
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-white font-medium text-sm">
+                            {cat.category}
+                          </span>
+                          <span className="text-slate-400 text-xs">
+                            {cat.solved}/{cat.total}
+                          </span>
+                        </div>
+                        <div className="w-full bg-slate-700 rounded-full h-2">
+                          <div
+                            className={`h-2 bg-gradient-to-r ${cat.color} rounded-full transition-all duration-300`}
+                            style={{ width: `${catPercentage}%` }}
+                          ></div>
+                        </div>
+                        <div className="text-xs text-slate-400 mt-1">
+                          {Math.round(catPercentage)}% complete
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+
+            {activeProgressSection === "Medium" && (
+              <>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-xl flex items-center justify-center">
+                      <Target className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white">
+                        Medium Problems Progress
+                      </h3>
+                      <p className="text-slate-400">
+                        Intermediate challenges to level up your skills
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-white">3/75</div>
+                    <div className="text-sm text-slate-400">4% Complete</div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                  {[
+                    {
+                      category: "Arrays & Strings",
+                      solved: 2,
+                      total: 25,
+                      color: "from-blue-400 to-blue-500",
+                    },
+                    {
+                      category: "Trees & Graphs",
+                      solved: 1,
+                      total: 30,
+                      color: "from-green-400 to-green-500",
+                    },
+                    {
+                      category: "Dynamic Programming",
+                      solved: 0,
+                      total: 20,
+                      color: "from-purple-400 to-purple-500",
+                    },
+                  ].map((cat, idx) => {
+                    const catPercentage = (cat.solved / cat.total) * 100;
+                    return (
+                      <div
+                        key={cat.category}
+                        className="bg-slate-800 rounded-lg p-4"
+                      >
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-white font-medium text-sm">
+                            {cat.category}
+                          </span>
+                          <span className="text-slate-400 text-xs">
+                            {cat.solved}/{cat.total}
+                          </span>
+                        </div>
+                        <div className="w-full bg-slate-700 rounded-full h-2">
+                          <div
+                            className={`h-2 bg-gradient-to-r ${cat.color} rounded-full transition-all duration-300`}
+                            style={{ width: `${catPercentage}%` }}
+                          ></div>
+                        </div>
+                        <div className="text-xs text-slate-400 mt-1">
+                          {Math.round(catPercentage)}% complete
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+
+            {activeProgressSection === "Hard" && (
+              <>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-red-400 to-pink-400 rounded-xl flex items-center justify-center">
+                      <Flame className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white">
+                        Hard Problems Progress
+                      </h3>
+                      <p className="text-slate-400">
+                        Expert challenges for advanced problem solving
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-white">1/25</div>
+                    <div className="text-sm text-slate-400">4% Complete</div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                  {[
+                    {
+                      category: "Advanced DP",
+                      solved: 1,
+                      total: 8,
+                      color: "from-red-400 to-red-500",
+                    },
+                    {
+                      category: "Graph Algorithms",
+                      solved: 0,
+                      total: 10,
+                      color: "from-pink-400 to-pink-500",
+                    },
+                    {
+                      category: "System Design",
+                      solved: 0,
+                      total: 7,
+                      color: "from-purple-400 to-purple-500",
+                    },
+                  ].map((cat, idx) => {
+                    const catPercentage = (cat.solved / cat.total) * 100;
+                    return (
+                      <div
+                        key={cat.category}
+                        className="bg-slate-800 rounded-lg p-4"
+                      >
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-white font-medium text-sm">
+                            {cat.category}
+                          </span>
+                          <span className="text-slate-400 text-xs">
+                            {cat.solved}/{cat.total}
+                          </span>
+                        </div>
+                        <div className="w-full bg-slate-700 rounded-full h-2">
+                          <div
+                            className={`h-2 bg-gradient-to-r ${cat.color} rounded-full transition-all duration-300`}
+                            style={{ width: `${catPercentage}%` }}
+                          ></div>
+                        </div>
+                        <div className="text-xs text-slate-400 mt-1">
+                          {Math.round(catPercentage)}% complete
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+
+            {/* Weekly Progress - Common to all sections */}
             <div className="border-t border-slate-600 pt-4">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-white font-medium">
                   This Week's Progress
                 </span>
                 <span className="text-green-400 text-sm font-medium">
-                  +2 solved
+                  +
+                  {activeProgressSection === "Easy"
+                    ? "3"
+                    : activeProgressSection === "Medium"
+                      ? "2"
+                      : activeProgressSection === "Hard"
+                        ? "1"
+                        : "6"}{" "}
+                  solved
                 </span>
               </div>
               <div className="flex space-x-1">
-                {[true, true, false, false, false, false, false].map(
-                  (solved, day) => (
-                    <div
-                      key={day}
-                      className={`flex-1 h-2 rounded ${
-                        solved ? "bg-green-400" : "bg-slate-700"
-                      }`}
-                      title={`Day ${day + 1}`}
-                    />
-                  ),
-                )}
+                {(activeProgressSection === "Easy"
+                  ? [true, true, true, false, false, false, false]
+                  : activeProgressSection === "Medium"
+                    ? [true, true, false, false, false, false, false]
+                    : activeProgressSection === "Hard"
+                      ? [true, false, false, false, false, false, false]
+                      : [true, true, true, true, true, true, false]
+                ).map((solved, day) => (
+                  <div
+                    key={day}
+                    className={`flex-1 h-2 rounded ${
+                      solved ? "bg-green-400" : "bg-slate-700"
+                    }`}
+                    title={`Day ${day + 1}`}
+                  />
+                ))}
               </div>
               <div className="flex justify-between text-xs text-slate-400 mt-1">
                 <span>Mon</span>
