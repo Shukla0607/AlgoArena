@@ -19,6 +19,8 @@ import {
   Terminal,
   Palette,
   X,
+  Copy,
+  Check,
 } from "lucide-react";
 import Navigation from "../components/Navigation";
 import LogoutConfirmation from "../components/LogoutConfirmation";
@@ -28,11 +30,96 @@ const Profile = () => {
   const { user, logout, isAdmin } = useAuth();
   const [logoutConfirmOpen, setLogoutConfirmOpen] = useState(false);
   const [readmeOpen, setReadmeOpen] = useState(false);
+  const [copySuccess, setCopySuccess] = useState(false);
 
   const handleLogout = () => {
     logout();
     setLogoutConfirmOpen(false);
     window.location.href = "/"; // Redirect to homepage after logout
+  };
+
+  const copyReadme = async () => {
+    const readmeContent = `# AlgoArena
+
+## Project Overview
+
+AlgoArena is a comprehensive coding practice platform that reimagines how developers learn algorithms and data structures. Built with a frontend-first approach, it combines the systematic problem-solving of LeetCode with the visual elegance and collaborative features of modern design tools.
+
+**Vision:** Create an immersive coding environment where learning algorithms feels intuitive, collaborative, and visually engaging.
+
+## Core Features
+
+🎨 **Zen Coding Interface** - Monaco Editor with glassmorphism design, syntax highlighting, and distraction-free focus mode
+
+🗺️ **Visual Learning Paths** - Interactive roadmaps guiding through Arrays, Trees, Graphs, and Dynamic Programming
+
+👥 **Debug Together** - Real-time collaborative debugging with live cursors, voice/video, and shared workspaces
+
+📊 **Smart Progress Tracking** - Visual progress rings, streak tracking, and achievement system
+
+🤖 **AI-Powered Assistant** - Context-aware hints, algorithm explanations, and intelligent code reviews
+
+🎯 **Role-Based Access** - Admin and general user roles with appropriate permissions and features
+
+## Platform Sections
+
+🧩 **Problems Arena** - 500+ curated problems with difficulty filtering, progress tracking, and detailed solutions
+
+⚡ **Practice Playground** - Free-form coding environment with instant execution and multi-language support
+
+🗺️ **Learning Roadmap** - Structured learning paths with unlock system and progress visualization
+
+👥 **Debug Together** - Collaborative debugging sessions with real-time code sharing and communication
+
+👤 **Smart Profile** - Comprehensive dashboard with achievements, statistics, and coding activity
+
+🏆 **Leaderboard** - Global rankings with competitive elements and community recognition
+
+## Tech Stack
+
+### Frontend Architecture
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+
+### UI & Animation
+- Framer Motion
+- Radix UI
+- Lucide Icons
+- Monaco Editor
+
+### Authentication & State
+- Google OAuth
+- React Context
+- Local Storage
+- React Router
+
+### Development Tools
+- ESLint
+- Prettier
+- Git
+- VS Code
+
+## Design Philosophy
+
+🎨 **Glassmorphism + Neumorphism** - Modern design language with translucent surfaces and subtle depth
+
+🌗 **Dynamic Theming** - Dark Mode, Midnight Blue, and Forest Green themes with seamless switching
+
+📱 **Responsive Design** - Mobile-first approach ensuring optimal experience across all devices
+
+---
+
+Built with ❤️ for the coding community`;
+
+    try {
+      await navigator.clipboard.writeText(readmeContent);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
   };
 
   return (
@@ -391,12 +478,32 @@ const Profile = () => {
                     </p>
                   </div>
                 </div>
-                <button
-                  onClick={() => setReadmeOpen(false)}
-                  className="p-2 text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-slate-700"
-                >
-                  <X className="w-6 h-6" />
-                </button>
+                <div className="flex items-center space-x-2">
+                  <button
+                    onClick={copyReadme}
+                    className="flex items-center space-x-2 px-4 py-2 text-slate-300 hover:text-white transition-colors rounded-lg hover:bg-slate-700 border border-slate-600"
+                  >
+                    {copySuccess ? (
+                      <>
+                        <Check className="w-4 h-4 text-green-400" />
+                        <span className="text-green-400 text-sm font-medium">
+                          Copied!
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4" />
+                        <span className="text-sm font-medium">Copy</span>
+                      </>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => setReadmeOpen(false)}
+                    className="p-2 text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-slate-700"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
               </div>
 
               {/* Content */}
