@@ -577,7 +577,7 @@ Built with ❤️ for the coding community`;
                     </div>
                     <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
                       <div className="font-semibold text-white mb-2">
-                        👥 Debug Together
+                        ���� Debug Together
                       </div>
                       <div className="text-sm text-slate-300">
                         Real-time collaborative debugging with live cursors,
@@ -867,20 +867,21 @@ Built with ❤️ for the coding community`;
               {/* Content */}
               <div className="p-6 overflow-y-auto max-h-[calc(90vh-100px)] custom-scrollbar">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
                   {/* 1. Home Page Screenshot */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-violet-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => window.location.href = '/'}
+                    onClick={() => (window.location.href = "/")}
                   >
                     <div className="h-48 bg-slate-900 p-2 relative">
                       {/* Navbar simulation */}
                       <div className="h-6 bg-slate-800 border border-slate-600 rounded mb-2 flex items-center px-2">
                         <div className="w-3 h-3 bg-gradient-to-r from-violet-500 to-cyan-500 rounded mr-1"></div>
-                        <div className="text-xs text-white font-bold">AlgoArena</div>
+                        <div className="text-xs text-white font-bold">
+                          AlgoArena
+                        </div>
                         <div className="ml-auto flex space-x-1 text-xs text-white">
                           <span>Problems</span>
                           <span>Practice</span>
@@ -888,12 +889,22 @@ Built with ❤️ for the coding community`;
                       </div>
                       {/* Hero section simulation */}
                       <div className="text-center px-2">
-                        <div className="text-xs font-bold text-white mb-1">Master Algorithms with Elegance</div>
-                        <div className="text-xs text-slate-300 mb-1">Where LeetCode meets Figma</div>
-                        <div className="text-xs text-slate-400 mb-2">Practice coding with beautiful UI</div>
+                        <div className="text-xs font-bold text-white mb-1">
+                          Master Algorithms with Elegance
+                        </div>
+                        <div className="text-xs text-slate-300 mb-1">
+                          Where LeetCode meets Figma
+                        </div>
+                        <div className="text-xs text-slate-400 mb-2">
+                          Practice coding with beautiful UI
+                        </div>
                         <div className="flex justify-center space-x-1 mb-3">
-                          <div className="px-2 py-1 bg-cyan-500 rounded text-xs text-white">Get Started</div>
-                          <div className="px-2 py-1 bg-slate-700 rounded text-xs text-white">Learn More</div>
+                          <div className="px-2 py-1 bg-cyan-500 rounded text-xs text-white">
+                            Get Started
+                          </div>
+                          <div className="px-2 py-1 bg-slate-700 rounded text-xs text-white">
+                            Learn More
+                          </div>
                         </div>
                       </div>
                       {/* Features grid simulation */}
@@ -925,8 +936,12 @@ Built with ❤️ for the coding community`;
                       </div>
                     </div>
                     <div className="p-3 bg-slate-800">
-                      <h3 className="text-sm font-bold text-white">Home Page</h3>
-                      <p className="text-xs text-slate-400">Landing page with hero section</p>
+                      <h3 className="text-sm font-bold text-white">
+                        Home Page
+                      </h3>
+                      <p className="text-xs text-slate-400">
+                        Landing page with hero section
+                      </p>
                     </div>
                   </motion.div>
 
@@ -936,7 +951,7 @@ Built with ❤️ for the coding community`;
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => window.location.href = '/login'}
+                    onClick={() => (window.location.href = "/login")}
                   >
                     <div className="h-48 bg-slate-900 p-2 relative">
                       {/* Split screen login simulation */}
@@ -944,33 +959,53 @@ Built with ❤️ for the coding community`;
                         {/* Left side - branding */}
                         <div className="bg-gradient-to-br from-violet-500/20 to-cyan-500/20 rounded p-2">
                           <div className="w-4 h-4 bg-gradient-to-r from-violet-500 to-cyan-500 rounded mb-1"></div>
-                          <div className="text-xs text-white font-bold mb-1">AlgoArena</div>
-                          <div className="text-xs text-white/70 mb-1">Where coding</div>
-                          <div className="text-xs text-white/70 mb-1">meets elegance</div>
-                          <div className="text-xs text-white/50">Practice • Learn • Grow</div>
+                          <div className="text-xs text-white font-bold mb-1">
+                            AlgoArena
+                          </div>
+                          <div className="text-xs text-white/70 mb-1">
+                            Where coding
+                          </div>
+                          <div className="text-xs text-white/70 mb-1">
+                            meets elegance
+                          </div>
+                          <div className="text-xs text-white/50">
+                            Practice • Learn • Grow
+                          </div>
                         </div>
                         {/* Right side - login form */}
                         <div className="bg-slate-800 rounded p-2">
-                          <div className="text-xs text-white font-semibold mb-2">Welcome Back</div>
+                          <div className="text-xs text-white font-semibold mb-2">
+                            Welcome Back
+                          </div>
                           <div className="space-y-1">
                             <div className="bg-slate-700 rounded p-1">
-                              <div className="text-xs text-slate-400">Email</div>
+                              <div className="text-xs text-slate-400">
+                                Email
+                              </div>
                             </div>
                             <div className="bg-slate-700 rounded p-1">
-                              <div className="text-xs text-slate-400">Password</div>
+                              <div className="text-xs text-slate-400">
+                                Password
+                              </div>
                             </div>
                             <div className="bg-blue-500 rounded p-1 text-center">
-                              <div className="text-xs text-white font-medium">Sign In</div>
+                              <div className="text-xs text-white font-medium">
+                                Sign In
+                              </div>
                             </div>
                             <div className="bg-red-500/20 border border-red-500 rounded p-1 text-center">
                               <div className="text-xs text-red-400">Google</div>
                             </div>
                             <div className="flex gap-1">
                               <div className="bg-slate-700 rounded p-1 flex-1 text-center">
-                                <div className="text-xs text-slate-300">Admin</div>
+                                <div className="text-xs text-slate-300">
+                                  Admin
+                                </div>
                               </div>
                               <div className="bg-slate-700 rounded p-1 flex-1 text-center">
-                                <div className="text-xs text-slate-300">User</div>
+                                <div className="text-xs text-slate-300">
+                                  User
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -978,8 +1013,12 @@ Built with ❤️ for the coding community`;
                       </div>
                     </div>
                     <div className="p-3 bg-slate-800">
-                      <h3 className="text-sm font-bold text-white">Login Page</h3>
-                      <p className="text-xs text-slate-400">Authentication with role selection</p>
+                      <h3 className="text-sm font-bold text-white">
+                        Login Page
+                      </h3>
+                      <p className="text-xs text-slate-400">
+                        Authentication with role selection
+                      </p>
                     </div>
                   </motion.div>
 
@@ -1022,7 +1061,9 @@ Built with ❤️ for the coding community`;
                     </div>
                     <div className="p-3 bg-slate-800">
                       <h3 className="text-sm font-bold text-white">Themes</h3>
-                      <p className="text-xs text-slate-400">Dynamic theme selection</p>
+                      <p className="text-xs text-slate-400">
+                        Dynamic theme selection
+                      </p>
                     </div>
                   </motion.div>
 
@@ -1032,33 +1073,43 @@ Built with ❤️ for the coding community`;
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => window.location.href = '/problems'}
+                    onClick={() => (window.location.href = "/problems")}
                   >
                     <div className="h-48 bg-slate-900 p-2 relative">
                       {/* Problems header */}
                       <div className="flex justify-between items-center mb-2">
-                        <div className="text-xs font-bold text-cyan-400">Problems Arena</div>
+                        <div className="text-xs font-bold text-cyan-400">
+                          Problems Arena
+                        </div>
                         <div className="text-xs text-slate-400">Search...</div>
                       </div>
                       {/* Progress cards */}
                       <div className="grid grid-cols-4 gap-1 mb-2">
                         <div className="bg-slate-700 rounded p-1 text-center">
-                          <div className="text-xs text-cyan-400 font-bold">85</div>
+                          <div className="text-xs text-cyan-400 font-bold">
+                            85
+                          </div>
                           <div className="text-xs text-cyan-400">Total</div>
                           <div className="w-full h-1 bg-cyan-400 rounded mt-1"></div>
                         </div>
                         <div className="bg-slate-700 rounded p-1 text-center">
-                          <div className="text-xs text-green-400 font-bold">35</div>
+                          <div className="text-xs text-green-400 font-bold">
+                            35
+                          </div>
                           <div className="text-xs text-green-400">Easy</div>
                           <div className="w-3/4 h-1 bg-green-400 rounded mt-1"></div>
                         </div>
                         <div className="bg-slate-700 rounded p-1 text-center">
-                          <div className="text-xs text-yellow-400 font-bold">40</div>
+                          <div className="text-xs text-yellow-400 font-bold">
+                            40
+                          </div>
                           <div className="text-xs text-yellow-400">Med</div>
                           <div className="w-2/3 h-1 bg-yellow-400 rounded mt-1"></div>
                         </div>
                         <div className="bg-slate-700 rounded p-1 text-center">
-                          <div className="text-xs text-red-400 font-bold">10</div>
+                          <div className="text-xs text-red-400 font-bold">
+                            10
+                          </div>
                           <div className="text-xs text-red-400">Hard</div>
                           <div className="w-1/3 h-1 bg-red-400 rounded mt-1"></div>
                         </div>
@@ -1070,34 +1121,50 @@ Built with ❤️ for the coding community`;
                             <div className="w-1 h-4 bg-green-400 rounded"></div>
                             <div className="text-xs text-white">1. Two Sum</div>
                           </div>
-                          <div className="px-1 bg-green-400/20 text-green-400 rounded text-xs">Easy</div>
+                          <div className="px-1 bg-green-400/20 text-green-400 rounded text-xs">
+                            Easy
+                          </div>
                         </div>
                         <div className="flex items-center justify-between bg-slate-800 rounded p-1">
                           <div className="flex items-center space-x-2">
                             <div className="w-1 h-4 bg-green-400 rounded"></div>
-                            <div className="text-xs text-white">2. Valid Parentheses</div>
+                            <div className="text-xs text-white">
+                              2. Valid Parentheses
+                            </div>
                           </div>
-                          <div className="px-1 bg-green-400/20 text-green-400 rounded text-xs">Easy</div>
+                          <div className="px-1 bg-green-400/20 text-green-400 rounded text-xs">
+                            Easy
+                          </div>
                         </div>
                         <div className="flex items-center justify-between bg-slate-800 rounded p-1">
                           <div className="flex items-center space-x-2">
                             <div className="w-1 h-4 bg-slate-600 rounded"></div>
-                            <div className="text-xs text-slate-400">3. Longest Substring</div>
+                            <div className="text-xs text-slate-400">
+                              3. Longest Substring
+                            </div>
                           </div>
-                          <div className="px-1 bg-yellow-400/20 text-yellow-400 rounded text-xs">Med</div>
+                          <div className="px-1 bg-yellow-400/20 text-yellow-400 rounded text-xs">
+                            Med
+                          </div>
                         </div>
                         <div className="flex items-center justify-between bg-slate-800 rounded p-1">
                           <div className="flex items-center space-x-2">
                             <div className="w-1 h-4 bg-slate-600 rounded"></div>
-                            <div className="text-xs text-slate-400">4. Median Arrays</div>
+                            <div className="text-xs text-slate-400">
+                              4. Median Arrays
+                            </div>
                           </div>
-                          <div className="px-1 bg-red-400/20 text-red-400 rounded text-xs">Hard</div>
+                          <div className="px-1 bg-red-400/20 text-red-400 rounded text-xs">
+                            Hard
+                          </div>
                         </div>
                       </div>
                     </div>
                     <div className="p-3 bg-slate-800">
                       <h3 className="text-sm font-bold text-white">Problems</h3>
-                      <p className="text-xs text-slate-400">Coding challenges with filtering</p>
+                      <p className="text-xs text-slate-400">
+                        Coding challenges with filtering
+                      </p>
                     </div>
                   </motion.div>
 
@@ -1107,7 +1174,7 @@ Built with ❤️ for the coding community`;
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => window.location.href = '/practice'}
+                    onClick={() => (window.location.href = "/practice")}
                   >
                     <div className="h-48 bg-slate-900 p-2 relative">
                       {/* Monaco editor simulation */}
@@ -1115,10 +1182,16 @@ Built with ❤️ for the coding community`;
                         {/* Editor header */}
                         <div className="bg-slate-800 border-b border-slate-600 p-1 flex items-center justify-between">
                           <div className="flex space-x-1 text-xs">
-                            <div className="px-1 bg-purple-500 text-white rounded">main.js</div>
-                            <div className="px-1 bg-slate-700 text-slate-400 rounded">+</div>
+                            <div className="px-1 bg-purple-500 text-white rounded">
+                              main.js
+                            </div>
+                            <div className="px-1 bg-slate-700 text-slate-400 rounded">
+                              +
+                            </div>
                           </div>
-                          <div className="px-1 bg-green-500 text-white rounded text-xs">▶ Run</div>
+                          <div className="px-1 bg-green-500 text-white rounded text-xs">
+                            ▶ Run
+                          </div>
                         </div>
                         {/* Code area */}
                         <div className="p-1 space-y-0.5 text-xs font-mono">
@@ -1126,7 +1199,9 @@ Built with ❤️ for the coding community`;
                             <span className="text-slate-500">1</span>
                             <span className="text-blue-400">function</span>
                             <span className="text-yellow-400">twoSum</span>
-                            <span className="text-white">(nums, target) {</span>
+                            <span className="text-white">
+                              (nums, target) {"{"}
+                            </span>
                           </div>
                           <div className="flex items-center space-x-1 ml-2">
                             <span className="text-slate-500">2</span>
@@ -1135,7 +1210,9 @@ Built with ❤️ for the coding community`;
                             <span className="text-blue-400">let</span>
                             <span className="text-white">i = </span>
                             <span className="text-green-400">0</span>
-                            <span className="text-white">; i {'<'} nums.length; i++) {</span>
+                            <span className="text-white">
+                              ; i &lt; nums.length; i++) {"{"}
+                            </span>
                           </div>
                           <div className="flex items-center space-x-1 ml-4">
                             <span className="text-slate-500">3</span>
@@ -1144,12 +1221,16 @@ Built with ❤️ for the coding community`;
                             <span className="text-blue-400">let</span>
                             <span className="text-white">j = i + </span>
                             <span className="text-green-400">1</span>
-                            <span className="text-white">; j {'<'} nums.length; j++) {</span>
+                            <span className="text-white">
+                              ; j &lt; nums.length; j++) {"{"}
+                            </span>
                           </div>
                           <div className="flex items-center space-x-1 ml-6">
                             <span className="text-slate-500">4</span>
                             <span className="text-blue-400">if</span>
-                            <span className="text-white">(nums[i] + nums[j] === target) {</span>
+                            <span className="text-white">
+                              (nums[i] + nums[j] === target) {"{"}
+                            </span>
                           </div>
                           <div className="flex items-center space-x-1 ml-8">
                             <span className="text-slate-500">5</span>
@@ -1158,30 +1239,34 @@ Built with ❤️ for the coding community`;
                           </div>
                           <div className="flex items-center space-x-1 ml-6">
                             <span className="text-slate-500">6</span>
-                            <span className="text-white">}</span>
+                            <span className="text-white">{"}"}</span>
                           </div>
                           <div className="flex items-center space-x-1 ml-4">
                             <span className="text-slate-500">7</span>
-                            <span className="text-white">}</span>
+                            <span className="text-white">{"}"}</span>
                           </div>
                           <div className="flex items-center space-x-1 ml-2">
                             <span className="text-slate-500">8</span>
-                            <span className="text-white">}</span>
+                            <span className="text-white">{"}"}</span>
                           </div>
                           <div className="flex items-center space-x-1">
                             <span className="text-slate-500">9</span>
-                            <span className="text-white">}</span>
+                            <span className="text-white">{"}"}</span>
                           </div>
                         </div>
                         {/* Output panel */}
                         <div className="bg-slate-800 border-t border-slate-600 p-1">
-                          <div className="text-xs text-green-400">Output: [0, 1]</div>
+                          <div className="text-xs text-green-400">
+                            Output: [0, 1]
+                          </div>
                         </div>
                       </div>
                     </div>
                     <div className="p-3 bg-slate-800">
                       <h3 className="text-sm font-bold text-white">Practice</h3>
-                      <p className="text-xs text-slate-400">Code playground with execution</p>
+                      <p className="text-xs text-slate-400">
+                        Code playground with execution
+                      </p>
                     </div>
                   </motion.div>
 
@@ -1191,7 +1276,7 @@ Built with ❤️ for the coding community`;
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => window.location.href = '/roadmap'}
+                    onClick={() => (window.location.href = "/roadmap")}
                   >
                     <div className="h-48 bg-slate-900 p-4 relative">
                       {/* Learning path simulation */}
@@ -1225,7 +1310,9 @@ Built with ❤️ for the coding community`;
                     </div>
                     <div className="p-3 bg-slate-800">
                       <h3 className="text-sm font-bold text-white">Roadmap</h3>
-                      <p className="text-xs text-slate-400">Learning paths with progress</p>
+                      <p className="text-xs text-slate-400">
+                        Learning paths with progress
+                      </p>
                     </div>
                   </motion.div>
 
@@ -1235,7 +1322,7 @@ Built with ❤️ for the coding community`;
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7 }}
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => window.location.href = '/debug-together'}
+                    onClick={() => (window.location.href = "/debug-together")}
                   >
                     <div className="h-48 bg-slate-900 p-4 relative">
                       {/* Collaborative interface simulation */}
@@ -1281,8 +1368,12 @@ Built with ❤️ for the coding community`;
                       </div>
                     </div>
                     <div className="p-3 bg-slate-800">
-                      <h3 className="text-sm font-bold text-white">Debug Together</h3>
-                      <p className="text-xs text-slate-400">Collaborative debugging sessions</p>
+                      <h3 className="text-sm font-bold text-white">
+                        Debug Together
+                      </h3>
+                      <p className="text-xs text-slate-400">
+                        Collaborative debugging sessions
+                      </p>
                     </div>
                   </motion.div>
 
@@ -1292,7 +1383,7 @@ Built with ❤️ for the coding community`;
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8 }}
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => window.location.href = '/profile'}
+                    onClick={() => (window.location.href = "/profile")}
                   >
                     <div className="h-48 bg-slate-900 p-4 relative">
                       {/* Profile dashboard simulation */}
@@ -1310,9 +1401,11 @@ Built with ❤️ for the coding community`;
                           </div>
                           <div className="bg-slate-800 rounded p-2">
                             <div className="grid grid-cols-4 gap-1">
-                              {[1,2,3,4].map(i => (
+                              {[1, 2, 3, 4].map((i) => (
                                 <div key={i} className="text-center">
-                                  <div className={`w-4 h-4 rounded-full mx-auto mb-1 ${i === 1 ? 'bg-green-400' : i === 2 ? 'bg-yellow-400' : i === 3 ? 'bg-red-400' : 'bg-cyan-400'}`}></div>
+                                  <div
+                                    className={`w-4 h-4 rounded-full mx-auto mb-1 ${i === 1 ? "bg-green-400" : i === 2 ? "bg-yellow-400" : i === 3 ? "bg-red-400" : "bg-cyan-400"}`}
+                                  ></div>
                                   <div className="w-full h-0.5 bg-slate-600 rounded"></div>
                                 </div>
                               ))}
@@ -1321,9 +1414,14 @@ Built with ❤️ for the coding community`;
                         </div>
                         {/* Right - Achievements */}
                         <div className="space-y-1">
-                          {[1,2,3,4].map(i => (
-                            <div key={i} className="flex items-center space-x-1 bg-slate-800 rounded p-1">
-                              <div className={`w-2 h-2 rounded ${i <= 3 ? 'bg-yellow-400' : 'bg-slate-600'}`}></div>
+                          {[1, 2, 3, 4].map((i) => (
+                            <div
+                              key={i}
+                              className="flex items-center space-x-1 bg-slate-800 rounded p-1"
+                            >
+                              <div
+                                className={`w-2 h-2 rounded ${i <= 3 ? "bg-yellow-400" : "bg-slate-600"}`}
+                              ></div>
                               <div className="w-6 h-1 bg-slate-600 rounded"></div>
                             </div>
                           ))}
@@ -1332,7 +1430,9 @@ Built with ❤️ for the coding community`;
                     </div>
                     <div className="p-3 bg-slate-800">
                       <h3 className="text-sm font-bold text-white">Profile</h3>
-                      <p className="text-xs text-slate-400">User dashboard and statistics</p>
+                      <p className="text-xs text-slate-400">
+                        User dashboard and statistics
+                      </p>
                     </div>
                   </motion.div>
 
@@ -1342,7 +1442,7 @@ Built with ❤️ for the coding community`;
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9 }}
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-yellow-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => window.location.href = '/leaderboard'}
+                    onClick={() => (window.location.href = "/leaderboard")}
                   >
                     <div className="h-48 bg-slate-900 p-4 relative">
                       {/* Leaderboard simulation */}
@@ -1356,10 +1456,15 @@ Built with ❤️ for the coding community`;
                       </div>
                       {/* Ranking list */}
                       <div className="space-y-1">
-                        {[1,2,3,4,5].map(i => (
-                          <div key={i} className={`flex items-center justify-between p-1 rounded ${i <= 3 ? 'bg-yellow-500/20 border border-yellow-500/30' : 'bg-slate-800'}`}>
+                        {[1, 2, 3, 4, 5].map((i) => (
+                          <div
+                            key={i}
+                            className={`flex items-center justify-between p-1 rounded ${i <= 3 ? "bg-yellow-500/20 border border-yellow-500/30" : "bg-slate-800"}`}
+                          >
                             <div className="flex items-center space-x-2">
-                              <div className={`w-4 h-4 rounded-full ${i === 1 ? 'bg-yellow-400' : i === 2 ? 'bg-gray-400' : i === 3 ? 'bg-orange-400' : 'bg-slate-600'}`}></div>
+                              <div
+                                className={`w-4 h-4 rounded-full ${i === 1 ? "bg-yellow-400" : i === 2 ? "bg-gray-400" : i === 3 ? "bg-orange-400" : "bg-slate-600"}`}
+                              ></div>
                               <div className="w-8 h-1 bg-slate-600 rounded"></div>
                             </div>
                             <div className="w-6 h-1 bg-slate-600 rounded"></div>
@@ -1368,17 +1473,21 @@ Built with ❤️ for the coding community`;
                       </div>
                     </div>
                     <div className="p-3 bg-slate-800">
-                      <h3 className="text-sm font-bold text-white">Leaderboard</h3>
-                      <p className="text-xs text-slate-400">Rankings and competition</p>
+                      <h3 className="text-sm font-bold text-white">
+                        Leaderboard
+                      </h3>
+                      <p className="text-xs text-slate-400">
+                        Rankings and competition
+                      </p>
                     </div>
                   </motion.div>
-
                 </div>
 
                 {/* Bottom Navigation Hint */}
                 <div className="mt-8 p-4 bg-slate-800/50 border border-slate-700 rounded-xl text-center">
                   <p className="text-slate-400 text-sm">
-                    Visual overview of all platform sections • Click any card to navigate
+                    Visual overview of all platform sections • Click any card to
+                    navigate
                   </p>
                 </div>
               </div>
