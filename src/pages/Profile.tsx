@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   User,
   Trophy,
@@ -12,6 +12,13 @@ import {
   LogOut,
   Settings,
   Shield,
+  BookOpen,
+  Code,
+  Sparkles,
+  Map,
+  Terminal,
+  Palette,
+  X,
 } from "lucide-react";
 import Navigation from "../components/Navigation";
 import LogoutConfirmation from "../components/LogoutConfirmation";
@@ -20,6 +27,7 @@ import { useAuth } from "../contexts/AuthContext";
 const Profile = () => {
   const { user, logout, isAdmin } = useAuth();
   const [logoutConfirmOpen, setLogoutConfirmOpen] = useState(false);
+  const [readmeOpen, setReadmeOpen] = useState(false);
 
   const handleLogout = () => {
     logout();
@@ -99,6 +107,14 @@ const Profile = () => {
                 <button className="flex items-center space-x-2 bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                   <Settings className="w-4 h-4" />
                   <span>Account Settings</span>
+                </button>
+
+                <button
+                  onClick={() => setReadmeOpen(true)}
+                  className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 border border-blue-500"
+                >
+                  <BookOpen className="w-4 h-4" />
+                  <span>README</span>
                 </button>
 
                 <button
@@ -339,6 +355,331 @@ const Profile = () => {
         onConfirm={handleLogout}
         userName={user?.name}
       />
+
+      {/* README Modal */}
+      <AnimatePresence>
+        {readmeOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setReadmeOpen(false)}
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            />
+
+            {/* Modal */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-4xl max-h-[90vh] bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between p-6 border-b border-slate-700 bg-slate-800">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                    <BookOpen className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold text-white">
+                      AlgoArena README
+                    </h2>
+                    <p className="text-slate-400">
+                      Complete Project Documentation
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setReadmeOpen(false)}
+                  className="p-2 text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-slate-700"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 overflow-y-auto max-h-[calc(90vh-100px)] custom-scrollbar">
+                {/* Project Overview */}
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                    <Code className="w-5 h-5 mr-2 text-cyan-400" />
+                    Project Overview
+                  </h3>
+                  <p className="text-slate-300 mb-4 leading-relaxed">
+                    AlgoArena is a comprehensive coding practice platform that
+                    reimagines how developers learn algorithms and data
+                    structures. Built with a frontend-first approach, it
+                    combines the systematic problem-solving of LeetCode with the
+                    visual elegance and collaborative features of modern design
+                    tools.
+                  </p>
+                  <div className="bg-slate-800 border border-slate-600 rounded-lg p-4 mb-4">
+                    <p className="text-slate-300">
+                      <strong className="text-white">Vision:</strong> Create an
+                      immersive coding environment where learning algorithms
+                      feels intuitive, collaborative, and visually engaging.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Core Features */}
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                    <Sparkles className="w-5 h-5 mr-2 text-cyan-400" />
+                    Core Features
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        🎨 Zen Coding Interface
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Monaco Editor with glassmorphism design, syntax
+                        highlighting, and distraction-free focus mode
+                      </div>
+                    </div>
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        🗺️ Visual Learning Paths
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Interactive roadmaps guiding through Arrays, Trees,
+                        Graphs, and Dynamic Programming
+                      </div>
+                    </div>
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        👥 Debug Together
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Real-time collaborative debugging with live cursors,
+                        voice/video, and shared workspaces
+                      </div>
+                    </div>
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        📊 Smart Progress Tracking
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Visual progress rings, streak tracking, and achievement
+                        system
+                      </div>
+                    </div>
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        🤖 AI-Powered Assistant
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Context-aware hints, algorithm explanations, and
+                        intelligent code reviews
+                      </div>
+                    </div>
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        🎯 Role-Based Access
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Admin and general user roles with appropriate
+                        permissions and features
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Platform Sections */}
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                    <Map className="w-5 h-5 mr-2 text-cyan-400" />
+                    Platform Sections
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        🧩 Problems Arena
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        500+ curated problems with difficulty filtering,
+                        progress tracking, and detailed solutions
+                      </div>
+                    </div>
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        ⚡ Practice Playground
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Free-form coding environment with instant execution and
+                        multi-language support
+                      </div>
+                    </div>
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        🗺️ Learning Roadmap
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Structured learning paths with unlock system and
+                        progress visualization
+                      </div>
+                    </div>
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        👥 Debug Together
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Collaborative debugging sessions with real-time code
+                        sharing and communication
+                      </div>
+                    </div>
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        👤 Smart Profile
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Comprehensive dashboard with achievements, statistics,
+                        and coding activity
+                      </div>
+                    </div>
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        🏆 Leaderboard
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Global rankings with competitive elements and community
+                        recognition
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Tech Stack */}
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                    <Terminal className="w-5 h-5 mr-2 text-cyan-400" />
+                    Tech Stack
+                  </h3>
+                  <div className="space-y-4">
+                    <div>
+                      <div className="text-sm font-semibold text-white mb-3">
+                        Frontend Architecture
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {["React 18", "TypeScript", "Vite", "Tailwind CSS"].map(
+                          (tech) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-500/30"
+                            >
+                              {tech}
+                            </span>
+                          ),
+                        )}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="text-sm font-semibold text-white mb-3">
+                        UI & Animation
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {[
+                          "Framer Motion",
+                          "Radix UI",
+                          "Lucide Icons",
+                          "Monaco Editor",
+                        ].map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full border border-purple-500/30"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="text-sm font-semibold text-white mb-3">
+                        Authentication & State
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {[
+                          "Google OAuth",
+                          "React Context",
+                          "Local Storage",
+                          "React Router",
+                        ].map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 bg-green-500/20 text-green-300 text-sm rounded-full border border-green-500/30"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="text-sm font-semibold text-white mb-3">
+                        Development Tools
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {["ESLint", "Prettier", "Git", "VS Code"].map(
+                          (tech) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-1 bg-orange-500/20 text-orange-300 text-sm rounded-full border border-orange-500/30"
+                            >
+                              {tech}
+                            </span>
+                          ),
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Design Philosophy */}
+                <div className="mb-6">
+                  <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                    <Palette className="w-5 h-5 mr-2 text-cyan-400" />
+                    Design Philosophy
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        🎨 Glassmorphism + Neumorphism
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Modern design language with translucent surfaces and
+                        subtle depth
+                      </div>
+                    </div>
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        🌗 Dynamic Theming
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Dark Mode, Midnight Blue, and Forest Green themes with
+                        seamless switching
+                      </div>
+                    </div>
+                    <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
+                      <div className="font-semibold text-white mb-2">
+                        📱 Responsive Design
+                      </div>
+                      <div className="text-sm text-slate-300">
+                        Mobile-first approach ensuring optimal experience across
+                        all devices
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

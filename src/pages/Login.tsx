@@ -12,10 +12,6 @@ import {
   ArrowLeft,
   Code,
   AlertCircle,
-  Sparkles,
-  Map,
-  Terminal,
-  Palette,
 } from "lucide-react";
 import { useAuth, UserRole } from "../contexts/AuthContext";
 import { googleAuth } from "../lib/googleAuth";
@@ -146,278 +142,27 @@ const Login = () => {
               </span>
             </h1>
 
-            <div className="max-w-md overflow-y-auto max-h-[calc(100vh-200px)] pr-4 custom-scrollbar">
-              <p className="text-lg text-white/80 mb-6">
-                Where LeetCode's rigor meets Figma's elegance. A frontend-first
-                coding practice platform designed for modern developers.
-              </p>
+            <p className="text-lg text-white/80 mb-6 max-w-md">
+              Where LeetCode's rigor meets Figma's elegance. Join thousands of
+              developers mastering algorithms through visual learning.
+            </p>
 
-              {/* Project Overview */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                  <Code className="w-5 h-5 mr-2 text-cyan-300" />
-                  Project Overview
-                </h3>
-                <p className="text-sm text-white/70 mb-4 leading-relaxed">
-                  AlgoArena is a comprehensive coding practice platform that
-                  reimagines how developers learn algorithms and data
-                  structures. Built with a frontend-first approach, it combines
-                  the systematic problem-solving of LeetCode with the visual
-                  elegance and collaborative features of modern design tools.
-                </p>
-                <div className="bg-white/10 rounded-lg p-3 mb-4">
-                  <p className="text-xs text-white/80">
-                    <strong>Vision:</strong> Create an immersive coding
-                    environment where learning algorithms feels intuitive,
-                    collaborative, and visually engaging.
-                  </p>
-                </div>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3 text-white/90">
+                <div className="w-2 h-2 bg-cyan-400 rounded-full" />
+                <span>500+ Curated Problems</span>
               </div>
-
-              {/* Core Features */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                  <Sparkles className="w-5 h-5 mr-2 text-cyan-300" />
-                  Core Features
-                </h3>
-                <div className="space-y-3">
-                  <div className="flex items-start space-x-3 text-white/90">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <div className="font-medium">Zen Coding Interface</div>
-                      <div className="text-xs text-white/60">
-                        Monaco Editor with glassmorphism design, syntax
-                        highlighting, and distraction-free focus mode
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3 text-white/90">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <div className="font-medium">Visual Learning Paths</div>
-                      <div className="text-xs text-white/60">
-                        Interactive roadmaps guiding through Arrays, Trees,
-                        Graphs, and Dynamic Programming
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3 text-white/90">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <div className="font-medium">Debug Together</div>
-                      <div className="text-xs text-white/60">
-                        Real-time collaborative debugging with live cursors,
-                        voice/video, and shared workspaces
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3 text-white/90">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <div className="font-medium">Smart Progress Tracking</div>
-                      <div className="text-xs text-white/60">
-                        Visual progress rings, streak tracking, and achievement
-                        system
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3 text-white/90">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <div className="font-medium">AI-Powered Assistant</div>
-                      <div className="text-xs text-white/60">
-                        Context-aware hints, algorithm explanations, and
-                        intelligent code reviews
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="flex items-center space-x-3 text-white/90">
+                <div className="w-2 h-2 bg-cyan-400 rounded-full" />
+                <span>Visual Learning Paths</span>
               </div>
-
-              {/* Platform Sections */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                  <Map className="w-5 h-5 mr-2 text-cyan-300" />
-                  Platform Sections
-                </h3>
-                <div className="grid grid-cols-1 gap-3">
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="font-medium text-white text-sm mb-1">
-                      🧩 Problems Arena
-                    </div>
-                    <div className="text-xs text-white/60">
-                      500+ curated problems with difficulty filtering, progress
-                      tracking, and detailed solutions
-                    </div>
-                  </div>
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="font-medium text-white text-sm mb-1">
-                      ⚡ Practice Playground
-                    </div>
-                    <div className="text-xs text-white/60">
-                      Free-form coding environment with instant execution and
-                      multi-language support
-                    </div>
-                  </div>
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="font-medium text-white text-sm mb-1">
-                      🗺️ Learning Roadmap
-                    </div>
-                    <div className="text-xs text-white/60">
-                      Structured learning paths with unlock system and progress
-                      visualization
-                    </div>
-                  </div>
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="font-medium text-white text-sm mb-1">
-                      👥 Debug Together
-                    </div>
-                    <div className="text-xs text-white/60">
-                      Collaborative debugging sessions with real-time code
-                      sharing and communication
-                    </div>
-                  </div>
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="font-medium text-white text-sm mb-1">
-                      👤 Smart Profile
-                    </div>
-                    <div className="text-xs text-white/60">
-                      Comprehensive dashboard with achievements, statistics, and
-                      coding activity
-                    </div>
-                  </div>
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="font-medium text-white text-sm mb-1">
-                      🏆 Leaderboard
-                    </div>
-                    <div className="text-xs text-white/60">
-                      Global rankings with competitive elements and community
-                      recognition
-                    </div>
-                  </div>
-                </div>
+              <div className="flex items-center space-x-3 text-white/90">
+                <div className="w-2 h-2 bg-cyan-400 rounded-full" />
+                <span>Collaborative Debugging</span>
               </div>
-
-              {/* Tech Stack */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                  <Terminal className="w-5 h-5 mr-2 text-cyan-300" />
-                  Tech Stack
-                </h3>
-                <div className="space-y-4">
-                  <div>
-                    <div className="text-sm font-medium text-white mb-2">
-                      Frontend Architecture
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {["React 18", "TypeScript", "Vite", "Tailwind CSS"].map(
-                        (tech) => (
-                          <span
-                            key={tech}
-                            className="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full"
-                          >
-                            {tech}
-                          </span>
-                        ),
-                      )}
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="text-sm font-medium text-white mb-2">
-                      UI & Animation
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {[
-                        "Framer Motion",
-                        "Radix UI",
-                        "Lucide Icons",
-                        "Monaco Editor",
-                      ].map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="text-sm font-medium text-white mb-2">
-                      Authentication & State
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {[
-                        "Google OAuth",
-                        "React Context",
-                        "Local Storage",
-                        "React Router",
-                      ].map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 bg-green-500/20 text-green-300 text-xs rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="text-sm font-medium text-white mb-2">
-                      Development Tools
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {["ESLint", "Prettier", "Git", "VS Code"].map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Design Philosophy */}
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                  <Palette className="w-5 h-5 mr-2 text-cyan-300" />
-                  Design Philosophy
-                </h3>
-                <div className="space-y-3">
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="font-medium text-white text-sm mb-1">
-                      🎨 Glassmorphism + Neumorphism
-                    </div>
-                    <div className="text-xs text-white/60">
-                      Modern design language with translucent surfaces and
-                      subtle depth
-                    </div>
-                  </div>
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="font-medium text-white text-sm mb-1">
-                      🌗 Dynamic Theming
-                    </div>
-                    <div className="text-xs text-white/60">
-                      Dark Mode, Midnight Blue, and Forest Green themes with
-                      seamless switching
-                    </div>
-                  </div>
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="font-medium text-white text-sm mb-1">
-                      📱 Responsive Design
-                    </div>
-                    <div className="text-xs text-white/60">
-                      Mobile-first approach ensuring optimal experience across
-                      all devices
-                    </div>
-                  </div>
-                </div>
+              <div className="flex items-center space-x-3 text-white/90">
+                <div className="w-2 h-2 bg-cyan-400 rounded-full" />
+                <span>Progress Tracking</span>
               </div>
             </div>
           </motion.div>
