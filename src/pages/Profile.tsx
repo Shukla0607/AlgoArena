@@ -1135,7 +1135,7 @@ Built with ❤️ for the coding community`;
                             <span className="text-blue-400">let</span>
                             <span className="text-white">i = </span>
                             <span className="text-green-400">0</span>
-                            <span className="text-white">; i &lt; nums.length; i++) {</span>
+                            <span className="text-white">; i {'<'} nums.length; i++) {</span>
                           </div>
                           <div className="flex items-center space-x-1 ml-4">
                             <span className="text-slate-500">3</span>
@@ -1144,7 +1144,7 @@ Built with ❤️ for the coding community`;
                             <span className="text-blue-400">let</span>
                             <span className="text-white">j = i + </span>
                             <span className="text-green-400">1</span>
-                            <span className="text-white">; j &lt; nums.length; j++) {</span>
+                            <span className="text-white">; j {'<'} nums.length; j++) {</span>
                           </div>
                           <div className="flex items-center space-x-1 ml-6">
                             <span className="text-slate-500">4</span>
