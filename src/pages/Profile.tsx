@@ -867,226 +867,471 @@ Built with ❤️ for the coding community`;
               {/* Content */}
               <div className="p-6 overflow-y-auto max-h-[calc(90vh-100px)] custom-scrollbar">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {/* Problems Arena */}
+                  {/* 1. Home Page Screenshot */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-cyan-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => (window.location.href = "/problems")}
+                    className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-violet-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/")}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative">
-                      <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center mb-4">
-                        <Code className="w-6 h-6 text-white" />
+                    <div className="h-48 bg-slate-900 p-4 relative">
+                      {/* Navbar simulation */}
+                      <div className="h-8 bg-slate-800 border border-slate-600 rounded-lg mb-3 flex items-center px-2">
+                        <div className="w-4 h-4 bg-gradient-to-r from-violet-500 to-cyan-500 rounded"></div>
+                        <div className="ml-2 text-xs text-white font-bold">
+                          AlgoArena
+                        </div>
+                        <div className="ml-auto flex space-x-1">
+                          <div className="w-8 h-4 bg-slate-700 rounded text-xs"></div>
+                          <div className="w-8 h-4 bg-slate-700 rounded text-xs"></div>
+                        </div>
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-2">
-                        Problems Arena
+                      {/* Hero section simulation */}
+                      <div className="text-center mt-6">
+                        <div className="w-full h-3 bg-gradient-to-r from-violet-500 to-cyan-500 rounded mb-2"></div>
+                        <div className="w-3/4 h-2 bg-slate-600 rounded mx-auto mb-2"></div>
+                        <div className="w-1/2 h-2 bg-slate-600 rounded mx-auto mb-3"></div>
+                        <div className="flex justify-center space-x-2">
+                          <div className="w-12 h-6 bg-cyan-500 rounded"></div>
+                          <div className="w-12 h-6 bg-slate-700 rounded"></div>
+                        </div>
+                      </div>
+                      {/* Features grid simulation */}
+                      <div className="grid grid-cols-3 gap-1 mt-4">
+                        {[1, 2, 3, 4, 5, 6].map((i) => (
+                          <div
+                            key={i}
+                            className="h-8 bg-slate-700 rounded"
+                          ></div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="p-3 bg-slate-800">
+                      <h3 className="text-sm font-bold text-white">
+                        Home Page
                       </h3>
-                      <p className="text-slate-400 text-sm mb-4">
-                        500+ curated coding problems with difficulty levels and
-                        detailed solutions
+                      <p className="text-xs text-slate-400">
+                        Landing page with hero section
                       </p>
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-green-400">Easy: 150</span>
-                          <span className="text-yellow-400">Medium: 250</span>
-                          <span className="text-red-400">Hard: 100</span>
-                        </div>
-                        <div className="w-full bg-slate-700 rounded-full h-2">
-                          <div className="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded-full w-3/4"></div>
-                        </div>
-                      </div>
                     </div>
                   </motion.div>
 
-                  {/* Practice Playground */}
+                  {/* 2. Login Page Screenshot */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => (window.location.href = "/playground")}
+                    className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/login")}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative">
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4">
-                        <Play className="w-6 h-6 text-white" />
+                    <div className="h-48 bg-slate-900 p-4 relative">
+                      {/* Split screen login simulation */}
+                      <div className="grid grid-cols-2 h-full gap-2">
+                        {/* Left side - branding */}
+                        <div className="bg-gradient-to-br from-violet-500/20 to-cyan-500/20 rounded p-3">
+                          <div className="w-6 h-6 bg-gradient-to-r from-violet-500 to-cyan-500 rounded mb-2"></div>
+                          <div className="w-full h-2 bg-white/30 rounded mb-1"></div>
+                          <div className="w-3/4 h-2 bg-white/20 rounded mb-1"></div>
+                          <div className="w-1/2 h-2 bg-white/20 rounded"></div>
+                        </div>
+                        {/* Right side - login form */}
+                        <div className="bg-slate-800 rounded p-3">
+                          <div className="w-2/3 h-3 bg-white rounded mb-2"></div>
+                          <div className="space-y-2">
+                            <div className="w-full h-4 bg-slate-700 rounded"></div>
+                            <div className="w-full h-4 bg-slate-700 rounded"></div>
+                            <div className="w-full h-6 bg-blue-500 rounded"></div>
+                            <div className="w-full h-4 bg-red-500/20 border border-red-500 rounded"></div>
+                          </div>
+                        </div>
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-2">
-                        Practice Playground
+                    </div>
+                    <div className="p-3 bg-slate-800">
+                      <h3 className="text-sm font-bold text-white">
+                        Login Page
                       </h3>
-                      <p className="text-slate-400 text-sm mb-4">
-                        Free-form coding environment with instant execution and
-                        multi-language support
+                      <p className="text-xs text-slate-400">
+                        Authentication with role selection
                       </p>
-                      <div className="flex flex-wrap gap-1 mb-2">
-                        {["JavaScript", "Python", "C++", "Java"].map((lang) => (
-                          <span
-                            key={lang}
-                            className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full"
-                          >
-                            {lang}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="text-xs text-slate-400">
-                        Real-time execution • Monaco Editor
-                      </div>
                     </div>
                   </motion.div>
 
-                  {/* Learning Roadmap */}
+                  {/* 3. Themes Screenshot */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-emerald-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => (window.location.href = "/roadmap")}
+                    className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 cursor-pointer"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-green-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative">
-                      <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-500 rounded-xl flex items-center justify-center mb-4">
-                        <Map className="w-6 h-6 text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-2">
-                        Learning Roadmap
-                      </h3>
-                      <p className="text-slate-400 text-sm mb-4">
-                        Structured learning paths with unlock system and
-                        progress visualization
-                      </p>
-                      <div className="space-y-2">
-                        <div className="flex items-center text-xs text-slate-300">
-                          <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></div>
-                          Arrays & Strings
+                    <div className="h-48 bg-slate-900 p-4 relative">
+                      {/* Theme selector simulation */}
+                      <div className="text-center">
+                        <div className="w-3/4 h-3 bg-white rounded mx-auto mb-3"></div>
+                        <div className="grid grid-cols-3 gap-2 mb-3">
+                          <div className="h-12 bg-slate-800 border border-slate-600 rounded p-1">
+                            <div className="w-full h-2 bg-slate-600 rounded mb-1"></div>
+                            <div className="w-2/3 h-1 bg-slate-500 rounded"></div>
+                          </div>
+                          <div className="h-12 bg-blue-900 border border-blue-600 rounded p-1">
+                            <div className="w-full h-2 bg-blue-500 rounded mb-1"></div>
+                            <div className="w-2/3 h-1 bg-blue-400 rounded"></div>
+                          </div>
+                          <div className="h-12 bg-green-900 border border-green-600 rounded p-1">
+                            <div className="w-full h-2 bg-green-500 rounded mb-1"></div>
+                            <div className="w-2/3 h-1 bg-green-400 rounded"></div>
+                          </div>
                         </div>
-                        <div className="flex items-center text-xs text-slate-300">
-                          <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2"></div>
-                          Trees & Graphs
+                        <div className="flex justify-center space-x-1">
+                          <div className="w-3 h-3 bg-slate-600 rounded-full"></div>
+                          <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                         </div>
-                        <div className="flex items-center text-xs text-slate-300">
-                          <div className="w-2 h-2 bg-slate-600 rounded-full mr-2"></div>
-                          Dynamic Programming
+                        {/* Preview area */}
+                        <div className="mt-3 h-16 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded border border-purple-500/30 p-2">
+                          <div className="w-full h-2 bg-purple-400 rounded mb-1"></div>
+                          <div className="w-3/4 h-1 bg-purple-300 rounded"></div>
                         </div>
                       </div>
                     </div>
+                    <div className="p-3 bg-slate-800">
+                      <h3 className="text-sm font-bold text-white">Themes</h3>
+                      <p className="text-xs text-slate-400">
+                        Dynamic theme selection
+                      </p>
+                    </div>
                   </motion.div>
 
-                  {/* Debug Together */}
+                  {/* 4. Problems Screenshot */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => (window.location.href = "/debug-together")}
+                    className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/problems")}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-yellow-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative">
-                      <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center mb-4">
-                        <Users className="w-6 h-6 text-white" />
+                    <div className="h-48 bg-slate-900 p-4 relative">
+                      {/* Problems list simulation */}
+                      <div className="flex justify-between items-center mb-3">
+                        <div className="w-1/3 h-6 bg-cyan-500 rounded"></div>
+                        <div className="w-16 h-4 bg-slate-700 rounded"></div>
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-2">
-                        Debug Together
-                      </h3>
-                      <p className="text-slate-400 text-sm mb-4">
-                        Collaborative debugging sessions with real-time code
-                        sharing and communication
-                      </p>
-                      <div className="flex items-center space-x-2 mb-2">
-                        <div className="flex -space-x-2">
-                          {[1, 2, 3].map((i) => (
-                            <div
-                              key={i}
-                              className="w-6 h-6 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full border-2 border-slate-800"
-                            ></div>
-                          ))}
+                      {/* Progress cards */}
+                      <div className="grid grid-cols-4 gap-1 mb-3">
+                        <div className="h-8 bg-slate-700 rounded p-1">
+                          <div className="w-full h-1 bg-cyan-400 rounded mb-1"></div>
+                          <div className="text-xs text-center text-cyan-400">
+                            85
+                          </div>
                         </div>
-                        <span className="text-xs text-slate-400">
-                          12 active sessions
-                        </span>
+                        <div className="h-8 bg-slate-700 rounded p-1">
+                          <div className="w-full h-1 bg-green-400 rounded mb-1"></div>
+                          <div className="text-xs text-center text-green-400">
+                            35
+                          </div>
+                        </div>
+                        <div className="h-8 bg-slate-700 rounded p-1">
+                          <div className="w-full h-1 bg-yellow-400 rounded mb-1"></div>
+                          <div className="text-xs text-center text-yellow-400">
+                            40
+                          </div>
+                        </div>
+                        <div className="h-8 bg-slate-700 rounded p-1">
+                          <div className="w-full h-1 bg-red-400 rounded mb-1"></div>
+                          <div className="text-xs text-center text-red-400">
+                            10
+                          </div>
+                        </div>
                       </div>
-                      <div className="text-xs text-orange-400">
-                        Live cursors • Voice chat • Screen share
+                      {/* Problem items */}
+                      <div className="space-y-1">
+                        {[1, 2, 3, 4].map((i) => (
+                          <div
+                            key={i}
+                            className="flex items-center justify-between bg-slate-800 rounded p-1"
+                          >
+                            <div className="flex items-center space-x-1">
+                              <div
+                                className={`w-1 h-4 rounded ${i <= 2 ? "bg-green-400" : "bg-slate-600"}`}
+                              ></div>
+                              <div className="w-12 h-2 bg-slate-600 rounded"></div>
+                            </div>
+                            <div
+                              className={`w-8 h-3 rounded text-xs ${i === 1 ? "bg-green-400/20" : i === 2 ? "bg-yellow-400/20" : "bg-red-400/20"}`}
+                            ></div>
+                          </div>
+                        ))}
                       </div>
+                    </div>
+                    <div className="p-3 bg-slate-800">
+                      <h3 className="text-sm font-bold text-white">Problems</h3>
+                      <p className="text-xs text-slate-400">
+                        Coding challenges with filtering
+                      </p>
                     </div>
                   </motion.div>
 
-                  {/* Profile Dashboard */}
+                  {/* 5. Practice Screenshot */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
-                    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-blue-500/50 transition-all duration-300 cursor-pointer"
-                    onClick={() => (window.location.href = "/profile")}
+                    className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/practice")}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative">
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4">
-                        <User className="w-6 h-6 text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-2">
-                        Smart Profile
-                      </h3>
-                      <p className="text-slate-400 text-sm mb-4">
-                        Comprehensive dashboard with achievements, statistics,
-                        and coding activity
-                      </p>
-                      <div className="grid grid-cols-3 gap-2 mb-2">
-                        <div className="text-center">
-                          <div className="text-sm font-bold text-blue-400">
-                            85
+                    <div className="h-48 bg-slate-900 p-4 relative">
+                      {/* Monaco editor simulation */}
+                      <div className="h-full border border-slate-600 rounded">
+                        {/* Editor header */}
+                        <div className="bg-slate-800 border-b border-slate-600 p-1 flex items-center justify-between">
+                          <div className="flex space-x-1">
+                            <div className="w-8 h-3 bg-purple-500 rounded text-xs"></div>
+                            <div className="w-8 h-3 bg-slate-700 rounded text-xs"></div>
                           </div>
-                          <div className="text-xs text-slate-400">Solved</div>
+                          <div className="w-12 h-3 bg-green-500 rounded"></div>
                         </div>
-                        <div className="text-center">
-                          <div className="text-sm font-bold text-green-400">
-                            7
+                        {/* Code area */}
+                        <div className="p-2 space-y-1">
+                          <div className="flex items-center space-x-1">
+                            <div className="w-2 h-2 bg-blue-400 rounded"></div>
+                            <div className="w-16 h-1 bg-slate-600 rounded"></div>
+                            <div className="w-8 h-1 bg-yellow-400 rounded"></div>
                           </div>
-                          <div className="text-xs text-slate-400">Streak</div>
+                          <div className="flex items-center space-x-1 ml-2">
+                            <div className="w-12 h-1 bg-green-400 rounded"></div>
+                            <div className="w-6 h-1 bg-slate-600 rounded"></div>
+                          </div>
+                          <div className="flex items-center space-x-1 ml-2">
+                            <div className="w-8 h-1 bg-purple-400 rounded"></div>
+                            <div className="w-10 h-1 bg-cyan-400 rounded"></div>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <div className="w-2 h-2 bg-blue-400 rounded"></div>
+                          </div>
                         </div>
-                        <div className="text-center">
-                          <div className="text-sm font-bold text-purple-400">
-                            12
-                          </div>
-                          <div className="text-xs text-slate-400">Badges</div>
+                        {/* Output panel */}
+                        <div className="bg-slate-800 border-t border-slate-600 p-1">
+                          <div className="w-20 h-1 bg-green-400 rounded"></div>
                         </div>
                       </div>
                     </div>
+                    <div className="p-3 bg-slate-800">
+                      <h3 className="text-sm font-bold text-white">Practice</h3>
+                      <p className="text-xs text-slate-400">
+                        Code playground with execution
+                      </p>
+                    </div>
                   </motion.div>
 
-                  {/* Leaderboard */}
+                  {/* 6. Roadmap Screenshot */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
-                    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-yellow-500/50 transition-all duration-300 cursor-pointer"
+                    className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/roadmap")}
+                  >
+                    <div className="h-48 bg-slate-900 p-4 relative">
+                      {/* Learning path simulation */}
+                      <div className="text-center mb-3">
+                        <div className="w-2/3 h-3 bg-emerald-500 rounded mx-auto"></div>
+                      </div>
+                      {/* Path cards */}
+                      <div className="space-y-2">
+                        <div className="bg-emerald-500/20 border border-emerald-500/50 rounded p-2">
+                          <div className="flex items-center justify-between">
+                            <div className="w-12 h-2 bg-emerald-400 rounded"></div>
+                            <div className="w-4 h-4 bg-emerald-400 rounded-full"></div>
+                          </div>
+                          <div className="w-full h-1 bg-emerald-300 rounded mt-1"></div>
+                        </div>
+                        <div className="bg-yellow-500/20 border border-yellow-500/50 rounded p-2">
+                          <div className="flex items-center justify-between">
+                            <div className="w-12 h-2 bg-yellow-400 rounded"></div>
+                            <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
+                          </div>
+                          <div className="w-2/3 h-1 bg-yellow-300 rounded mt-1"></div>
+                        </div>
+                        <div className="bg-slate-700/50 border border-slate-600 rounded p-2">
+                          <div className="flex items-center justify-between">
+                            <div className="w-12 h-2 bg-slate-500 rounded"></div>
+                            <div className="w-4 h-4 bg-slate-500 rounded-full border-2 border-slate-400"></div>
+                          </div>
+                          <div className="w-1/3 h-1 bg-slate-400 rounded mt-1"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-3 bg-slate-800">
+                      <h3 className="text-sm font-bold text-white">Roadmap</h3>
+                      <p className="text-xs text-slate-400">
+                        Learning paths with progress
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* 7. Debug Together Screenshot */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 }}
+                    className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/debug-together")}
+                  >
+                    <div className="h-48 bg-slate-900 p-4 relative">
+                      {/* Collaborative interface simulation */}
+                      <div className="grid grid-cols-2 h-full gap-2">
+                        {/* Code area with cursors */}
+                        <div className="border border-slate-600 rounded p-2 relative">
+                          <div className="space-y-1">
+                            <div className="flex items-center space-x-1">
+                              <div className="w-12 h-1 bg-slate-600 rounded"></div>
+                              <div className="w-1 h-3 bg-orange-400"></div>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <div className="w-8 h-1 bg-green-400 rounded"></div>
+                              <div className="w-1 h-3 bg-blue-400"></div>
+                            </div>
+                            <div className="w-16 h-1 bg-slate-600 rounded"></div>
+                          </div>
+                          {/* User cursors */}
+                          <div className="absolute top-1 right-1 flex -space-x-1">
+                            <div className="w-3 h-3 bg-orange-400 rounded-full border border-slate-800"></div>
+                            <div className="w-3 h-3 bg-blue-400 rounded-full border border-slate-800"></div>
+                          </div>
+                        </div>
+                        {/* Chat/video area */}
+                        <div className="space-y-1">
+                          <div className="h-12 bg-slate-800 border border-slate-600 rounded p-1">
+                            <div className="grid grid-cols-2 gap-1 h-full">
+                              <div className="bg-orange-400/20 rounded"></div>
+                              <div className="bg-blue-400/20 rounded"></div>
+                            </div>
+                          </div>
+                          <div className="space-y-1">
+                            <div className="flex items-center space-x-1">
+                              <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                              <div className="w-16 h-1 bg-slate-600 rounded"></div>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                              <div className="w-12 h-1 bg-slate-600 rounded"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-3 bg-slate-800">
+                      <h3 className="text-sm font-bold text-white">
+                        Debug Together
+                      </h3>
+                      <p className="text-xs text-slate-400">
+                        Collaborative debugging sessions
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* 8. Profile Screenshot */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                    className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/profile")}
+                  >
+                    <div className="h-48 bg-slate-900 p-4 relative">
+                      {/* Profile dashboard simulation */}
+                      <div className="grid grid-cols-3 gap-2 h-full">
+                        {/* Left - Profile info */}
+                        <div className="col-span-2 space-y-2">
+                          <div className="bg-slate-800 rounded p-2">
+                            <div className="flex items-center space-x-2">
+                              <div className="w-6 h-6 bg-gradient-to-r from-violet-500 to-purple-600 rounded"></div>
+                              <div>
+                                <div className="w-12 h-1 bg-white rounded"></div>
+                                <div className="w-8 h-1 bg-slate-400 rounded mt-0.5"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="bg-slate-800 rounded p-2">
+                            <div className="grid grid-cols-4 gap-1">
+                              {[1, 2, 3, 4].map((i) => (
+                                <div key={i} className="text-center">
+                                  <div
+                                    className={`w-4 h-4 rounded-full mx-auto mb-1 ${i === 1 ? "bg-green-400" : i === 2 ? "bg-yellow-400" : i === 3 ? "bg-red-400" : "bg-cyan-400"}`}
+                                  ></div>
+                                  <div className="w-full h-0.5 bg-slate-600 rounded"></div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                        {/* Right - Achievements */}
+                        <div className="space-y-1">
+                          {[1, 2, 3, 4].map((i) => (
+                            <div
+                              key={i}
+                              className="flex items-center space-x-1 bg-slate-800 rounded p-1"
+                            >
+                              <div
+                                className={`w-2 h-2 rounded ${i <= 3 ? "bg-yellow-400" : "bg-slate-600"}`}
+                              ></div>
+                              <div className="w-6 h-1 bg-slate-600 rounded"></div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-3 bg-slate-800">
+                      <h3 className="text-sm font-bold text-white">Profile</h3>
+                      <p className="text-xs text-slate-400">
+                        User dashboard and statistics
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* 9. Leaderboard Screenshot */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.9 }}
+                    className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-yellow-500/50 transition-all duration-300 cursor-pointer"
                     onClick={() => (window.location.href = "/leaderboard")}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative">
-                      <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-4">
-                        <Trophy className="w-6 h-6 text-white" />
+                    <div className="h-48 bg-slate-900 p-4 relative">
+                      {/* Leaderboard simulation */}
+                      <div className="text-center mb-3">
+                        <div className="w-1/2 h-3 bg-yellow-500 rounded mx-auto mb-2"></div>
+                        <div className="flex justify-center space-x-1">
+                          <div className="w-6 h-3 bg-slate-700 rounded"></div>
+                          <div className="w-6 h-3 bg-yellow-500 rounded"></div>
+                          <div className="w-6 h-3 bg-slate-700 rounded"></div>
+                        </div>
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-2">
+                      {/* Ranking list */}
+                      <div className="space-y-1">
+                        {[1, 2, 3, 4, 5].map((i) => (
+                          <div
+                            key={i}
+                            className={`flex items-center justify-between p-1 rounded ${i <= 3 ? "bg-yellow-500/20 border border-yellow-500/30" : "bg-slate-800"}`}
+                          >
+                            <div className="flex items-center space-x-2">
+                              <div
+                                className={`w-4 h-4 rounded-full ${i === 1 ? "bg-yellow-400" : i === 2 ? "bg-gray-400" : i === 3 ? "bg-orange-400" : "bg-slate-600"}`}
+                              ></div>
+                              <div className="w-8 h-1 bg-slate-600 rounded"></div>
+                            </div>
+                            <div className="w-6 h-1 bg-slate-600 rounded"></div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="p-3 bg-slate-800">
+                      <h3 className="text-sm font-bold text-white">
                         Leaderboard
                       </h3>
-                      <p className="text-slate-400 text-sm mb-4">
-                        Global rankings with competitive elements and community
-                        recognition
+                      <p className="text-xs text-slate-400">
+                        Rankings and competition
                       </p>
-                      <div className="space-y-1 mb-2">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-yellow-400">
-                            🥇 Your Rank: #42
-                          </span>
-                          <span className="text-slate-400">1,250 pts</span>
-                        </div>
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-slate-300">Weekly: #8</span>
-                          <span className="text-green-400">↗ +15</span>
-                        </div>
-                      </div>
                     </div>
                   </motion.div>
                 </div>
@@ -1094,8 +1339,8 @@ Built with ❤️ for the coding community`;
                 {/* Bottom Navigation Hint */}
                 <div className="mt-8 p-4 bg-slate-800/50 border border-slate-700 rounded-xl text-center">
                   <p className="text-slate-400 text-sm">
-                    Click on any section to navigate directly • Use the
-                    navigation bar for quick access
+                    Visual overview of all platform sections • Click any card to
+                    navigate
                   </p>
                 </div>
               </div>
