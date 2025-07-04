@@ -577,7 +577,7 @@ Built with ❤️ for the coding community`;
                     </div>
                     <div className="bg-slate-800 border border-slate-600 rounded-lg p-4">
                       <div className="font-semibold text-white mb-2">
-                        ���� Debug Together
+                        👥 Debug Together
                       </div>
                       <div className="text-sm text-slate-300">
                         Real-time collaborative debugging with live cursors,
@@ -1029,33 +1029,61 @@ Built with ❤️ for the coding community`;
                     transition={{ delay: 0.3 }}
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 cursor-pointer"
                   >
-                    <div className="h-48 bg-slate-900 p-4 relative">
-                      {/* Theme selector simulation */}
-                      <div className="text-center">
-                        <div className="w-3/4 h-3 bg-white rounded mx-auto mb-3"></div>
-                        <div className="grid grid-cols-3 gap-2 mb-3">
-                          <div className="h-12 bg-slate-800 border border-slate-600 rounded p-1">
-                            <div className="w-full h-2 bg-slate-600 rounded mb-1"></div>
-                            <div className="w-2/3 h-1 bg-slate-500 rounded"></div>
+                    <div className="h-48 bg-slate-900 p-2 relative">
+                      {/* Theme selector header */}
+                      <div className="text-center mb-2">
+                        <div className="text-xs font-bold text-white mb-1">
+                          Choose Your Theme
+                        </div>
+                        <div className="text-xs text-slate-400">
+                          Personalize your coding experience
+                        </div>
+                      </div>
+                      {/* Theme cards */}
+                      <div className="grid grid-cols-3 gap-1 mb-2">
+                        <div className="bg-slate-800 border-2 border-cyan-500 rounded p-1">
+                          <div className="text-xs text-center text-white mb-1">
+                            Dark Mode
                           </div>
-                          <div className="h-12 bg-blue-900 border border-blue-600 rounded p-1">
-                            <div className="w-full h-2 bg-blue-500 rounded mb-1"></div>
-                            <div className="w-2/3 h-1 bg-blue-400 rounded"></div>
-                          </div>
-                          <div className="h-12 bg-green-900 border border-green-600 rounded p-1">
-                            <div className="w-full h-2 bg-green-500 rounded mb-1"></div>
-                            <div className="w-2/3 h-1 bg-green-400 rounded"></div>
+                          <div className="h-6 bg-slate-700 rounded mb-1"></div>
+                          <div className="flex justify-center">
+                            <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
                           </div>
                         </div>
-                        <div className="flex justify-center space-x-1">
-                          <div className="w-3 h-3 bg-slate-600 rounded-full"></div>
-                          <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <div className="bg-blue-900 border border-blue-600 rounded p-1">
+                          <div className="text-xs text-center text-blue-300 mb-1">
+                            Midnight
+                          </div>
+                          <div className="h-6 bg-blue-800 rounded mb-1"></div>
+                          <div className="flex justify-center">
+                            <div className="w-2 h-2 bg-blue-400 rounded-full border border-blue-300"></div>
+                          </div>
                         </div>
-                        {/* Preview area */}
-                        <div className="mt-3 h-16 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded border border-purple-500/30 p-2">
-                          <div className="w-full h-2 bg-purple-400 rounded mb-1"></div>
-                          <div className="w-3/4 h-1 bg-purple-300 rounded"></div>
+                        <div className="bg-green-900 border border-green-600 rounded p-1">
+                          <div className="text-xs text-center text-green-300 mb-1">
+                            Forest
+                          </div>
+                          <div className="h-6 bg-green-800 rounded mb-1"></div>
+                          <div className="flex justify-center">
+                            <div className="w-2 h-2 bg-green-400 rounded-full border border-green-300"></div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Theme indicators */}
+                      <div className="flex justify-center space-x-1 mb-2">
+                        <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                        <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
+                        <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
+                      </div>
+                      {/* Preview area */}
+                      <div className="bg-slate-800 border border-slate-600 rounded p-2">
+                        <div className="text-xs text-slate-300 mb-1">
+                          Preview:
+                        </div>
+                        <div className="bg-slate-700 rounded p-1">
+                          <div className="w-full h-1 bg-cyan-400 rounded mb-1"></div>
+                          <div className="w-3/4 h-1 bg-slate-500 rounded mb-1"></div>
+                          <div className="w-1/2 h-1 bg-slate-500 rounded"></div>
                         </div>
                       </div>
                     </div>
@@ -1278,33 +1306,73 @@ Built with ❤️ for the coding community`;
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 cursor-pointer"
                     onClick={() => (window.location.href = "/roadmap")}
                   >
-                    <div className="h-48 bg-slate-900 p-4 relative">
-                      {/* Learning path simulation */}
-                      <div className="text-center mb-3">
-                        <div className="w-2/3 h-3 bg-emerald-500 rounded mx-auto"></div>
+                    <div className="h-48 bg-slate-900 p-2 relative">
+                      {/* Roadmap header */}
+                      <div className="text-center mb-2">
+                        <div className="text-xs font-bold text-emerald-400">
+                          Learning Roadmap
+                        </div>
+                        <div className="text-xs text-slate-400">
+                          Master algorithms step by step
+                        </div>
                       </div>
-                      {/* Path cards */}
-                      <div className="space-y-2">
-                        <div className="bg-emerald-500/20 border border-emerald-500/50 rounded p-2">
-                          <div className="flex items-center justify-between">
-                            <div className="w-12 h-2 bg-emerald-400 rounded"></div>
-                            <div className="w-4 h-4 bg-emerald-400 rounded-full"></div>
+                      {/* Learning path cards */}
+                      <div className="space-y-1">
+                        <div className="bg-emerald-500/20 border border-emerald-500 rounded p-2">
+                          <div className="flex items-center justify-between mb-1">
+                            <div className="text-xs text-emerald-300 font-semibold">
+                              Arrays & Strings
+                            </div>
+                            <div className="w-4 h-4 bg-emerald-400 rounded-full flex items-center justify-center">
+                              <div className="text-xs text-slate-900">✓</div>
+                            </div>
                           </div>
-                          <div className="w-full h-1 bg-emerald-300 rounded mt-1"></div>
+                          <div className="text-xs text-emerald-400 mb-1">
+                            15/15 Complete
+                          </div>
+                          <div className="w-full h-1 bg-emerald-400 rounded"></div>
                         </div>
-                        <div className="bg-yellow-500/20 border border-yellow-500/50 rounded p-2">
-                          <div className="flex items-center justify-between">
-                            <div className="w-12 h-2 bg-yellow-400 rounded"></div>
-                            <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
+                        <div className="bg-yellow-500/20 border border-yellow-500 rounded p-2">
+                          <div className="flex items-center justify-between mb-1">
+                            <div className="text-xs text-yellow-300 font-semibold">
+                              Trees & Graphs
+                            </div>
+                            <div className="w-4 h-4 bg-yellow-400 rounded-full flex items-center justify-center">
+                              <div className="text-xs text-slate-900">8</div>
+                            </div>
                           </div>
-                          <div className="w-2/3 h-1 bg-yellow-300 rounded mt-1"></div>
+                          <div className="text-xs text-yellow-400 mb-1">
+                            8/12 In Progress
+                          </div>
+                          <div className="w-2/3 h-1 bg-yellow-400 rounded"></div>
                         </div>
-                        <div className="bg-slate-700/50 border border-slate-600 rounded p-2">
-                          <div className="flex items-center justify-between">
-                            <div className="w-12 h-2 bg-slate-500 rounded"></div>
-                            <div className="w-4 h-4 bg-slate-500 rounded-full border-2 border-slate-400"></div>
+                        <div className="bg-slate-700 border border-slate-600 rounded p-2">
+                          <div className="flex items-center justify-between mb-1">
+                            <div className="text-xs text-slate-400 font-semibold">
+                              Dynamic Programming
+                            </div>
+                            <div className="w-4 h-4 bg-slate-600 rounded-full border-2 border-slate-500 flex items-center justify-center">
+                              <div className="text-xs text-slate-400">🔒</div>
+                            </div>
                           </div>
-                          <div className="w-1/3 h-1 bg-slate-400 rounded mt-1"></div>
+                          <div className="text-xs text-slate-500 mb-1">
+                            0/10 Locked
+                          </div>
+                          <div className="w-1/4 h-1 bg-slate-600 rounded"></div>
+                        </div>
+                        <div className="bg-slate-700 border border-slate-600 rounded p-2">
+                          <div className="flex items-center justify-between mb-1">
+                            <div className="text-xs text-slate-400 font-semibold">
+                              Advanced Topics
+                            </div>
+                            <div className="w-4 h-4 bg-slate-600 rounded-full border-2 border-slate-500 flex items-center justify-center">
+                              <div className="text-xs text-slate-400">🔒</div>
+                            </div>
+                          </div>
+                          <div className="text-xs text-slate-500 mb-1">
+                            0/8 Locked
+                          </div>
+                          <div className="w-0 h-1 bg-slate-600 rounded"></div>
                         </div>
                       </div>
                     </div>
@@ -1324,44 +1392,92 @@ Built with ❤️ for the coding community`;
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 cursor-pointer"
                     onClick={() => (window.location.href = "/debug-together")}
                   >
-                    <div className="h-48 bg-slate-900 p-4 relative">
-                      {/* Collaborative interface simulation */}
-                      <div className="grid grid-cols-2 h-full gap-2">
-                        {/* Code area with cursors */}
-                        <div className="border border-slate-600 rounded p-2 relative">
-                          <div className="space-y-1">
-                            <div className="flex items-center space-x-1">
-                              <div className="w-12 h-1 bg-slate-600 rounded"></div>
-                              <div className="w-1 h-3 bg-orange-400"></div>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <div className="w-8 h-1 bg-green-400 rounded"></div>
-                              <div className="w-1 h-3 bg-blue-400"></div>
-                            </div>
-                            <div className="w-16 h-1 bg-slate-600 rounded"></div>
+                    <div className="h-48 bg-slate-900 p-2 relative">
+                      {/* Header */}
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="text-xs font-bold text-orange-400">
+                          Debug Session #1
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <div className="text-xs text-slate-400">3 users</div>
+                        </div>
+                      </div>
+                      {/* Main interface */}
+                      <div className="grid grid-cols-3 h-full gap-1">
+                        {/* Code editor */}
+                        <div className="col-span-2 border border-slate-600 rounded p-1 relative">
+                          <div className="text-xs text-slate-400 mb-1">
+                            main.cpp
                           </div>
-                          {/* User cursors */}
+                          <div className="space-y-0.5 text-xs font-mono">
+                            <div className="flex items-center space-x-1">
+                              <span className="text-slate-500">1</span>
+                              <span className="text-blue-400">#include</span>
+                              <span className="text-green-400">
+                                &lt;iostream&gt;
+                              </span>
+                              <div className="w-0.5 h-3 bg-orange-400 ml-1"></div>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <span className="text-slate-500">2</span>
+                              <span className="text-blue-400">using</span>
+                              <span className="text-white">namespace std;</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <span className="text-slate-500">3</span>
+                              <span className="text-blue-400">int</span>
+                              <span className="text-yellow-400">main</span>
+                              <span className="text-white">() {"{"}</span>
+                              <div className="w-0.5 h-3 bg-blue-400 ml-1"></div>
+                            </div>
+                            <div className="flex items-center space-x-1 ml-2">
+                              <span className="text-slate-500">4</span>
+                              <span className="text-white">cout &lt;&lt;</span>
+                              <span className="text-green-400">"Hello"</span>
+                            </div>
+                          </div>
+                          {/* User indicators */}
                           <div className="absolute top-1 right-1 flex -space-x-1">
-                            <div className="w-3 h-3 bg-orange-400 rounded-full border border-slate-800"></div>
-                            <div className="w-3 h-3 bg-blue-400 rounded-full border border-slate-800"></div>
+                            <div className="w-2 h-2 bg-orange-400 rounded-full border border-slate-800"></div>
+                            <div className="w-2 h-2 bg-blue-400 rounded-full border border-slate-800"></div>
+                            <div className="w-2 h-2 bg-green-400 rounded-full border border-slate-800"></div>
                           </div>
                         </div>
-                        {/* Chat/video area */}
+                        {/* Video chat and messages */}
                         <div className="space-y-1">
-                          <div className="h-12 bg-slate-800 border border-slate-600 rounded p-1">
-                            <div className="grid grid-cols-2 gap-1 h-full">
-                              <div className="bg-orange-400/20 rounded"></div>
-                              <div className="bg-blue-400/20 rounded"></div>
+                          <div className="bg-slate-800 border border-slate-600 rounded p-1">
+                            <div className="grid grid-cols-1 gap-0.5">
+                              <div className="bg-orange-400/20 rounded p-0.5 text-center">
+                                <div className="text-xs text-orange-300">
+                                  Alex
+                                </div>
+                              </div>
+                              <div className="bg-blue-400/20 rounded p-0.5 text-center">
+                                <div className="text-xs text-blue-300">Sam</div>
+                              </div>
                             </div>
                           </div>
-                          <div className="space-y-1">
-                            <div className="flex items-center space-x-1">
-                              <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                              <div className="w-16 h-1 bg-slate-600 rounded"></div>
+                          <div className="bg-slate-800 border border-slate-600 rounded p-1">
+                            <div className="text-xs text-slate-400 mb-1">
+                              Chat
                             </div>
-                            <div className="flex items-center space-x-1">
-                              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                              <div className="w-12 h-1 bg-slate-600 rounded"></div>
+                            <div className="space-y-0.5">
+                              <div className="text-xs">
+                                <span className="text-orange-400">Alex:</span>
+                                <span className="text-slate-300">
+                                  {" "}
+                                  Found the bug!
+                                </span>
+                              </div>
+                              <div className="text-xs">
+                                <span className="text-blue-400">Sam:</span>
+                                <span className="text-slate-300"> Where?</span>
+                              </div>
+                              <div className="text-xs">
+                                <span className="text-green-400">You:</span>
+                                <span className="text-slate-300"> Line 4</span>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -1385,46 +1501,109 @@ Built with ❤️ for the coding community`;
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 cursor-pointer"
                     onClick={() => (window.location.href = "/profile")}
                   >
-                    <div className="h-48 bg-slate-900 p-4 relative">
-                      {/* Profile dashboard simulation */}
-                      <div className="grid grid-cols-3 gap-2 h-full">
-                        {/* Left - Profile info */}
-                        <div className="col-span-2 space-y-2">
-                          <div className="bg-slate-800 rounded p-2">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-6 h-6 bg-gradient-to-r from-violet-500 to-purple-600 rounded"></div>
-                              <div>
-                                <div className="w-12 h-1 bg-white rounded"></div>
-                                <div className="w-8 h-1 bg-slate-400 rounded mt-0.5"></div>
-                              </div>
+                    <div className="h-48 bg-slate-900 p-2 relative">
+                      {/* Profile header */}
+                      <div className="bg-slate-800 border border-slate-700 rounded p-2 mb-2">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-8 h-8 bg-gradient-to-r from-violet-500 to-purple-600 rounded-xl flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">
+                              S
+                            </span>
+                          </div>
+                          <div className="flex-1">
+                            <div className="text-xs font-bold text-white">
+                              Saurabh Shukla
+                            </div>
+                            <div className="text-xs text-slate-400">
+                              saurabh@email.com
+                            </div>
+                            <div className="text-xs text-slate-300">
+                              Algorithm Enthusiast
                             </div>
                           </div>
-                          <div className="bg-slate-800 rounded p-2">
-                            <div className="grid grid-cols-4 gap-1">
-                              {[1, 2, 3, 4].map((i) => (
-                                <div key={i} className="text-center">
-                                  <div
-                                    className={`w-4 h-4 rounded-full mx-auto mb-1 ${i === 1 ? "bg-green-400" : i === 2 ? "bg-yellow-400" : i === 3 ? "bg-red-400" : "bg-cyan-400"}`}
-                                  ></div>
-                                  <div className="w-full h-0.5 bg-slate-600 rounded"></div>
-                                </div>
-                              ))}
+                          <div className="text-right">
+                            <div className="text-xs text-cyan-400 font-bold">
+                              Level 12
+                            </div>
+                            <div className="text-xs text-slate-400">
+                              7 day streak
                             </div>
                           </div>
                         </div>
-                        {/* Right - Achievements */}
-                        <div className="space-y-1">
-                          {[1, 2, 3, 4].map((i) => (
-                            <div
-                              key={i}
-                              className="flex items-center space-x-1 bg-slate-800 rounded p-1"
-                            >
-                              <div
-                                className={`w-2 h-2 rounded ${i <= 3 ? "bg-yellow-400" : "bg-slate-600"}`}
-                              ></div>
-                              <div className="w-6 h-1 bg-slate-600 rounded"></div>
+                      </div>
+
+                      {/* Stats section */}
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="bg-slate-800 border border-slate-700 rounded p-2">
+                          <div className="text-xs font-semibold text-white mb-1">
+                            Progress Overview
+                          </div>
+                          <div className="grid grid-cols-4 gap-1">
+                            <div className="text-center">
+                              <div className="w-4 h-4 rounded-full bg-cyan-400 mx-auto mb-1 flex items-center justify-center">
+                                <span className="text-xs text-slate-900 font-bold">
+                                  85
+                                </span>
+                              </div>
+                              <div className="text-xs text-cyan-400">Total</div>
                             </div>
-                          ))}
+                            <div className="text-center">
+                              <div className="w-4 h-4 rounded-full bg-green-400 mx-auto mb-1 flex items-center justify-center">
+                                <span className="text-xs text-slate-900 font-bold">
+                                  35
+                                </span>
+                              </div>
+                              <div className="text-xs text-green-400">Easy</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="w-4 h-4 rounded-full bg-yellow-400 mx-auto mb-1 flex items-center justify-center">
+                                <span className="text-xs text-slate-900 font-bold">
+                                  40
+                                </span>
+                              </div>
+                              <div className="text-xs text-yellow-400">Med</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="w-4 h-4 rounded-full bg-red-400 mx-auto mb-1 flex items-center justify-center">
+                                <span className="text-xs text-slate-900 font-bold">
+                                  10
+                                </span>
+                              </div>
+                              <div className="text-xs text-red-400">Hard</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-slate-800 border border-slate-700 rounded p-2">
+                          <div className="text-xs font-semibold text-white mb-1">
+                            Achievements
+                          </div>
+                          <div className="space-y-1">
+                            <div className="flex items-center space-x-1">
+                              <div className="w-2 h-2 bg-yellow-400 rounded"></div>
+                              <div className="text-xs text-white">
+                                First Steps
+                              </div>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <div className="w-2 h-2 bg-yellow-400 rounded"></div>
+                              <div className="text-xs text-white">
+                                Speed Demon
+                              </div>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <div className="w-2 h-2 bg-yellow-400 rounded"></div>
+                              <div className="text-xs text-white">
+                                Array Master
+                              </div>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <div className="w-2 h-2 bg-slate-600 rounded"></div>
+                              <div className="text-xs text-slate-500">
+                                Consistency
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1444,32 +1623,95 @@ Built with ❤️ for the coding community`;
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-yellow-500/50 transition-all duration-300 cursor-pointer"
                     onClick={() => (window.location.href = "/leaderboard")}
                   >
-                    <div className="h-48 bg-slate-900 p-4 relative">
-                      {/* Leaderboard simulation */}
-                      <div className="text-center mb-3">
-                        <div className="w-1/2 h-3 bg-yellow-500 rounded mx-auto mb-2"></div>
-                        <div className="flex justify-center space-x-1">
-                          <div className="w-6 h-3 bg-slate-700 rounded"></div>
-                          <div className="w-6 h-3 bg-yellow-500 rounded"></div>
-                          <div className="w-6 h-3 bg-slate-700 rounded"></div>
+                    <div className="h-48 bg-slate-900 p-2 relative">
+                      {/* Leaderboard header */}
+                      <div className="text-center mb-2">
+                        <div className="text-xs font-bold text-yellow-400 mb-1">
+                          Global Leaderboard
+                        </div>
+                        <div className="flex justify-center space-x-1 text-xs">
+                          <div className="px-2 py-0.5 bg-slate-700 rounded">
+                            All Time
+                          </div>
+                          <div className="px-2 py-0.5 bg-yellow-500 text-slate-900 rounded">
+                            Weekly
+                          </div>
+                          <div className="px-2 py-0.5 bg-slate-700 rounded">
+                            Monthly
+                          </div>
                         </div>
                       </div>
-                      {/* Ranking list */}
-                      <div className="space-y-1">
-                        {[1, 2, 3, 4, 5].map((i) => (
-                          <div
-                            key={i}
-                            className={`flex items-center justify-between p-1 rounded ${i <= 3 ? "bg-yellow-500/20 border border-yellow-500/30" : "bg-slate-800"}`}
-                          >
-                            <div className="flex items-center space-x-2">
-                              <div
-                                className={`w-4 h-4 rounded-full ${i === 1 ? "bg-yellow-400" : i === 2 ? "bg-gray-400" : i === 3 ? "bg-orange-400" : "bg-slate-600"}`}
-                              ></div>
-                              <div className="w-8 h-1 bg-slate-600 rounded"></div>
-                            </div>
-                            <div className="w-6 h-1 bg-slate-600 rounded"></div>
+
+                      {/* Top 3 podium */}
+                      <div className="flex justify-center items-end space-x-1 mb-2">
+                        <div className="text-center">
+                          <div className="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center mb-1">
+                            <span className="text-xs text-slate-900 font-bold">
+                              2
+                            </span>
                           </div>
-                        ))}
+                          <div className="text-xs text-gray-300">Alice</div>
+                          <div className="w-4 h-6 bg-gray-400"></div>
+                        </div>
+                        <div className="text-center">
+                          <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center mb-1">
+                            <span className="text-xs text-slate-900 font-bold">
+                              1
+                            </span>
+                          </div>
+                          <div className="text-xs text-yellow-300">
+                            CodeMaster
+                          </div>
+                          <div className="w-4 h-8 bg-yellow-400"></div>
+                        </div>
+                        <div className="text-center">
+                          <div className="w-6 h-6 bg-orange-400 rounded-full flex items-center justify-center mb-1">
+                            <span className="text-xs text-slate-900 font-bold">
+                              3
+                            </span>
+                          </div>
+                          <div className="text-xs text-orange-300">DevPro</div>
+                          <div className="w-4 h-4 bg-orange-400"></div>
+                        </div>
+                      </div>
+
+                      {/* Ranking list */}
+                      <div className="space-y-0.5">
+                        <div className="flex items-center justify-between bg-cyan-500/20 border border-cyan-500 rounded p-1">
+                          <div className="flex items-center space-x-2">
+                            <div className="text-xs text-cyan-400 font-bold">
+                              #42
+                            </div>
+                            <div className="text-xs text-cyan-300">
+                              You (Saurabh)
+                            </div>
+                          </div>
+                          <div className="text-xs text-cyan-400 font-bold">
+                            1,250 pts
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between bg-slate-800 rounded p-1">
+                          <div className="flex items-center space-x-2">
+                            <div className="text-xs text-slate-400">#43</div>
+                            <div className="text-xs text-slate-300">
+                              TechGuru
+                            </div>
+                          </div>
+                          <div className="text-xs text-slate-400">
+                            1,240 pts
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between bg-slate-800 rounded p-1">
+                          <div className="flex items-center space-x-2">
+                            <div className="text-xs text-slate-400">#44</div>
+                            <div className="text-xs text-slate-300">
+                              PyExpert
+                            </div>
+                          </div>
+                          <div className="text-xs text-slate-400">
+                            1,230 pts
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div className="p-3 bg-slate-800">
