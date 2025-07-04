@@ -21,6 +21,12 @@ import {
   X,
   Copy,
   Check,
+  Grid3X3,
+  Play,
+  Users,
+  BarChart3,
+  Zap,
+  Monitor,
 } from "lucide-react";
 import Navigation from "../components/Navigation";
 import LogoutConfirmation from "../components/LogoutConfirmation";
@@ -31,6 +37,7 @@ const Profile = () => {
   const [logoutConfirmOpen, setLogoutConfirmOpen] = useState(false);
   const [readmeOpen, setReadmeOpen] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
+  const [sectionsOverviewOpen, setSectionsOverviewOpen] = useState(false);
 
   const handleLogout = () => {
     logout();
@@ -793,6 +800,302 @@ Built with ❤️ for the coding community`;
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Floating Red Button - Section Overview */}
+      <motion.button
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1, duration: 0.3 }}
+        onClick={() => setSectionsOverviewOpen(true)}
+        className="fixed bottom-6 right-6 w-14 h-14 bg-red-500 hover:bg-red-600 text-white rounded-full shadow-2xl hover:shadow-red-500/20 transition-all duration-300 flex items-center justify-center z-40 group"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <Grid3X3 className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+      </motion.button>
+
+      {/* Sections Overview Modal */}
+      <AnimatePresence>
+        {sectionsOverviewOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSectionsOverviewOpen(false)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+            />
+
+            {/* Modal */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 50 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: 50 }}
+              className="relative w-full max-w-6xl max-h-[90vh] bg-slate-900 border border-slate-700 rounded-3xl shadow-2xl overflow-hidden"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between p-6 border-b border-slate-700 bg-slate-800">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-pink-500 rounded-xl flex items-center justify-center">
+                    <Grid3X3 className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold text-white">
+                      Platform Sections
+                    </h2>
+                    <p className="text-slate-400">
+                      Complete overview of AlgoArena
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSectionsOverviewOpen(false)}
+                  className="p-2 text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-slate-700"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 overflow-y-auto max-h-[calc(90vh-100px)] custom-scrollbar">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {/* Problems Arena */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-cyan-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/problems")}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative">
+                      <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center mb-4">
+                        <Code className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-2">
+                        Problems Arena
+                      </h3>
+                      <p className="text-slate-400 text-sm mb-4">
+                        500+ curated coding problems with difficulty levels and
+                        detailed solutions
+                      </p>
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-green-400">Easy: 150</span>
+                          <span className="text-yellow-400">Medium: 250</span>
+                          <span className="text-red-400">Hard: 100</span>
+                        </div>
+                        <div className="w-full bg-slate-700 rounded-full h-2">
+                          <div className="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded-full w-3/4"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Practice Playground */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/playground")}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative">
+                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4">
+                        <Play className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-2">
+                        Practice Playground
+                      </h3>
+                      <p className="text-slate-400 text-sm mb-4">
+                        Free-form coding environment with instant execution and
+                        multi-language support
+                      </p>
+                      <div className="flex flex-wrap gap-1 mb-2">
+                        {["JavaScript", "Python", "C++", "Java"].map((lang) => (
+                          <span
+                            key={lang}
+                            className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full"
+                          >
+                            {lang}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="text-xs text-slate-400">
+                        Real-time execution • Monaco Editor
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Learning Roadmap */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-emerald-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/roadmap")}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-green-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative">
+                      <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-500 rounded-xl flex items-center justify-center mb-4">
+                        <Map className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-2">
+                        Learning Roadmap
+                      </h3>
+                      <p className="text-slate-400 text-sm mb-4">
+                        Structured learning paths with unlock system and
+                        progress visualization
+                      </p>
+                      <div className="space-y-2">
+                        <div className="flex items-center text-xs text-slate-300">
+                          <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></div>
+                          Arrays & Strings
+                        </div>
+                        <div className="flex items-center text-xs text-slate-300">
+                          <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2"></div>
+                          Trees & Graphs
+                        </div>
+                        <div className="flex items-center text-xs text-slate-300">
+                          <div className="w-2 h-2 bg-slate-600 rounded-full mr-2"></div>
+                          Dynamic Programming
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Debug Together */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/debug-together")}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-yellow-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative">
+                      <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center mb-4">
+                        <Users className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-2">
+                        Debug Together
+                      </h3>
+                      <p className="text-slate-400 text-sm mb-4">
+                        Collaborative debugging sessions with real-time code
+                        sharing and communication
+                      </p>
+                      <div className="flex items-center space-x-2 mb-2">
+                        <div className="flex -space-x-2">
+                          {[1, 2, 3].map((i) => (
+                            <div
+                              key={i}
+                              className="w-6 h-6 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full border-2 border-slate-800"
+                            ></div>
+                          ))}
+                        </div>
+                        <span className="text-xs text-slate-400">
+                          12 active sessions
+                        </span>
+                      </div>
+                      <div className="text-xs text-orange-400">
+                        Live cursors • Voice chat • Screen share
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Profile Dashboard */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-blue-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/profile")}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4">
+                        <User className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-2">
+                        Smart Profile
+                      </h3>
+                      <p className="text-slate-400 text-sm mb-4">
+                        Comprehensive dashboard with achievements, statistics,
+                        and coding activity
+                      </p>
+                      <div className="grid grid-cols-3 gap-2 mb-2">
+                        <div className="text-center">
+                          <div className="text-sm font-bold text-blue-400">
+                            85
+                          </div>
+                          <div className="text-xs text-slate-400">Solved</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-sm font-bold text-green-400">
+                            7
+                          </div>
+                          <div className="text-xs text-slate-400">Streak</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-sm font-bold text-purple-400">
+                            12
+                          </div>
+                          <div className="text-xs text-slate-400">Badges</div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Leaderboard */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-yellow-500/50 transition-all duration-300 cursor-pointer"
+                    onClick={() => (window.location.href = "/leaderboard")}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative">
+                      <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-4">
+                        <Trophy className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-2">
+                        Leaderboard
+                      </h3>
+                      <p className="text-slate-400 text-sm mb-4">
+                        Global rankings with competitive elements and community
+                        recognition
+                      </p>
+                      <div className="space-y-1 mb-2">
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-yellow-400">
+                            🥇 Your Rank: #42
+                          </span>
+                          <span className="text-slate-400">1,250 pts</span>
+                        </div>
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-slate-300">Weekly: #8</span>
+                          <span className="text-green-400">↗ +15</span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Bottom Navigation Hint */}
+                <div className="mt-8 p-4 bg-slate-800/50 border border-slate-700 rounded-xl text-center">
+                  <p className="text-slate-400 text-sm">
+                    Click on any section to navigate directly • Use the
+                    navigation bar for quick access
+                  </p>
                 </div>
               </div>
             </motion.div>
