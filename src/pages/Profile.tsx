@@ -813,9 +813,10 @@ Built with ❤️ for the coding community`;
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1, duration: 0.3 }}
         onClick={() => setSectionsOverviewOpen(true)}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-red-500 hover:bg-red-600 text-white rounded-full shadow-2xl hover:shadow-red-500/20 transition-all duration-300 flex items-center justify-center z-40 group"
+        className="fixed bottom-6 right-20 w-14 h-14 bg-red-500 hover:bg-red-600 text-white rounded-full shadow-2xl hover:shadow-red-500/20 transition-all duration-300 flex items-center justify-center z-50 group"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
+        style={{ zIndex: 50 }}
       >
         <Grid3X3 className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
       </motion.button>
