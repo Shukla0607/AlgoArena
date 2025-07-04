@@ -38,7 +38,7 @@ const Profile = () => {
     window.location.href = "/"; // Redirect to homepage after logout
   };
 
-  const copyReadme = async () => {
+  const copyReadme = () => {
     const readmeContent = `# AlgoArena
 
 ## Project Overview
@@ -113,12 +113,24 @@ AlgoArena is a comprehensive coding practice platform that reimagines how develo
 
 Built with ❤️ for the coding community`;
 
+    // Fallback copy method that works in iframe environments
+    const textArea = document.createElement("textarea");
+    textArea.value = readmeContent;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999999px";
+    textArea.style.top = "-999999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
     try {
-      await navigator.clipboard.writeText(readmeContent);
+      document.execCommand("copy");
       setCopySuccess(true);
       setTimeout(() => setCopySuccess(false), 2000);
     } catch (err) {
       console.error("Failed to copy: ", err);
+    } finally {
+      document.body.removeChild(textArea);
     }
   };
 
