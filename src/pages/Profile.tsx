@@ -875,63 +875,92 @@ Built with ❤️ for the coding community`;
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-violet-500/50 transition-all duration-300 cursor-pointer"
                     onClick={() => (window.location.href = "/")}
                   >
-                    <div className="h-48 bg-slate-900 p-2 relative">
+                    <div className="h-48 bg-slate-900 p-2 relative flex flex-col">
                       {/* Navbar simulation */}
-                      <div className="h-6 bg-slate-800 border border-slate-600 rounded mb-2 flex items-center px-2">
-                        <div className="w-3 h-3 bg-gradient-to-r from-violet-500 to-cyan-500 rounded mr-1"></div>
-                        <div className="text-xs text-white font-bold">
-                          AlgoArena
+                      <div className="h-5 bg-slate-800 border border-slate-600 rounded mb-2 flex items-center justify-between px-2">
+                        <div className="flex items-center">
+                          <div className="w-2 h-2 bg-gradient-to-r from-violet-500 to-cyan-500 rounded mr-1"></div>
+                          <div className="text-xs text-white font-bold">
+                            AlgoArena
+                          </div>
                         </div>
-                        <div className="ml-auto flex space-x-1 text-xs text-white">
+                        <div className="flex space-x-2 text-xs text-white">
                           <span>Problems</span>
                           <span>Practice</span>
+                          <span>Login</span>
                         </div>
                       </div>
                       {/* Hero section simulation */}
-                      <div className="text-center px-2">
-                        <div className="text-xs font-bold text-white mb-1">
+                      <div className="flex-1 flex flex-col justify-center text-center px-2">
+                        <div className="text-xs font-bold bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent mb-1">
                           Master Algorithms with Elegance
                         </div>
                         <div className="text-xs text-slate-300 mb-1">
                           Where LeetCode meets Figma
                         </div>
                         <div className="text-xs text-slate-400 mb-2">
-                          Practice coding with beautiful UI
+                          Practice • Learn • Grow
                         </div>
-                        <div className="flex justify-center space-x-1 mb-3">
-                          <div className="px-2 py-1 bg-cyan-500 rounded text-xs text-white">
+                        <div className="flex justify-center space-x-1 mb-2">
+                          <div className="px-2 py-1 bg-cyan-500 rounded text-xs text-white font-medium">
                             Get Started
                           </div>
-                          <div className="px-2 py-1 bg-slate-700 rounded text-xs text-white">
+                          <div className="px-2 py-1 bg-slate-700 border border-slate-600 rounded text-xs text-white">
                             Learn More
                           </div>
                         </div>
                       </div>
-                      {/* Features grid simulation */}
-                      <div className="grid grid-cols-3 gap-1 px-2">
-                        <div className="bg-slate-700 rounded p-1 text-center">
-                          <div className="text-xs text-cyan-400">🎨</div>
-                          <div className="text-xs text-white">Design</div>
-                        </div>
-                        <div className="bg-slate-700 rounded p-1 text-center">
-                          <div className="text-xs text-purple-400">⚡</div>
-                          <div className="text-xs text-white">Fast</div>
-                        </div>
-                        <div className="bg-slate-700 rounded p-1 text-center">
-                          <div className="text-xs text-green-400">🚀</div>
-                          <div className="text-xs text-white">Modern</div>
-                        </div>
-                        <div className="bg-slate-700 rounded p-1 text-center">
-                          <div className="text-xs text-yellow-400">🧩</div>
-                          <div className="text-xs text-white">Problems</div>
-                        </div>
-                        <div className="bg-slate-700 rounded p-1 text-center">
-                          <div className="text-xs text-orange-400">👥</div>
-                          <div className="text-xs text-white">Together</div>
-                        </div>
-                        <div className="bg-slate-700 rounded p-1 text-center">
-                          <div className="text-xs text-blue-400">📊</div>
-                          <div className="text-xs text-white">Progress</div>
+                      {/* Features grid simulation - scrollable */}
+                      <div className="h-16 overflow-y-auto custom-scrollbar">
+                        <div className="grid grid-cols-3 gap-1 px-1">
+                          <div className="bg-slate-700 rounded p-1 text-center min-h-12">
+                            <div className="text-xs text-cyan-400 mb-0.5">
+                              🎨
+                            </div>
+                            <div className="text-xs text-white font-medium">
+                              Beautiful Design
+                            </div>
+                          </div>
+                          <div className="bg-slate-700 rounded p-1 text-center min-h-12">
+                            <div className="text-xs text-purple-400 mb-0.5">
+                              ⚡
+                            </div>
+                            <div className="text-xs text-white font-medium">
+                              Lightning Fast
+                            </div>
+                          </div>
+                          <div className="bg-slate-700 rounded p-1 text-center min-h-12">
+                            <div className="text-xs text-green-400 mb-0.5">
+                              🚀
+                            </div>
+                            <div className="text-xs text-white font-medium">
+                              Modern Stack
+                            </div>
+                          </div>
+                          <div className="bg-slate-700 rounded p-1 text-center min-h-12">
+                            <div className="text-xs text-yellow-400 mb-0.5">
+                              🧩
+                            </div>
+                            <div className="text-xs text-white font-medium">
+                              500+ Problems
+                            </div>
+                          </div>
+                          <div className="bg-slate-700 rounded p-1 text-center min-h-12">
+                            <div className="text-xs text-orange-400 mb-0.5">
+                              👥
+                            </div>
+                            <div className="text-xs text-white font-medium">
+                              Collaborate
+                            </div>
+                          </div>
+                          <div className="bg-slate-700 rounded p-1 text-center min-h-12">
+                            <div className="text-xs text-blue-400 mb-0.5">
+                              📊
+                            </div>
+                            <div className="text-xs text-white font-medium">
+                              Track Progress
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1029,61 +1058,70 @@ Built with ❤️ for the coding community`;
                     transition={{ delay: 0.3 }}
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 cursor-pointer"
                   >
-                    <div className="h-48 bg-slate-900 p-2 relative">
+                    <div className="h-48 bg-slate-900 p-2 relative flex flex-col">
                       {/* Theme selector header */}
                       <div className="text-center mb-2">
                         <div className="text-xs font-bold text-white mb-1">
-                          Choose Your Theme
+                          🎨 Theme Selector
                         </div>
                         <div className="text-xs text-slate-400">
-                          Personalize your coding experience
+                          Personalize your experience
                         </div>
                       </div>
-                      {/* Theme cards */}
-                      <div className="grid grid-cols-3 gap-1 mb-2">
-                        <div className="bg-slate-800 border-2 border-cyan-500 rounded p-1">
-                          <div className="text-xs text-center text-white mb-1">
+                      {/* Theme cards - perfectly aligned */}
+                      <div className="grid grid-cols-3 gap-2 mb-2">
+                        <div className="bg-slate-800 border-2 border-cyan-500 rounded p-2 text-center">
+                          <div className="text-xs text-white font-semibold mb-1">
                             Dark Mode
                           </div>
-                          <div className="h-6 bg-slate-700 rounded mb-1"></div>
+                          <div className="h-4 bg-gradient-to-r from-slate-700 to-slate-600 rounded mb-1"></div>
                           <div className="flex justify-center">
                             <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
                           </div>
                         </div>
-                        <div className="bg-blue-900 border border-blue-600 rounded p-1">
-                          <div className="text-xs text-center text-blue-300 mb-1">
+                        <div className="bg-blue-900 border border-blue-600 rounded p-2 text-center">
+                          <div className="text-xs text-blue-300 font-semibold mb-1">
                             Midnight
                           </div>
-                          <div className="h-6 bg-blue-800 rounded mb-1"></div>
+                          <div className="h-4 bg-gradient-to-r from-blue-800 to-blue-700 rounded mb-1"></div>
                           <div className="flex justify-center">
                             <div className="w-2 h-2 bg-blue-400 rounded-full border border-blue-300"></div>
                           </div>
                         </div>
-                        <div className="bg-green-900 border border-green-600 rounded p-1">
-                          <div className="text-xs text-center text-green-300 mb-1">
+                        <div className="bg-green-900 border border-green-600 rounded p-2 text-center">
+                          <div className="text-xs text-green-300 font-semibold mb-1">
                             Forest
                           </div>
-                          <div className="h-6 bg-green-800 rounded mb-1"></div>
+                          <div className="h-4 bg-gradient-to-r from-green-800 to-green-700 rounded mb-1"></div>
                           <div className="flex justify-center">
                             <div className="w-2 h-2 bg-green-400 rounded-full border border-green-300"></div>
                           </div>
                         </div>
                       </div>
                       {/* Theme indicators */}
-                      <div className="flex justify-center space-x-1 mb-2">
+                      <div className="flex justify-center space-x-2 mb-2">
                         <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
                         <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
                         <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
                       </div>
-                      {/* Preview area */}
-                      <div className="bg-slate-800 border border-slate-600 rounded p-2">
-                        <div className="text-xs text-slate-300 mb-1">
-                          Preview:
+                      {/* Preview area - scrollable */}
+                      <div className="flex-1 bg-slate-800 border border-slate-600 rounded p-2">
+                        <div className="text-xs text-slate-300 mb-1 font-semibold">
+                          Live Preview:
                         </div>
-                        <div className="bg-slate-700 rounded p-1">
-                          <div className="w-full h-1 bg-cyan-400 rounded mb-1"></div>
-                          <div className="w-3/4 h-1 bg-slate-500 rounded mb-1"></div>
-                          <div className="w-1/2 h-1 bg-slate-500 rounded"></div>
+                        <div className="h-12 overflow-y-auto custom-scrollbar">
+                          <div className="bg-slate-700 rounded p-1 mb-1">
+                            <div className="w-full h-1 bg-cyan-400 rounded mb-0.5"></div>
+                            <div className="w-3/4 h-1 bg-slate-500 rounded mb-0.5"></div>
+                            <div className="w-1/2 h-1 bg-slate-500 rounded"></div>
+                          </div>
+                          <div className="bg-slate-700 rounded p-1">
+                            <div className="flex space-x-1">
+                              <div className="w-2 h-2 bg-cyan-400 rounded"></div>
+                              <div className="w-2 h-2 bg-purple-400 rounded"></div>
+                              <div className="w-2 h-2 bg-green-400 rounded"></div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1204,88 +1242,108 @@ Built with ❤️ for the coding community`;
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 cursor-pointer"
                     onClick={() => (window.location.href = "/practice")}
                   >
-                    <div className="h-48 bg-slate-900 p-2 relative">
+                    <div className="h-48 bg-slate-900 p-2 relative flex flex-col">
                       {/* Monaco editor simulation */}
-                      <div className="h-full border border-slate-600 rounded bg-slate-900">
+                      <div className="flex-1 border border-slate-600 rounded bg-slate-900 flex flex-col">
                         {/* Editor header */}
                         <div className="bg-slate-800 border-b border-slate-600 p-1 flex items-center justify-between">
                           <div className="flex space-x-1 text-xs">
-                            <div className="px-1 bg-purple-500 text-white rounded">
+                            <div className="px-2 py-0.5 bg-purple-500 text-white rounded font-medium">
                               main.js
                             </div>
-                            <div className="px-1 bg-slate-700 text-slate-400 rounded">
+                            <div className="px-1 py-0.5 bg-slate-700 text-slate-400 rounded">
                               +
                             </div>
                           </div>
-                          <div className="px-1 bg-green-500 text-white rounded text-xs">
+                          <div className="px-2 py-0.5 bg-green-500 text-white rounded text-xs font-medium">
                             ▶ Run
                           </div>
                         </div>
-                        {/* Code area */}
-                        <div className="p-1 space-y-0.5 text-xs font-mono">
-                          <div className="flex items-center space-x-1">
-                            <span className="text-slate-500">1</span>
-                            <span className="text-blue-400">function</span>
-                            <span className="text-yellow-400">twoSum</span>
-                            <span className="text-white">
-                              (nums, target) {"{"}
-                            </span>
-                          </div>
-                          <div className="flex items-center space-x-1 ml-2">
-                            <span className="text-slate-500">2</span>
-                            <span className="text-blue-400">for</span>
-                            <span className="text-white">(</span>
-                            <span className="text-blue-400">let</span>
-                            <span className="text-white">i = </span>
-                            <span className="text-green-400">0</span>
-                            <span className="text-white">
-                              ; i &lt; nums.length; i++) {"{"}
-                            </span>
-                          </div>
-                          <div className="flex items-center space-x-1 ml-4">
-                            <span className="text-slate-500">3</span>
-                            <span className="text-blue-400">for</span>
-                            <span className="text-white">(</span>
-                            <span className="text-blue-400">let</span>
-                            <span className="text-white">j = i + </span>
-                            <span className="text-green-400">1</span>
-                            <span className="text-white">
-                              ; j &lt; nums.length; j++) {"{"}
-                            </span>
-                          </div>
-                          <div className="flex items-center space-x-1 ml-6">
-                            <span className="text-slate-500">4</span>
-                            <span className="text-blue-400">if</span>
-                            <span className="text-white">
-                              (nums[i] + nums[j] === target) {"{"}
-                            </span>
-                          </div>
-                          <div className="flex items-center space-x-1 ml-8">
-                            <span className="text-slate-500">5</span>
-                            <span className="text-blue-400">return</span>
-                            <span className="text-white">[i, j];</span>
-                          </div>
-                          <div className="flex items-center space-x-1 ml-6">
-                            <span className="text-slate-500">6</span>
-                            <span className="text-white">{"}"}</span>
-                          </div>
-                          <div className="flex items-center space-x-1 ml-4">
-                            <span className="text-slate-500">7</span>
-                            <span className="text-white">{"}"}</span>
-                          </div>
-                          <div className="flex items-center space-x-1 ml-2">
-                            <span className="text-slate-500">8</span>
-                            <span className="text-white">{"}"}</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <span className="text-slate-500">9</span>
-                            <span className="text-white">{"}"}</span>
+                        {/* Code area - scrollable */}
+                        <div className="flex-1 p-1 text-xs font-mono overflow-y-auto custom-scrollbar">
+                          <div className="space-y-0.5">
+                            <div className="flex items-center space-x-1">
+                              <span className="text-slate-500 w-3 text-right">
+                                1
+                              </span>
+                              <span className="text-blue-400">function</span>
+                              <span className="text-yellow-400">twoSum</span>
+                              <span className="text-white">
+                                (nums, target) {"{"}
+                              </span>
+                            </div>
+                            <div className="flex items-center space-x-1 ml-4">
+                              <span className="text-slate-500 w-3 text-right">
+                                2
+                              </span>
+                              <span className="text-blue-400">for</span>
+                              <span className="text-white">(</span>
+                              <span className="text-blue-400">let</span>
+                              <span className="text-white">i = </span>
+                              <span className="text-green-400">0</span>
+                              <span className="text-white">
+                                ; i &lt; nums.length; i++) {"{"}
+                              </span>
+                            </div>
+                            <div className="flex items-center space-x-1 ml-8">
+                              <span className="text-slate-500 w-3 text-right">
+                                3
+                              </span>
+                              <span className="text-blue-400">for</span>
+                              <span className="text-white">(</span>
+                              <span className="text-blue-400">let</span>
+                              <span className="text-white">j = i + </span>
+                              <span className="text-green-400">1</span>
+                              <span className="text-white">
+                                ; j &lt; nums.length; j++) {"{"}
+                              </span>
+                            </div>
+                            <div className="flex items-center space-x-1 ml-12">
+                              <span className="text-slate-500 w-3 text-right">
+                                4
+                              </span>
+                              <span className="text-blue-400">if</span>
+                              <span className="text-white">
+                                (nums[i] + nums[j] === target) {"{"}
+                              </span>
+                            </div>
+                            <div className="flex items-center space-x-1 ml-16">
+                              <span className="text-slate-500 w-3 text-right">
+                                5
+                              </span>
+                              <span className="text-blue-400">return</span>
+                              <span className="text-white">[i, j];</span>
+                            </div>
+                            <div className="flex items-center space-x-1 ml-12">
+                              <span className="text-slate-500 w-3 text-right">
+                                6
+                              </span>
+                              <span className="text-white">{"}"}</span>
+                            </div>
+                            <div className="flex items-center space-x-1 ml-8">
+                              <span className="text-slate-500 w-3 text-right">
+                                7
+                              </span>
+                              <span className="text-white">{"}"}</span>
+                            </div>
+                            <div className="flex items-center space-x-1 ml-4">
+                              <span className="text-slate-500 w-3 text-right">
+                                8
+                              </span>
+                              <span className="text-white">{"}"}</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <span className="text-slate-500 w-3 text-right">
+                                9
+                              </span>
+                              <span className="text-white">{"}"}</span>
+                            </div>
                           </div>
                         </div>
                         {/* Output panel */}
                         <div className="bg-slate-800 border-t border-slate-600 p-1">
-                          <div className="text-xs text-green-400">
-                            Output: [0, 1]
+                          <div className="text-xs text-green-400 font-medium">
+                            ✓ Output: [0, 1]
                           </div>
                         </div>
                       </div>
@@ -1392,91 +1450,139 @@ Built with ❤️ for the coding community`;
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 cursor-pointer"
                     onClick={() => (window.location.href = "/debug-together")}
                   >
-                    <div className="h-48 bg-slate-900 p-2 relative">
+                    <div className="h-48 bg-slate-900 p-2 relative flex flex-col">
                       {/* Header */}
-                      <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center justify-between mb-2 bg-slate-800 rounded p-1">
                         <div className="text-xs font-bold text-orange-400">
-                          Debug Session #1
+                          🐛 Debug Session #1
                         </div>
                         <div className="flex items-center space-x-1">
-                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                          <div className="text-xs text-slate-400">3 users</div>
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                          <div className="text-xs text-slate-400 font-medium">
+                            3 active
+                          </div>
                         </div>
                       </div>
                       {/* Main interface */}
-                      <div className="grid grid-cols-3 h-full gap-1">
+                      <div className="flex-1 grid grid-cols-5 gap-2">
                         {/* Code editor */}
-                        <div className="col-span-2 border border-slate-600 rounded p-1 relative">
-                          <div className="text-xs text-slate-400 mb-1">
-                            main.cpp
-                          </div>
-                          <div className="space-y-0.5 text-xs font-mono">
-                            <div className="flex items-center space-x-1">
-                              <span className="text-slate-500">1</span>
-                              <span className="text-blue-400">#include</span>
-                              <span className="text-green-400">
-                                &lt;iostream&gt;
-                              </span>
-                              <div className="w-0.5 h-3 bg-orange-400 ml-1"></div>
+                        <div className="col-span-3 border border-slate-600 rounded bg-slate-900 flex flex-col">
+                          <div className="bg-slate-800 border-b border-slate-600 p-1 flex items-center justify-between">
+                            <div className="text-xs text-slate-400 font-medium">
+                              main.cpp
                             </div>
-                            <div className="flex items-center space-x-1">
-                              <span className="text-slate-500">2</span>
-                              <span className="text-blue-400">using</span>
-                              <span className="text-white">namespace std;</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <span className="text-slate-500">3</span>
-                              <span className="text-blue-400">int</span>
-                              <span className="text-yellow-400">main</span>
-                              <span className="text-white">() {"{"}</span>
-                              <div className="w-0.5 h-3 bg-blue-400 ml-1"></div>
-                            </div>
-                            <div className="flex items-center space-x-1 ml-2">
-                              <span className="text-slate-500">4</span>
-                              <span className="text-white">cout &lt;&lt;</span>
-                              <span className="text-green-400">"Hello"</span>
+                            <div className="flex -space-x-1">
+                              <div className="w-3 h-3 bg-orange-400 rounded-full border border-slate-800"></div>
+                              <div className="w-3 h-3 bg-blue-400 rounded-full border border-slate-800"></div>
+                              <div className="w-3 h-3 bg-green-400 rounded-full border border-slate-800"></div>
                             </div>
                           </div>
-                          {/* User indicators */}
-                          <div className="absolute top-1 right-1 flex -space-x-1">
-                            <div className="w-2 h-2 bg-orange-400 rounded-full border border-slate-800"></div>
-                            <div className="w-2 h-2 bg-blue-400 rounded-full border border-slate-800"></div>
-                            <div className="w-2 h-2 bg-green-400 rounded-full border border-slate-800"></div>
+                          <div className="flex-1 p-1 text-xs font-mono overflow-y-auto custom-scrollbar">
+                            <div className="space-y-0.5">
+                              <div className="flex items-center space-x-1">
+                                <span className="text-slate-500 w-3">1</span>
+                                <span className="text-blue-400">#include</span>
+                                <span className="text-green-400">
+                                  &lt;iostream&gt;
+                                </span>
+                                <div className="w-0.5 h-3 bg-orange-400 ml-1"></div>
+                              </div>
+                              <div className="flex items-center space-x-1">
+                                <span className="text-slate-500 w-3">2</span>
+                                <span className="text-blue-400">using</span>
+                                <span className="text-white">
+                                  namespace std;
+                                </span>
+                              </div>
+                              <div className="flex items-center space-x-1">
+                                <span className="text-slate-500 w-3">3</span>
+                                <span className="text-blue-400">int</span>
+                                <span className="text-yellow-400">main</span>
+                                <span className="text-white">() {"{"}</span>
+                                <div className="w-0.5 h-3 bg-blue-400 ml-1"></div>
+                              </div>
+                              <div className="flex items-center space-x-1 ml-4">
+                                <span className="text-slate-500 w-3">4</span>
+                                <span className="text-white">
+                                  cout &lt;&lt;
+                                </span>
+                                <span className="text-green-400">
+                                  "Hello World!"
+                                </span>
+                                <span className="text-white">;</span>
+                              </div>
+                              <div className="flex items-center space-x-1 ml-4">
+                                <span className="text-slate-500 w-3">5</span>
+                                <span className="text-blue-400">return</span>
+                                <span className="text-green-400">0</span>
+                                <span className="text-white">;</span>
+                              </div>
+                              <div className="flex items-center space-x-1">
+                                <span className="text-slate-500 w-3">6</span>
+                                <span className="text-white">{"}"}</span>
+                              </div>
+                            </div>
                           </div>
                         </div>
                         {/* Video chat and messages */}
-                        <div className="space-y-1">
+                        <div className="col-span-2 flex flex-col space-y-1">
                           <div className="bg-slate-800 border border-slate-600 rounded p-1">
-                            <div className="grid grid-cols-1 gap-0.5">
-                              <div className="bg-orange-400/20 rounded p-0.5 text-center">
-                                <div className="text-xs text-orange-300">
-                                  Alex
+                            <div className="text-xs text-slate-400 mb-1 font-medium">
+                              Video Chat
+                            </div>
+                            <div className="grid grid-cols-2 gap-0.5">
+                              <div className="bg-orange-400/20 rounded aspect-square flex items-center justify-center">
+                                <div className="text-xs text-orange-300 font-bold">
+                                  A
                                 </div>
                               </div>
-                              <div className="bg-blue-400/20 rounded p-0.5 text-center">
-                                <div className="text-xs text-blue-300">Sam</div>
+                              <div className="bg-blue-400/20 rounded aspect-square flex items-center justify-center">
+                                <div className="text-xs text-blue-300 font-bold">
+                                  S
+                                </div>
                               </div>
                             </div>
                           </div>
-                          <div className="bg-slate-800 border border-slate-600 rounded p-1">
-                            <div className="text-xs text-slate-400 mb-1">
-                              Chat
+                          <div className="flex-1 bg-slate-800 border border-slate-600 rounded p-1">
+                            <div className="text-xs text-slate-400 mb-1 font-medium">
+                              Live Chat
                             </div>
-                            <div className="space-y-0.5">
+                            <div className="h-12 overflow-y-auto custom-scrollbar space-y-0.5">
                               <div className="text-xs">
-                                <span className="text-orange-400">Alex:</span>
+                                <span className="text-orange-400 font-medium">
+                                  Alex:
+                                </span>
                                 <span className="text-slate-300">
                                   {" "}
                                   Found the bug!
                                 </span>
                               </div>
                               <div className="text-xs">
-                                <span className="text-blue-400">Sam:</span>
-                                <span className="text-slate-300"> Where?</span>
+                                <span className="text-blue-400 font-medium">
+                                  Sam:
+                                </span>
+                                <span className="text-slate-300">
+                                  {" "}
+                                  Where exactly?
+                                </span>
                               </div>
                               <div className="text-xs">
-                                <span className="text-green-400">You:</span>
-                                <span className="text-slate-300"> Line 4</span>
+                                <span className="text-green-400 font-medium">
+                                  You:
+                                </span>
+                                <span className="text-slate-300">
+                                  {" "}
+                                  Line 4 missing semicolon
+                                </span>
+                              </div>
+                              <div className="text-xs">
+                                <span className="text-orange-400 font-medium">
+                                  Alex:
+                                </span>
+                                <span className="text-slate-300">
+                                  {" "}
+                                  Good catch! 👍
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -1623,46 +1729,52 @@ Built with ❤️ for the coding community`;
                     className="group relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-yellow-500/50 transition-all duration-300 cursor-pointer"
                     onClick={() => (window.location.href = "/leaderboard")}
                   >
-                    <div className="h-48 bg-slate-900 p-2 relative">
+                    <div className="h-48 bg-slate-900 p-2 relative flex flex-col">
                       {/* Leaderboard header */}
                       <div className="text-center mb-2">
                         <div className="text-xs font-bold text-yellow-400 mb-1">
-                          Global Leaderboard
+                          🏆 Global Leaderboard
                         </div>
                         <div className="flex justify-center space-x-1 text-xs">
-                          <div className="px-2 py-0.5 bg-slate-700 rounded">
+                          <div className="px-2 py-0.5 bg-slate-700 rounded font-medium">
                             All Time
                           </div>
-                          <div className="px-2 py-0.5 bg-yellow-500 text-slate-900 rounded">
+                          <div className="px-2 py-0.5 bg-yellow-500 text-slate-900 rounded font-medium">
                             Weekly
                           </div>
-                          <div className="px-2 py-0.5 bg-slate-700 rounded">
+                          <div className="px-2 py-0.5 bg-slate-700 rounded font-medium">
                             Monthly
                           </div>
                         </div>
                       </div>
 
                       {/* Top 3 podium */}
-                      <div className="flex justify-center items-end space-x-1 mb-2">
+                      <div className="flex justify-center items-end space-x-2 mb-2">
                         <div className="text-center">
                           <div className="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center mb-1">
                             <span className="text-xs text-slate-900 font-bold">
                               2
                             </span>
                           </div>
-                          <div className="text-xs text-gray-300">Alice</div>
-                          <div className="w-4 h-6 bg-gray-400"></div>
+                          <div className="text-xs text-gray-300 font-medium">
+                            Alice
+                          </div>
+                          <div className="text-xs text-gray-400">2,150 pts</div>
+                          <div className="w-6 h-6 bg-gray-400 mx-auto"></div>
                         </div>
                         <div className="text-center">
-                          <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center mb-1">
+                          <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center mb-1">
                             <span className="text-xs text-slate-900 font-bold">
                               1
                             </span>
                           </div>
-                          <div className="text-xs text-yellow-300">
+                          <div className="text-xs text-yellow-300 font-medium">
                             CodeMaster
                           </div>
-                          <div className="w-4 h-8 bg-yellow-400"></div>
+                          <div className="text-xs text-yellow-400">
+                            2,500 pts
+                          </div>
+                          <div className="w-6 h-8 bg-yellow-400 mx-auto"></div>
                         </div>
                         <div className="text-center">
                           <div className="w-6 h-6 bg-orange-400 rounded-full flex items-center justify-center mb-1">
@@ -1670,19 +1782,24 @@ Built with ❤️ for the coding community`;
                               3
                             </span>
                           </div>
-                          <div className="text-xs text-orange-300">DevPro</div>
-                          <div className="w-4 h-4 bg-orange-400"></div>
+                          <div className="text-xs text-orange-300 font-medium">
+                            DevPro
+                          </div>
+                          <div className="text-xs text-orange-400">
+                            1,980 pts
+                          </div>
+                          <div className="w-6 h-4 bg-orange-400 mx-auto"></div>
                         </div>
                       </div>
 
-                      {/* Ranking list */}
-                      <div className="space-y-0.5">
+                      {/* Ranking list - scrollable */}
+                      <div className="flex-1 overflow-y-auto custom-scrollbar space-y-0.5">
                         <div className="flex items-center justify-between bg-cyan-500/20 border border-cyan-500 rounded p-1">
                           <div className="flex items-center space-x-2">
                             <div className="text-xs text-cyan-400 font-bold">
                               #42
                             </div>
-                            <div className="text-xs text-cyan-300">
+                            <div className="text-xs text-cyan-300 font-medium">
                               You (Saurabh)
                             </div>
                           </div>
@@ -1692,7 +1809,9 @@ Built with ❤️ for the coding community`;
                         </div>
                         <div className="flex items-center justify-between bg-slate-800 rounded p-1">
                           <div className="flex items-center space-x-2">
-                            <div className="text-xs text-slate-400">#43</div>
+                            <div className="text-xs text-slate-400 font-bold">
+                              #43
+                            </div>
                             <div className="text-xs text-slate-300">
                               TechGuru
                             </div>
@@ -1703,13 +1822,41 @@ Built with ❤️ for the coding community`;
                         </div>
                         <div className="flex items-center justify-between bg-slate-800 rounded p-1">
                           <div className="flex items-center space-x-2">
-                            <div className="text-xs text-slate-400">#44</div>
+                            <div className="text-xs text-slate-400 font-bold">
+                              #44
+                            </div>
                             <div className="text-xs text-slate-300">
                               PyExpert
                             </div>
                           </div>
                           <div className="text-xs text-slate-400">
                             1,230 pts
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between bg-slate-800 rounded p-1">
+                          <div className="flex items-center space-x-2">
+                            <div className="text-xs text-slate-400 font-bold">
+                              #45
+                            </div>
+                            <div className="text-xs text-slate-300">
+                              JSNinja
+                            </div>
+                          </div>
+                          <div className="text-xs text-slate-400">
+                            1,220 pts
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between bg-slate-800 rounded p-1">
+                          <div className="flex items-center space-x-2">
+                            <div className="text-xs text-slate-400 font-bold">
+                              #46
+                            </div>
+                            <div className="text-xs text-slate-300">
+                              DataScientist
+                            </div>
+                          </div>
+                          <div className="text-xs text-slate-400">
+                            1,210 pts
                           </div>
                         </div>
                       </div>
